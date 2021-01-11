@@ -115,7 +115,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                                         <div class="address-hr biography">
-                                                            <p><b>Nama </b><br />Bambang</p>
+                                                            <p><b>Nama </b><br /> <input name="name" disabled class="form-control @error('name') is-invalid @enderror" id="InputNama" value="{{$users->name}}" disabsled="disabled"></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
@@ -125,7 +125,7 @@
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                                         <div class="address-hr biography">
-                                                            <p><b>Email</b><br /> Bambang@gmail.com</p>
+                                                            <p><b>Email</b><br /> <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="InputEmail" value="{{$users->email}}" disabled="disabled"></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">

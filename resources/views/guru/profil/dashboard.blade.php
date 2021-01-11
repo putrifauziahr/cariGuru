@@ -4,7 +4,6 @@
 
 @section ('container')
 
-
 <div class="breadcome-area">
     <div class="container-fluid">
         <div class="row">

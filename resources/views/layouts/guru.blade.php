@@ -83,7 +83,7 @@
         <nav id="sidebar" class="">
             <div class="sidebar-header">
                 <a href="{{url ('/dashboard_guru')}}"><img class="main-logo" src="/img/logo/logoo2.png" alt="" /></a>
-                <strong><a href="{{url ('/dashboard_guru')}}><img src="/img/logo/logoo2.png" alt="" /></a></strong>
+                <strong><a href="{{url ('/dashboard_guru')}}><img src=" /img/logo/logoo2.png" alt="" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
