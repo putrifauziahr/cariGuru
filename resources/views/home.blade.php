@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('landing/layouts/app')
 
 @section('content')
 <div class="container">
@@ -15,6 +15,12 @@
                     @endif
 
                     {{ __('Selamat, Kamu sudah Login!') }}
+                    <p>Hallo, {{Session::get('name')}}. Apakabar?</p>
+
+                    <h2>* Email kamu : {{Session::get('email')}}</h2>
+                    <h2>* Status Login : {{Session::get('login')}}</h2>
+                    <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
+
                 </div>
             </div>
         </div>
