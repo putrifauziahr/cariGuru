@@ -17,8 +17,8 @@
                     {{ __('Selamat, Kamu sudah Login!') }}
                     <p>Hallo, {{Session::get('name')}}. Apakabar?</p>
 
-                    <h2>* Email kamu : {{Session::get('email')}}</h2>
-                    <h2>* Status Login : {{Session::get('login')}}</h2>
+                    <h2>* Email kamu : {{ Auth::user()->email }}</h2>
+                    <h2>* Nama : {{ Auth::user()->name }}</h2>
                     <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
 
                 </div>

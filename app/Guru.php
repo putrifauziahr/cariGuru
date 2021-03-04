@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Keahlian extends Model
+class Guru extends Model
 {
-    //
+    
 }

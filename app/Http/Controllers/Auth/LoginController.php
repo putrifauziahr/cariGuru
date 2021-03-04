@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -45,22 +44,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // $email = $request->email;
-        // $password = $request->password;
-
-        // $data = User::where('email', $email)->first();
-        // if ($data) { //apakah email tersebut ada atau tidak
-        //     if (Hash::check($password, $data->password)) {
-        //         Session::put('name', $data->name);
-        //         Session::put('email', $data->email);
-        //         Session::put('login', TRUE);
-        //         return redirect('dashboard_guru');
-        //     } else {
-        //         return redirect('login')->with('alert', 'Password atau Email, Salah !');
-        //     }
-        // } else {
-        //     return redirect('login')->with('alert', 'Password atau Email, Salah!');
-        // }
         $input = $request->all();
         $this->validate($request, [
             'email' => 'required|email',
@@ -68,17 +51,13 @@ class LoginController extends Controller
         ]);
 
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-            if (auth()->user()->role == 'admin') {
-                return redirect('dashboard_admin');
-            } elseif (auth()->user()->role == 'guru') {
+            if (auth()->user()->role == 'guru') {
                 return redirect('dashboard_guru');
-            }
-            if (auth()->user()->role == 'murid') {
+            } elseif (auth()->user()->role == 'murid') {
                 return redirect('dashboard_murid');
             }
         } else {
-            return redirect()->route('login')
-                ->with('error', 'Email-Address And Password Are Wrong.');
+            return redirect()->route('login')->with('alert', 'Password atau Email, Salah!');
         }
     }
 
@@ -90,7 +69,6 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect('login')
-            ->withSuccess('Terimakasih, selamat datang kembali!');
+        return redirect('login')->with('alert-success', 'Anda Berhasil Logout');
     }
 }
