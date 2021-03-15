@@ -7,23 +7,34 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard CariGuru.com') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                <body>
+                    @if(Session::has('alert'))
+                    <div class="alert alert-success">
+                        {{ Session::get('alert') }}
+                        @php
+                        Session::forget('alert');
+                        @endphp
+                    </div>
+                    @elseif(Session::get('alertF'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('alertF') }}
+                        @php
+                        Session::forget('alertF');
+                        @endphp
                     </div>
                     @endif
-
-                    {{ __('Selamat, Kamu sudah Login!') }}
-                    <p>Hallo, {{Session::get('name')}}. Apakabar?</p>
-
-                    <h2>* Email kamu : {{ Auth::user()->email }}</h2>
-                    <h2>* Nama : {{ Auth::user()->name }}</h2>
-                    <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
-
-                </div>
+                    <div class="card-body">
+                        {{ __('Selamat, Kamu Sudah Terdaftar Dan Login!') }}
+                        if(){
+                            
+                        }
+                        <a href="dashboardvolunteer">Dashboard</a>
+                        <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
+                    </div>
+                </body>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

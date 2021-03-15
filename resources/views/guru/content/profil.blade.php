@@ -24,6 +24,22 @@
     </div>
 
     <div class="container-fluid">
+        <br>
+        @if(Session::has('alert'))
+        <div class="alert alert-success">
+            {{ Session::get('alert') }}
+            @php
+            Session::forget('alert');
+            @endphp
+        </div>
+        @elseif(Session::get('alertF'))
+        <div class="alert alert-danger">
+            {{ Session::get('alertF') }}
+            @php
+            Session::forget('alertF');
+            @endphp
+        </div>
+        @endif
         <div class="row">
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">

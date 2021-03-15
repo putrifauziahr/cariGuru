@@ -26,12 +26,27 @@
     <div class="container-fluid">
         <div class="col-md-6 col-4">
             <div class="row">
-                <a href="{{url('guru/createBiodata')}}" class="btn btn-success d-none d-md-inline-block text-white" target="_blank">
+                <a href="{{url('guru/createBiodata')}}" class="btn btn-success d-none d-md-inline-block text-white">
                     Isi Biodata
                 </a>
             </div>
         </div>
         <br>
+        @if(Session::has('alert'))
+        <div class="alert alert-success">
+            {{ Session::get('alert') }}
+            @php
+            Session::forget('alert');
+            @endphp
+        </div>
+        @elseif(Session::get('alertF'))
+        <div class="alert alert-danger">
+            {{ Session::get('alertF') }}
+            @php
+            Session::forget('alertF');
+            @endphp
+        </div>
+        @endif
         <div class="row">
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
@@ -85,11 +100,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Berkas Pendukung</label>
+                                <label class="col-md-12 mb-0">Berkas Pendukung <p style="color: red;">Format file *PDF</p></label>
                                 <div class="col-md-12">
-                                    <img width="200px" src="{{ url('/berkasBiodata/'.$a->image) }}">
+                                    <embed width="350px" type="application/pdf" src="{{ url('/berkasBiodata/'.$a->image) }}"></embed>
+                                    <div class="form-group">
+                                        <input name="image" placeholder="Format file *PDF" type="file" class="form-control" multiple />
+                                    </div>
                                 </div>
                             </div>
+
 
                             <div class="form-group">
                                 <div class="col-sm-12 d-flex">

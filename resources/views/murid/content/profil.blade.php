@@ -1,345 +1,117 @@
 @extends('murid/layouts/murid')
 
-@section('title', 'Guru CariGuru.com - Profil Murid')
+@section('title', 'Murid | Profil CariGuru.com')
 
 @section ('container')
+<br>
+<br>
 
+<style>
+    .user-profile {
+        padding: 15px;
+    }
 
-<div class="breadcome-area">
-    <div class="container-fluid">
+    .user-profile .user-content,
+    .user-profile .user-name,
+    .user-profile .user-email {
+        color: #fff;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+
+    .create-btn {
+        height: 40px;
+        background: #343a40;
+    }
+</style>
+<div id="contact-page" class="container">
+    <div class="bg">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcome-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="breadcome-heading">
-                                <form role="search" class="sr-input-func">
-                                    <input type="text" placeholder="Search..." class="search-int form-control">
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </form>
+            <div class="col-sm-12">
+                <h2 class="title text-center"><strong>PROFIL</strong></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="background-color: lightblue;">
+        <div class="row">
+            <div class="col-lg-4 col-xlg-3 col-md-4">
+                <div class="card">
+                    <div class="card-body profile-card">
+                        <center class=" m-t-30"> <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" class="rounded-circle" width="150" />
+                            <h4 class="card-title m-t-10">{{ Auth::user()->name }}</h4>
+                            <h6 class="card-subtitle">Murid</h6>
+                        </center>
+                        <form action="/murid/updateFotoProfil" method="POST" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            <div class="form-group alert-up-pd">
+                                <div class="form-group">
+                                    <input name="image" type="file" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12 d-flex">
+                                        <button class="btn btn-success mx-auto mx-md-0 text-white">Update
+                                            Foto Profile</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <ul class="breadcome-menu">
-                                <li><a href="#">Murid</a> <span class="bread-slash">/</span>
-                                </li>
-                                <li><span class="bread-blod">Profil Murid</span>
-                                </li>
-                            </ul>
-                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-xlg-9 col-md-7">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal form-material" action="/murid/updateProfil" method="POST">
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Full Name</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control pl-0 form-control-line" name="name" value="{{ Auth::user()->name }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="example-email" class="col-md-12">Email</label>
+                                <div class="col-md-12">
+                                    <input type="email" class="form-control pl-0 form-control-line" name="email" value="{{ Auth::user()->email }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Password</label>
+                                <div class="col-md-12">
+                                    <input type="password" value="{{ Auth::user()->password }}" name="password" class="form-control pl-0 form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Kontak</label>
+                                <div class="col-md-12">
+                                    <input type="text" value="{{ Auth::user()->kontak }}" name="kontak" class="form-control pl-0 form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Alamat</label>
+                                <div class="col-md-12">
+                                    <input rows="5" class="form-control pl-0 form-control-line" name="alamat" value="{{ Auth::user()->alamat }}"></input>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12 d-flex">
+                                    <button class="btn btn-success mx-auto mx-md-0 text-white">Update
+                                        Profile</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<br>
+<br>
 
-
-<div class="single-pro-review-area mt-t-30 mg-b-15">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="profile-info-inner">
-                    <div class="profile-img">
-                        <img src="img/student/1.jpg" alt="" />
-                    </div>
-                    <div class="profile-details-hr">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                <div class="address-hr">
-                                    <p><b>Nama</b><br />Iin </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                    <p><b>Pendidikan</b><br />5 SD</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                <div class="address-hr">
-                                    <p><b>Email </b><br /> iinasnawiyah@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                    <p><b>No Handphone</b><br />0895411597593</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="address-hr">
-                                    <p><b>Alamat</b><br /> Indramayu, Jawa Barat, Indonesia</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <div class="address-hr">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <h3>500</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <div class="address-hr">
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <h3>900</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <div class="address-hr">
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    <h3>600</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
-                    <ul id="myTabedu1" class="tab-review-design">
-                        <li><a class="active" href="#reviews"> Biography</href=>
-                        </li>
-                        <li><a href="#INFORMATION">Update Details</a></li>
-                    </ul>
-                    <div id="myTabContent" class="tab-content custom-product-edit">
-                        <div class="product-tab-list tab-pane fade active in" id="reviews">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="review-content-section">
-                                        <div class="chat-discussion" style="height: auto">
-                                            <div class="chat-message">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                                        <div class="address-hr biography">
-                                                            <p><b>Nama </b><br />Iin</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                                        <div class="address-hr biography">
-                                                            <p><b>No Handphone</b><br />0895411597593</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                                        <div class="address-hr biography">
-                                                            <p><b>Email</b><br /> iinasnawiyah@gmail.com</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                                        <div class="address-hr biography">
-                                                            <p><b>Lokasi</b><br /> Indonesia</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="content-profile">
-                                                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras
-                                                                dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                                                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras
-                                                                dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                                                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras
-                                                                dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- <div class="row mg-b-15">
-                                                    <div class="col-lg-12">
-                                                        <div class="row">
-                                                            <div class="col-lg-12">
-                                                                <div class="skill-title">
-                                                                    <h2> Sertifikasi Keahlian</h2>
-                                                                    <hr />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="progress-skill">
-                                                            <h2>Bahasa Inggris</h2>
-                                                            <div class="progress progress-mini">
-                                                                <div style="width: 90%;" class="progress-bar progress-yellow"></div>
-                                                            </div>
-                                                        </div> -->
-                                                <!-- <div class="progress-skill">
-                                                            <h2></h2>
-                                                            <div class="progress progress-mini">
-                                                                <div style="width: 80%;" class="progress-bar progress-green"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="progress-skill">
-                                                            <h2>Apps</h2>
-                                                            <div class="progress progress-mini">
-                                                                <div style="width: 70%;" class="progress-bar progress-blue"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="progress-skill">
-                                                            <h2>C#</h2>
-                                                            <div class="progress progress-mini">
-                                                                <div style="width: 60%;" class="progress-bar progress-red"></div>
-                                                            </div>
-                                                        </div> -->
-                                                <!-- </div>
-                                                </div>
-                                                <div class="row mg-b-15">
-                                                    <div class="col-lg-12">
-                                                        <div class="row">
-                                                            <div class="col-lg-12">
-                                                                <div class="skill-title">
-                                                                    <h2>Pendidikan</h2>
-                                                                    <hr />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="ex-pro">
-                                                            <ul>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="row mg-b-15">
-                                                    <div class="col-lg-12">
-                                                        <div class="row">
-                                                            <div class="col-lg-12">
-                                                                <div class="skill-title">
-                                                                    <h2>Pengalaman Mengajar</h2>
-                                                                    <hr />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="ex-pro">
-                                                            <ul>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="row">
-                                                            <div class="col-lg-12">
-                                                                <div class="skill-title">
-                                                                    <h2>Subjects</h2>
-                                                                    <hr />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="ex-pro">
-                                                            <ul>
-
-                                                            </ul>
-                                                        </div> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-tab-list tab-pane fade" id="INFORMATION">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="review-content-section">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <input name="number" type="text" class="form-control" placeholder="First Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Address">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Date of Birth">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Department">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" placeholder="Pincode">
-                                        </div>
-                                        <div class="file-upload-inner ts-forms">
-                                            <div class="input prepend-big-btn">
-                                                <label class="icon-right" for="prepend-big-btn">
-                                                    <i class="fa fa-download"></i>
-                                                </label>
-                                                <div class="file-button">
-                                                    Browse
-                                                    <input type="file" onchange="document.getElementById('prepend-big-btn').value = this.value;">
-                                                </div>
-                                                <input type="text" id="prepend-big-btn" placeholder="no file selected">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group sm-res-mg-15 tbpf-res-mg-15">
-                                            <input type="text" class="form-control" placeholder="Description">
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option>Select Gender</option>
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option>Select country</option>
-                                                <option>India</option>
-                                                <option>Pakistan</option>
-                                                <option>Amerika</option>
-                                                <option>China</option>
-                                                <option>Dubai</option>
-                                                <option>Nepal</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option>Select state</option>
-                                                <option>Gujarat</option>
-                                                <option>Maharastra</option>
-                                                <option>Rajastan</option>
-                                                <option>Maharastra</option>
-                                                <option>Rajastan</option>
-                                                <option>Gujarat</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option>Select city</option>
-                                                <option>Surat</option>
-                                                <option>Baroda</option>
-                                                <option>Navsari</option>
-                                                <option>Baroda</option>
-                                                <option>Surat</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Website URL">
-                                        </div>
-                                        <input type="number" class="form-control" placeholder="Mobile no.">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="payment-adress mg-t-15">
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light mg-b-15">Submit</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
 @endsection

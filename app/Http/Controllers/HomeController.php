@@ -24,12 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/login');
+        if (Auth::user()->role == 'guru') { // Role Guru
+            return redirect()->route('guru/dashboard_guru')->with('alert-success', 'Selamat Anda Berhasil Daftar dan Login! ');
+        } elseif (Auth::user()->role == 'murid') { // Role Murid
+            return redirect()->route('murid/dashboard_murid')->with('alert-success', 'Selamat Anda Berhasil Daftar dan Login! ');
+        }
     }
 }

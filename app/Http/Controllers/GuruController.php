@@ -39,7 +39,7 @@ class GuruController extends Controller
             User::where(['id' => $user_id])->update([
                 'name' => $data['name'], 'email' => $data['email'], 'password' => bcrypt($data['password']), 'kontak' => $data['kontak'], 'alamat' => $data['alamat'],
             ]);
-            return redirect('profil_guru')->with('status', 'Profil Berhasil diperbarui');
+            return redirect('guru/profil_guru')->with('alert', 'Profil Berhasil diperbarui');
         }
     }
 
@@ -55,7 +55,7 @@ class GuruController extends Controller
             $update['image'] = "$nama_image";
         }
         User::where(['id' => $user_id])->update($update);
-        return redirect('profil_guru')->with('status', 'Profil Berhasil diperbarui');
+        return redirect('guru/profil_guru')->with('alert', 'Foto Profil Berhasil diperbarui');
     }
 
 
@@ -87,7 +87,7 @@ class GuruController extends Controller
             'pengalaman' => 'required',
             'sekolah' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|file|mimes:jpeg,png,jpg,doc,pdf,docx,zip|max:10000',
         ]);
 
         // menyimpan data file yang diupload ke variabel $gambar
@@ -106,23 +106,28 @@ class GuruController extends Controller
         $post->deskripsi = $request->deskripsi;
         $post->image = $nama_image;
         Auth::user()->biodatas()->save($post);
-        return redirect('guru/showBio');
+        return redirect('guru/showBiodata')->with('alert', 'Biodata Berhasil ditambahkan');
     }
 
 
     public function editBiodata(Request $request)
     {
-        $user_id = Auth::user()->id;
-        $users = User::find($user_id);
-
         $request->validate([
             'pekerjaan' => 'required',
             'keahlian' => 'required',
             'pengalaman' => 'required',
             'sekolah' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        $update = [
+            'pekerjaan' => $request->pekerjaan,
+            'keahlian' => $request->keahlian,
+            'pengalaman' => $request->pengalaman,
+            'sekolah' => $request->sekolah,
+            'deskripsi' => $request->deskripsi,
+        ];
+
 
         if ($imagee = $request->file('image')) {
             $destinationPath = 'berkasBiodata'; // upload path
@@ -131,20 +136,13 @@ class GuruController extends Controller
             $update['image'] = "$nama_image";
         }
 
-        // $update['pekerjaan'] = $request->get('pekerjaan');
-        // $update['keahlian'] = $request->get('keahlian');
-        // $update['pengalaman'] = $request->get('pengalaman');
-        // $update['sekolah'] = $request->get('sekolah');
-        // $update['deskripsi'] = $request->get('deskripsi');
-        // $update['image'] = "$nama_image";
-        $update->pekerjaan = $request->pekerjaan;
-        $update->keahlian = $request->keahlian;
-        $update->pengalaman = $request->pengalaman;
-        $update->sekolah = $request->sekolah;
-        $update->deskripsi = $request->deskripsi;
-        $update->image = "$nama_image";
+        $update['pekerjaan'] = $request->get('pekerjaan');
+        $update['keahlian'] = $request->get('keahlian');
+        $update['pengalaman'] = $request->get('pengalaman');
+        $update['sekolah'] = $request->get('sekolah');
+        $update['deskripsi'] = $request->get('deskripsi');
 
-        Biodata::where('id_guru', $user_id)->update($update);
-        return redirect('guru/showBiodata')->with('status', 'Profil Berhasil diperbarui');
+        Auth::user()->biodatas()->update($update);
+        return redirect('guru/showBiodata')->with('alert', 'Biodata Berhasil diperbarui');
     }
 }

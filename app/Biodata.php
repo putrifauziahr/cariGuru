@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Biodata extends Model
 {
-    protected $fillable = ['id_guru', 'pekerjaan', 'keahlian', 'pengalaman', 'sekolah', 'deskripsi', 'image'];
+    protected $fillable = ['id_user', 'pekerjaan', 'keahlian', 'pengalaman', 'sekolah', 'deskripsi', 'image'];
     protected $table = "biodatas";
     protected $primaryKey = "id_biodata";
 

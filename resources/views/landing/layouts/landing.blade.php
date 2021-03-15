@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | CariGuru.com</title>
+    <title>@yield('title')</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -70,11 +70,10 @@
                     <div class="col-md-8 clearfix">
                         <div class="shop-menu clearfix pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-user"></i>Home</a></li>
-                                <li><a href=""><i class="fa fa-star"></i>Les Privat</a></li>
+                                <li><a href=""><i class="fa fa-user"></i>Beranda</a></li>
                                 <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Lowongan Guru</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i>Alur Pendaftaran</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                <li><a href="cart.html"><i class="fa fa-star"></i>Informasi</a></li>
+                                <li><a href="login.html"><i class="fa fa-lock"></i>Masuk</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1006,9 +1005,9 @@
 
         <div class="footer-bottom">
             <div class="container">
-                <div class="row">
-                    <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                    <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+                <div class="col mb-8">
+                    <p style="text-align: center;"> Copyright © 2013 E-SHOPPER Inc. All rights reserved.
+                        Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
                 </div>
             </div>
         </div>

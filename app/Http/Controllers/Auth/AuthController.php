@@ -17,6 +17,11 @@ class AuthController extends Controller
         return view('murid.auth.register');
     }
 
+    public function register()
+    {
+        return view('auth.register_guru');
+    }
+
     public function logout()
     {
         return view('murid.auth.register');

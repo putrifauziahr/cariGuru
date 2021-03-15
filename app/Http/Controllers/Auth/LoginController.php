@@ -52,23 +52,19 @@ class LoginController extends Controller
 
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
             if (auth()->user()->role == 'guru') {
-                return redirect('dashboard_guru');
+                return redirect('guru/dashboard_guru');
             } elseif (auth()->user()->role == 'murid') {
-                return redirect('dashboard_murid');
+                return redirect('murid/dashboard_murid');
             }
         } else {
             return redirect()->route('login')->with('alert', 'Password atau Email, Salah!');
         }
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        $this->guard()->logout();
+        Session::flush();
 
-        $request->session()->flush();
-
-        $request->session()->regenerate();
-
-        return redirect('login')->with('alert-success', 'Anda Berhasil Logout');
+        return redirect('/login')->with('alert-success', 'Anda telah logout');
     }
 }
