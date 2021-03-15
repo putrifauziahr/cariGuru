@@ -44,7 +44,7 @@
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
                     <div class="card-body profile-card">
-                        <center class="m-t-30"> <img src="{{ url('/fotoProfil/'. Auth::user()->image) }}" class="rounded-circle" width="150" />
+                        <center class="m-t-30"><a href="{{ url('/fotoProfil/'. Auth::user()->image) }}" data-fancybox="gal"> <img src="{{ url('/fotoProfil/'. Auth::user()->image) }}" width="200" alt="Image" class="img-fluid" /></a>
                             <h4 class="card-title m-t-10">{{ Auth::user()->name }}</h4>
                             <h6 class="card-subtitle">Guru</h6>
                         </center>
@@ -86,7 +86,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Password</label>
                                 <div class="col-md-12">
-                                    <input type="password" value="{{ Auth::user()->password }}" name="password" class="form-control pl-0 form-control-line">
+                                    <input type="password" name="password" class="form-control pl-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">

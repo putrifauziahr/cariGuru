@@ -105,7 +105,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{ url('/fotoProfil/'. Auth::user()->image) }}" class="profile-pic mr-2">{{ Auth::user()->name }}</a>
+                                <img src="{{ url('/fotoProfil/'. Auth::user()->image) }}" class="profile-pic mr-2" height="30px" width="40px">{{ Auth::user()->name }}</a>
                         </li>
                     </ul>
                 </div>
@@ -142,6 +142,16 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showLes')}}" aria-expanded="false">
                                 <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Tambah Les</span></a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Murid Les</span></a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Transaksi</span></a>
                         </li>
 
                         <li class="sidebar-item">

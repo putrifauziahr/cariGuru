@@ -18,13 +18,13 @@ class MuridLesController extends Controller
         // $less = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->get();
         // $les = Les::all();
         // $users = User::all();
-        return view('murid/content/detailLes', compact('les', 'users'));
+        return view('murid/content/dashboard/detailLes', compact('les', 'users'));
     }
 
     public function showDetailGuru(Les $les)
     {
         $users = User::all();
         $biodatas = Biodata::all();
-        return view('murid/content/detailGuru', compact('les', 'users', 'biodatas'));
+        return view('murid/content/dashboard/detailGuru', compact('les', 'users', 'biodatas'));
     }
 }

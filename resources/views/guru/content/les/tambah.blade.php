@@ -37,7 +37,7 @@
                         <br>
                         <div class="card">
                             <label style="color: black; font-size:15px;">Judul Les</label>
-                            <textarea name="judul" class="form-control @error('judul') is-invalid @enderror" placeholder="Masukan Judul" value="{{ old ('judul')}}"></textarea>
+                            <textarea name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old ('judul')}}"></textarea>
                             @error('judul')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 
@@ -45,19 +45,19 @@
                             <label style="color: black; font-size:15px;">Hari Les</label>
                             <select name="hari" id="hari" class="form-control">
                                 <option value="pilih">Pilih</option>
-                                <option value="senin">Senin</option>
-                                <option value="selasa">Selasa</option>
-                                <option value="rabu">Rabu</option>
-                                <option value="kamis">Kamis</option>
-                                <option value="jumat">Jumat</option>
-                                <option value="sabtu">Sabtu</option>
-                                <option value="minggu">Minggu</option>
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jumat">Jumat</option>
+                                <option value="Sabtu">Sabtu</option>
+                                <option value="Minggu">Minggu</option>
                             </select>
                         </div>
 
                         <div class="card">
-                            <label style="color: black; font-size:15px;">Jam Les</label>
-                            <input name="jam" class="form-control @error('jam') is-invalid @enderror" placeholder="Masukan Jam Les" value="{{ old ('jam')}}"></input>
+                            <label style="color: black; font-size:15px;">Waktu Les <p style="color: red;">(*Waktu Mulai sampai Selesai Les)</p></label>
+                            <input name="jam" class="form-control @error('jam') is-invalid @enderror" value="{{ old ('jam')}}"></input>
                             @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 
@@ -65,43 +65,43 @@
                             <label style="color: black; font-size:15px;">Sasaran Murid</label>
                             <select name="sasaran" id="sasaran" class="form-control">
                                 <option value="pilih">Pilih</option>
-                                <option value="paud">Anak Usia PAUD</option>
-                                <option value="tk">Anak Usia TK</option>
-                                <option value="sd">SD</option>
-                                <option value="smp">SMP</option>
-                                <option value="sma">SMA</option>
-                                <option value="mahasiswa">Mahasiswa</option>
-                                <option value="umum">Masyarakat Umum</option>
+                                <option value="PAUD">Anak Usia PAUD</option>
+                                <option value="TK">Anak Usia TK</option>
+                                <option value="SD">SD</option>
+                                <option value="SMP">SMP</option>
+                                <option value="SMA">SMA</option>
+                                <option value="MAHASISWA">Mahasiswa</option>
+                                <option value="MASYARAKAT UMUM">Masyarakat Umum</option>
                             </select>
                         </div>
 
                         <div class="card">
-                            <label style="color: black; font-size:15px;">Kelas Sasaran Murid</label>
-                            <input name="kelas" class="form-control @error('kelas') is-invalid @enderror" placeholder="Masukan Kelas Sasaran Murid"></input>
+                            <label style="color: black; font-size:15px;">Kelas Sasaran Murid </label>
+                            <input name="kelas" class="form-control @error('kelas') is-invalid @enderror"></input>
                             @error('kelas')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 
                         <div class="card">
-                            <label style="color: black; font-size:15px;">Deskripsi</label>
-                            <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukan Deskripsi Les. Misal : Silabus Pembelajaran, Pencapaian setiap pertemuan dll"></textarea>
+                            <label style="color: black; font-size:15px;">Deskripsi Les <p style="color: red;">(* Deskripsi Les, Silabus dan Target Pencapaian Pembelajaran Les )</p></label>
+                            <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
                             @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 
                         <div class="card">
-                            <label style="color: black; font-size:15px;">Tanggal Mulai</label>
-                            <input name="tanggal_mulai" class="form-control @error('tanggal_mulai') is-invalid @enderror" placeholder="Masukan Tanggal Mulai Pembelajaran"></input>
+                            <label style="color: black; font-size:15px;">Tanggal Mulai Les <p style="color: red;">(*Tanggal Pertemuan Pertama)</p></label>
+                            <input name="tanggal_mulai" class="form-control @error('tanggal_mulai') is-invalid @enderror"></input>
                             @error('tanggal_mulai')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 
                         <div class="card">
                             <label style="color: black; font-size:15px;">Biaya / Pertemuan</label>
-                            <input name="harga" class="form-control @error('harga') is-invalid @enderror" placeholder="Masukan Biaya / Pertemuan"></input>
+                            <input name="harga" class="form-control @error('harga') is-invalid @enderror"></input>
                             @error('harga')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 
                         <div class="card">
-                            <label style="color: black; font-size:15px;">Sertifikat / File Pendukung</label>
-                            <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" placeholder="Masukan Gambar Pendukung" value="{{ old ('file')}}">
+                            <label style="color: black; font-size:15px;">Sertifikat / File Pendukung <p style="color: red;">(* Isi dengan Gambar)</p></label>
+                            <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" value="{{ old ('file')}}">
                             @error('file')<div class="invalid-feedback">{{$file}}</div> @enderror
                         </div>
 

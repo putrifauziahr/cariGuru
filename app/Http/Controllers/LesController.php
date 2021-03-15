@@ -105,7 +105,8 @@ class LesController extends Controller
         $update['tanggal_mulai'] = $request->get('tanggal_mulai');
         $update['harga'] = $request->get('harga');
 
-        Auth::user()->les()->update($update);
+        // Auth::user()->les($id_les)->update($update);
+        Les::where('id_les', $id_les)->update($update);
         return redirect('guru/showLes')->with('alert', 'Data Les Berhasil diperbarui');
     }
 

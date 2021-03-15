@@ -57,8 +57,9 @@
                                     <tr>
                                         <th class="border-top-0">No</th>
                                         <th class="border-top-0">Judul</th>
-                                        <th class="border-top-0">Hari</th>
-                                        <th class="border-top-0">Jam</th>
+                                        <th class="border-top-0">Tanggal Mulai</th>
+                                        <th class="border-top-0">Hari Les</th>
+                                        <th class="border-top-0">Waktu Les</th>
                                         <th class="border-top-0">Aksi</th>
                                     </tr>
                                 </thead>
@@ -69,6 +70,7 @@
                                     <tr>
                                         <td>{{$no}}</td>
                                         <td>{{$a->judul}}</td>
+                                        <td>{{$a->tanggal_mulai}}</td>
                                         <td>{{$a->hari}}</td>
                                         <td>{{$a->jam}}</td>
                                         <td>

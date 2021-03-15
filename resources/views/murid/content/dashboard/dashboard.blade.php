@@ -65,13 +65,16 @@
     </div>
 </section>
 
+<br>
+<br>
+<br>
 <section>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 padding-right">
                 <div class="features_items">
                     <!--features_items-->
-                    <h2 class="title text-center"><strong>CARI GURU</strong></h2>
+                    <h2 class="title text-center"><strong style="font-size: 25px;">CARI GURU</strong></h2>
 
                     @foreach($les as $l)
                     <div class="col-sm-4">

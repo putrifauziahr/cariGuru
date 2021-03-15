@@ -25,7 +25,7 @@
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
                     <div class="card-body profile-card">
-                        <center class="m-t-30"> <img src="{{ url('/berkasLes/'.$tampilkan_data->file) }}" width="300">
+                        <center class="m-t-30"><a href="{{ url('/berkasLes/'.$tampilkan_data->file) }}" data-fancybox="gal"> <img src="{{ url('/berkasLes/'.$tampilkan_data->file) }}" width="300"></a>
                             <br>
                             <br>
                             <p style="color: black; font-size:20px">{{ $tampilkan_data->judul}}</p>
@@ -50,8 +50,16 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Hari Les</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control @error('hari') is-invalid @enderror" name="hari" value="{{ $tampilkan_data->hari}}">
-                                    @error('hari')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                    <select name="hari" id="hari" class="form-control">
+                                        <option>{{$tampilkan_data->hari}}</option>
+                                        <option value="Senin">Senin</option>
+                                        <option value="Selasa">Selasa</option>
+                                        <option value="Rabu">Rabu</option>
+                                        <option value="Kamis">Kamis</option>
+                                        <option value="Jumat">Jumat</option>
+                                        <option value="Sabtu">Sabtu</option>
+                                        <option value="Minggu">Minggu</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -66,8 +74,16 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Sasaran Murid Les</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control @error('sasaran') is-invalid @enderror" name="sasaran" value="{{ $tampilkan_data->sasaran}}">
-                                    @error('sasaran')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                    <select name="sasaran" id="sasaran" class="form-control">
+                                        <option>{{$tampilkan_data->sasaran}}</option>
+                                        <option value="PAUD">Anak Usia PAUD</option>
+                                        <option value="TK">Anak Usia TK</option>
+                                        <option value="SD">SD</option>
+                                        <option value="SMP">SMP</option>
+                                        <option value="SMA">SMA</option>
+                                        <option value="MAHASISWA">Mahasiswa</option>
+                                        <option value="MASYARAKAT UMUM">Masyarakat Umum</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -76,14 +92,6 @@
                                 <div class="col-md-12">
                                     <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ $tampilkan_data->kelas}}">
                                     @error('kelas')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-12 mb-0">Deskripsi</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" value="{{ $tampilkan_data->deskripsi}}">
-                                    @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
                                 </div>
                             </div>
 
@@ -104,6 +112,13 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Deskripsi Les</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" value="{{ $tampilkan_data->deskripsi}}">
+                                    @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Berkas Pendukung</label>
@@ -115,9 +130,9 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-sm-12 d-flex">
-                                    <button class="btn btn-success mx-auto mx-md-0 text-white">
-                                        Update Data Les</button>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success mx-auto mx-md-0 text-white">Update Data Les</button>
+                                    <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('guru/showLes')}}">Back</a>
                                 </div>
                             </div>
 

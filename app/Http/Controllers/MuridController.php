@@ -20,7 +20,7 @@ class MuridController extends Controller
         // $les = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->get();
         $les = Les::all();
         $users = User::all();
-        return view('murid/content/dashboard', compact('les', 'users'));
+        return view('murid/content/dashboard/dashboard', compact('les', 'users'));
     }
 
     /////////////////PROFIL//////////////////
