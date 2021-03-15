@@ -57,7 +57,7 @@ Route::match(['get', 'post'], 'murid/updateProfil', 'MuridController@updateProfi
 Route::match(['get', 'post'], 'murid/updateFotoProfil', 'MuridController@updateFotoProfil')->name('murid/updateFotoProfil');
 //=================les=======================
 Route::get('murid/showDetailLes/{les}', 'MuridLesController@showDetailLes')->name('murid/showDetailLes');
-
+Route::get('murid/showDetailGuru/{les}', 'MuridLesController@showDetailGuru')->name('murid/showDetailGuru');
 
 
 Auth::routes();

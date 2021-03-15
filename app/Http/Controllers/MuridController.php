@@ -17,9 +17,10 @@ class MuridController extends Controller
 {
     public function dashboard_murid()
     {
-        $les = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->get();
-        // $les = Les::paginate(10);
-        return view('murid/content/dashboard', compact('les'));
+        // $les = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->get();
+        $les = Les::all();
+        $users = User::all();
+        return view('murid/content/dashboard', compact('les', 'users'));
     }
 
     /////////////////PROFIL//////////////////

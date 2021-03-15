@@ -12,6 +12,6 @@ class Les extends Model
 
     public function users()
     {
-        return $this->belongsTo('\App\User');
+        return $this->belongsTo('\App\User', 'id_guru');
     }
 }
