@@ -62,7 +62,11 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Deskripsi Les </th>
-                                                <td scope="col" style="text-align: left;">{{$les -> deskripsi}}</td>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea id="mytextarea" cols="30" rows="10">
+                                                    {{$les->deskripsi}}
+                                                    </textarea>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">==============</th>

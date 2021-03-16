@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="card">
-                            <label style="color: black; font-size:15px;">Waktu Les <p style="color: red;">(*Waktu Mulai sampai Selesai Les)</p></label>
+                            <label style="color: black; font-size:15px;">Waktu Les <p style="color: red;">(*Waktu Mulai sampai Selesai Les. Misal : 14.00-15.00 WIB)</p></label>
                             <input name="jam" class="form-control @error('jam') is-invalid @enderror" value="{{ old ('jam')}}"></input>
                             @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
@@ -82,8 +82,8 @@
                         </div>
 
                         <div class="card">
-                            <label style="color: black; font-size:15px;">Deskripsi Les <p style="color: red;">(* Deskripsi Les, Silabus dan Target Pencapaian Pembelajaran Les )</p></label>
-                            <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
+                            <label style="color: black; font-size:15px;">Deskripsi Les <p style="color: red;">(* Deskripsi Les, Silabus dan Target Pencapaian Pembelajaran Les, dll )</p></label>
+                            <textarea id="mytextarea" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
                             @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 

@@ -14,4 +14,9 @@ class Les extends Model
     {
         return $this->belongsTo('\App\User', 'id_guru');
     }
+
+    public function transaksis()
+    {
+        return $this->hasMany('App\Transaksi', 'id_les');
+    }
 }
