@@ -45,7 +45,8 @@ Route::get('guru/tambahLes', 'LesController@tambahLes')->name('guru/tambahLes');
 Route::post('guru/postTambahLes', 'LesController@postTambahLes')->name('guru/postTambahLes');
 Route::match(['get', 'post'], 'guru/postUpdateLes/{id_les}', 'LesController@postUpdateLes')->name('guru/postUpdateLes');
 Route::get('guru/hapusLes/{tampilkan_data}', 'LesController@hapusLes')->name('guru/hapusLes');
-
+//============Data Transaksi Murid=================
+Route::get('guru/showDataTrans', 'GuruTransaksiController@showDataTrans')->name('guru/showDataTrans');
 
 
 
@@ -62,6 +63,9 @@ Route::get('murid/showDetailGuru/{les}', 'MuridLesController@showDetailGuru')->n
 Route::match(['get', 'post'], 'murid/pilihLes/{les}', 'TransaksiController@pilihLes')->name('murid/pilihLes');
 Route::get('murid/hapusTempLes/{transs}', 'TransaksiController@hapusTempLes')->name('murid/hapusTempLes');
 Route::match(['get', 'post'], 'murid/ubahTempLes/{transs}', 'TransaksiController@ubahTempLes')->name('murid/ubahTempLes');
+
+
+
 
 Auth::routes();
 Auth::routes(['verify' => true]);

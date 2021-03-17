@@ -24,7 +24,9 @@ class MuridLesController extends Controller
     public function showDetailGuru(Les $les)
     {
         $users = User::all();
-        $biodatas = Biodata::all();
-        return view('murid/content/dashboard/detailGuru', compact('les', 'users', 'biodatas'));
+        $bio = Biodata::all();
+        $lesLagi = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->first();
+        $guru = DB::table('biodatas')->join('users', 'biodatas.id_user', '=', 'users.id')->first();
+        return view('murid/content/dashboard/detailGuru', compact('les', 'lesLagi', 'users', 'guru', 'bio'));
     }
 }

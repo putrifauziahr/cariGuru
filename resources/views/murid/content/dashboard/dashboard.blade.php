@@ -82,16 +82,16 @@
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <img src="{{ url('/berkasLes/'. $l->file) }}" width="300" />
-                                    <h2>{{$l -> harga}}</h2>
                                     <h3>{{$l -> judul}}</h3>
+                                    <h2>{{$l -> harga}} / Pertemuan</h2>
+                                    <h5>Untuk : {{$l -> sasaran}} | Kelas : {{$l -> kelas}} </h5>
                                     <p>Guru : {{$l ->users-> name}}</p>
-                                    <p>Kontak : {{$l->users->kontak}}</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Checkout</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
-                                        <h2>{{$l -> harga}}</h2>
                                         <h3 style="color: white;">{{$l -> judul}}</h3>
+                                        <h2>{{$l -> harga}} / Pertemuan</h2>
                                         <a href="/murid/showDetailGuru/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Profil Guru</a>
                                         <a href="/murid/showDetailLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Detail Les</a>
                                         <a href="/murid/pilihLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Checkout</a>

@@ -12,7 +12,7 @@
             <div class="col-sm-12 padding-right">
                 <div class="features_items">
                     <!--features_items-->
-                    <h2 class="title text-center"><strong>DETAIL LES</strong></h2>
+                    <h2 class="title text-center"><strong style="font-size: 25px;">DETAIL LES</strong></h2>
                 </div>
             </div>
         </div>
@@ -36,8 +36,9 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <h2>{{$les -> harga}}</h2>
                                         <h3>{{$les -> judul}}</h3>
+                                        <h2>{{$les -> harga}} / Pertemuan</h2>
+                                        <h4>Untuk : {{$les -> sasaran}} | Kelas : {{$les -> kelas}} </h4>
                                         <h5>Guru : {{$les -> users -> name}}</h5>
                                         <table class="table">
                                             <tr>
@@ -45,20 +46,12 @@
                                                 <td scope="col" style="text-align: left;">{{$les -> hari}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col">Waktu Les </th>
-                                                <td scope="col" style="text-align: left;">{{$les -> jam}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col">Sasaran Murid Les </th>
-                                                <td scope="col" style="text-align: left;">{{$les -> sasaran}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col">Sasaran Kelas Murid Les</th>
-                                                <td scope="col" style="text-align: left;">{{$les -> kelas}}</td>
-                                            </tr>
-                                            <tr>
                                                 <th scope="col">Tanggal Mulai Les </th>
                                                 <td scope="col" style="text-align: left;">{{$les -> tanggal_mulai}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Waktu Les </th>
+                                                <td scope="col" style="text-align: left;">{{$les -> jam}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Deskripsi Les </th>

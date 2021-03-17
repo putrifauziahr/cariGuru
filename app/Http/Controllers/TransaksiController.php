@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransaksiController extends Controller
 {
@@ -19,14 +20,16 @@ class TransaksiController extends Controller
         $trans = new Transaksi;
         $trans->id_murid = Auth::user()->id;
         $trans->id_les = $les->id_les;
+        $trans->id_guru = $les->id_guru;
         $trans->harga = $les->harga;
         $trans->qty = 1;
         $trans->subtotal = $les->harga;
         $trans->save();
 
         $less = Les::all();
+        $data = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->first();
         $transs = Transaksi::where('id_les', $id_les)->first();
-        return view('murid/content/les/pilihLes', compact('les', 'transs', 'less'));
+        return view('murid/content/les/pilihLes', compact('les', 'transs', 'less', 'data'));
     }
 
     public function hapusTempLes(Transaksi $transs)
@@ -37,14 +40,17 @@ class TransaksiController extends Controller
 
     public function ubahTempLes(Request $request, $id)
     {
+        $trans = Transaksi::where('id', $id)->first();
+
         if ($request->isMethod('post')) {
 
             $data = $request->all();
 
             Transaksi::where(['id' => $id])->update([
                 'qty' => $data['qty'],
+                'subtotal' => $trans['harga'] * $data['qty']
             ]);
-            return redirect()->route('murid/pilihLes');
+            return back();
         }
     }
 }
