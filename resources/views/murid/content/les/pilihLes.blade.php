@@ -35,23 +35,11 @@
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <h3>{{$transs->less->judul}}</h3>
-                                    <h2>{{$transs->less->harga}}</h2>
+                                    <h2>{{$transs->less->harga}} / Pertemuan</h2>
                                     <h5>Untuk tingkatan : {{$transs->less->sasaran}} | Kelas : {{$transs->less->kelas}}</h5>
                                     <table class="table">
                                         <form action="/murid/ubahTempLes/{{$transs->id}}" method="POST">
                                             {{csrf_field()}}
-                                            <tr>
-                                                <th scope="col"> ID </th>
-                                                <td scope="col" style="text-align: left;">{{$transs->id}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col"> ID MURID</th>
-                                                <td scope="col" style="text-align: left;">{{$transs->id_murid}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col"> ID GURU</th>
-                                                <td scope="col" style="text-align: left;">{{$transs->id_guru}}</td>
-                                            </tr>
                                             <tr>
                                                 <th scope="col"> Hari Les</th>
                                                 <td scope="col" style="text-align: left;">{{$transs->less->hari}}</td>
@@ -68,21 +56,37 @@
                                                 <th scope="col">Deskripsi Les</th>
                                                 <td scope="col" style="text-align: left;">{{$transs->less->deskripsi}}</td>
                                             </tr>
+                                            <tr>
+                                                <th scope="col"> Nama Guru</th>
+                                                <td scope="col" style="text-align: left;">{{$data->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Kontak Guru</th>
+                                                <td scope="col" style="text-align: left;">{{$data->kontak}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Alamat Guru</th>
+                                                <td scope="col" style="text-align: left;">{{$data->alamat}}</td>
+                                            </tr>
 
                                             <tr>
                                                 <th scope="col">===========</th>
                                                 <td scope="col" style="text-align: left;">==================</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Nama Guru</th>
-                                                <td scope="col" style="text-align: left;">{{$data->name}}</td>
+                                                <th scope="col"> Alamat Tempat Belajar <p style="color: red;">(* Isi dengan Alamat Tempat Belajar)</p>
+                                                </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <input type="text" value="{{$transs->alamat}}" placeholder="Isi Alamat Tempat Belajar mu" class="form-control" name="alamat">
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th scope="col"> Biaya / Pertemuan</th>
                                                 <td scope="col" style="text-align: left;">{{$transs->harga}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Jumlah Pertemuan </th>
+                                                <th scope="col"> Jumlah Pertemuan <p style="color: red;">(* Jumlah pertemuan yang diinginkan)</p>
+                                                </th>
                                                 <td scope="col" style="text-align: left;">
                                                     <input type="number" value="{{$transs->qty}}" class="form-control" name="qty">
                                                 </td>
@@ -90,7 +94,19 @@
                                             <tr>
                                                 <th scope="col"> Subtotal </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="text" class="form-control" name="subtotal" value="{{$transs->subtotal}}" disabled="disabled">
+                                                    {{$transs->subtotal}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Adminitrasi </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    {{$transs->adm}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Total Pembayaran </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    {{$transs->total}}
                                                 </td>
                                             </tr>
                                     </table>
