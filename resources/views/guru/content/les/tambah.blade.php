@@ -89,12 +89,24 @@
 
                         <div class="card">
                             <label style="color: black; font-size:15px;">Tanggal Mulai Les <p style="color: red;">(*Tanggal Pertemuan Pertama)</p></label>
-                            <input name="tanggal_mulai" class="form-control @error('tanggal_mulai') is-invalid @enderror"></input>
+                            <input type="date" name="tanggal_mulai" class="form-control @error('tanggal_mulai') is-invalid @enderror"></input>
                             @error('tanggal_mulai')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 
                         <div class="card">
-                            <label style="color: black; font-size:15px;">Biaya / Pertemuan</label>
+                            <label style="color: black; font-size:15px;">Tanggal Selesai Les<p style="color: red;">(*Tanggal Pertemuan Terakhir)</p></label>
+                            <input type="date" name="tanggal_selesai" class="form-control @error('tanggal_selesai') is-invalid @enderror"></input>
+                            @error('tanggal_selesai')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+
+                        <div class="card">
+                            <label style="color: black; font-size:15px;">Jumlah Pertemuan<p style="color: red;">(*Jumlah Pertemuan dalam 1 Bulan)</p></label>
+                            <input type="number" class="form-control @error('pertemuan') is-invalid @enderror" name="pertemuan">
+                            @error('pertemuan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+
+                        <div class="card">
+                            <label style="color: black; font-size:15px;">Total Biaya</label>
                             <input name="harga" class="form-control @error('harga') is-invalid @enderror"></input>
                             @error('harga')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>

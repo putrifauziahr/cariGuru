@@ -38,6 +38,8 @@ class LesController extends Controller
             'kelas' => 'required',
             'deskripsi' => 'required',
             'tanggal_mulai' => 'required',
+            'tanggal_selesai' => 'required',
+            'pertemuan' => 'required',
             'harga' => 'required',
             'file' => 'required|file|mimes:jpeg,png,jpg,doc,pdf,docx,zip|max:10000',
         ]);
@@ -58,6 +60,8 @@ class LesController extends Controller
         $post->kelas = $request->kelas;
         $post->deskripsi = $request->deskripsi;
         $post->tanggal_mulai = $request->tanggal_mulai;
+        $post->tanggal_selesai = $request->tanggal_selesai;
+        $post->pertemuan = $request->pertemuan;
         $post->harga = $request->harga;
         $post->file = $nama_file;
         Auth::user()->les()->save($post);
@@ -74,6 +78,8 @@ class LesController extends Controller
             'kelas' => 'required',
             'deskripsi' => 'required',
             'tanggal_mulai' => 'required',
+            'tanggal_selesai' => 'required',
+            'pertemuan' => 'required',
             'harga' => 'required',
         ]);
 
@@ -85,6 +91,8 @@ class LesController extends Controller
             'kelas' => $request->kelas,
             'deskripsi' => $request->deskripsi,
             'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'pertemuan' => $request->pertemuan,
             'harga' => $request->harga,
         ];
 
@@ -103,6 +111,8 @@ class LesController extends Controller
         $update['kelas'] = $request->get('kelas');
         $update['deskripsi'] = $request->get('deskripsi');
         $update['tanggal_mulai'] = $request->get('tanggal_mulai');
+        $update['tanggal_selesai'] = $request->get('tanggal_selesai');
+        $update['pertemuan'] = $request->get('pertemuan');
         $update['harga'] = $request->get('harga');
 
         // Auth::user()->les($id_les)->update($update);

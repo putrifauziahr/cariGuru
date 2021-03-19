@@ -30,6 +30,7 @@ Route::get('guru/dashboard_guru', 'GuruController@dashboard_guru')->name('guru/d
 Route::get('guru/profil_guru', 'GuruController@profil_guru')->name('guru/profil_guru');
 Route::match(['get', 'post'], 'guru/updateProfil', 'GuruController@updateProfil')->name('guru/updateProfil');
 Route::match(['get', 'post'], 'guru/updateFotoProfil', 'GuruController@updateFotoProfil')->name('guru/updateFotoProfil');
+Route::match(['get', 'post'], 'guru/updateBerkasProfil', 'GuruController@updateBerkasProfil')->name('guru/updateBerkasProfil');
 
 //======biodata, show biodata, tambah dan edit biodata========
 Route::get('guru/showBiodata', 'GuruController@biodata')->name('guru/showbBiodata');

@@ -70,7 +70,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row" hidden>
                             <label class="col-md-4 col-form-label text-md-right">Daftar Sebagai </label>
                             <div class="col-md-6">
                                 <select class="form-control" name="role">
@@ -83,10 +83,19 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+
+                                <div class="form-group row mb-0">
+                                    <div class="row">
+                                        <a class="btn btn-link" href="{{ url('/login') }}">
+                                            {{ __('Sudah Punya Akun? Login Sekarang !') }}
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>

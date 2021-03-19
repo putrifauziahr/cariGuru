@@ -29,7 +29,7 @@
                             <br>
                             <br>
                             <p style="color: black; font-size:20px">{{ $tampilkan_data->judul}}</p>
-                            <p style="color: black; font-size:20px">{{ $tampilkan_data->tanggal_mulai}}</p>
+                            <p style="color: black; font-size:20px">Untuk : {{ $tampilkan_data->sasaran}} | Kelas : {{$tampilkan_data->kelas}}</p>
                         </center>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Waktu Les <p style="color: red;">(*Waktu Mulai sampai Selesai Les. Misal : 14.00-15.00 WIB)</p></label>
+                                <label class="col-md-12 mb-0">Waktu Les</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control @error('jam') is-invalid @enderror" name="jam" value="{{ $tampilkan_data->jam}}">
                                     @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
@@ -96,16 +96,32 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Tanggal Mulai <p style="color: red;">(*Tanggal Pertemuan Pertama)</p></label>
+                                <label class="col-md-12 mb-0">Tanggal Mulai Les</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control @error('tanggal_mulai') is-invalid @enderror" name="tanggal_mulai" value="{{ $tampilkan_data->tanggal_mulai}}">
+                                    <input type="date" class="form-control @error('tanggal_mulai') is-invalid @enderror" name="tanggal_mulai" value="{{ $tampilkan_data->tanggal_mulai}}">
                                     @error('tanggal_mulai')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Tanggal Selesai Les</label>
+                                <div class="col-md-12">
+                                    <input type="date" class="form-control @error('tanggal_selesai') is-invalid @enderror" name="tanggal_selesai" value="{{ $tampilkan_data->tanggal_selesai}}">
+                                    @error('tanggal_selesai')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Jumlah Pertemuan</label>
+                                <div class="col-md-12">
+                                    <input type="number" class="form-control @error('pertemuan') is-invalid @enderror" name="pertemuan" value="{{ $tampilkan_data->pertemuan}}">
+                                    @error('pertemuan')<div class="invalid-feedback">{{$message}}</div> @enderror
                                 </div>
                             </div>
 
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Biaya / Pertemuan</label>
+                                <label class="col-md-12 mb-0">Biaya</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control @error('harga') is-invalid @enderror" name="harga" value="{{ $tampilkan_data->harga}}">
                                     @error('harga')<div class="invalid-feedback">{{$message}}</div> @enderror
@@ -113,14 +129,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Deskripsi Les <p style="color: red;">(* Deskripsi Les, Silabus dan Target Pencapaian Pembelajaran Les, dll )</p></label>
+                                <label class="col-md-12 mb-0">Deskripsi Les</label>
                                 <div class="col-md-12">
-                                    <textarea name="deskripsi" id="mytextarea" cols="30" rows="10">{{$tampilkan_data->deskripsi}}</textarea>
+                                    <textarea id="mytextarea" class="form-control" name="deskripsi">{{ $tampilkan_data->deskripsi }}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Berkas Pendukung <p style="color: red;">(* Isi dengan Gambar)</p></label>
+                                <label class="col-md-12 mb-0">Berkas Pendukung </label>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <input name="file" type="file" class="form-control" multiple />

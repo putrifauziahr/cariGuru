@@ -58,8 +58,8 @@
                                         <th class="border-top-0">No</th>
                                         <th class="border-top-0">Judul</th>
                                         <th class="border-top-0">Tanggal Mulai</th>
-                                        <th class="border-top-0">Hari Les</th>
-                                        <th class="border-top-0">Waktu Les</th>
+                                        <th class="border-top-0">Tanggal Selesai</th>
+                                        <th class="border-top-0">Jumlah Pertemuan</th>
                                         <th class="border-top-0">Aksi</th>
                                     </tr>
                                 </thead>
@@ -71,8 +71,8 @@
                                         <td>{{$no}}</td>
                                         <td>{{$a->judul}}</td>
                                         <td>{{$a->tanggal_mulai}}</td>
-                                        <td>{{$a->hari}}</td>
-                                        <td>{{$a->jam}}</td>
+                                        <td>{{$a->tanggal_selesai}}</td>
+                                        <td>{{$a->pertemuan}}</td>
                                         <td>
                                             <button class="btn btn-primary"><a href="/guru/showDetailLes/{{$a->id_les}}" style="color: white;">Detail</a></button>
                                             <button class="btn btn-danger"><a href="/guru/hapusLes/{{$a->id_les}}" style="color: white;">Hapus</a></button>

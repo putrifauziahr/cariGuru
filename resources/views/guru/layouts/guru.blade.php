@@ -12,7 +12,7 @@
     <title>@yield('title')</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.ico')}}">
     <!-- Custom CSS -->
     <link href="{{ asset('assets/plugins/chartist/dist/chartist.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -55,7 +55,7 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="{{ asset('/assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
+                            <img src="{{ asset('/assets/images/logosn.png')}}" alt="homepage" class="dark-logo" />
 
                         </b>
                         <!--End Logo icon -->
@@ -136,14 +136,8 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/guru/showBiodata')}}" aria-expanded="false">
-                                <i class="mr-3 fa fa-table" aria-hidden="true">
-                                </i><span class="hide-menu">Biodata</span></a>
-                        </li>
-
-                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showLes')}}" aria-expanded="false">
-                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Tambah Les</span></a>
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Les</span></a>
                         </li>
 
                         <li class="sidebar-item">

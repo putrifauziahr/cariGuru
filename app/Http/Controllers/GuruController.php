@@ -37,7 +37,9 @@ class GuruController extends Controller
             $data = $request->all();
 
             User::where(['id' => $user_id])->update([
-                'name' => $data['name'], 'email' => $data['email'], 'password' => bcrypt($data['password']), 'kontak' => $data['kontak'], 'alamat' => $data['alamat'],
+                'name' => $data['name'], 'email' => $data['email'], 'password' => bcrypt($data['password']), 'alamat' => $data['alamat'], 'kontak' => $data['kontak'],
+                'pekerjaan' => $data['pekerjaan'], 'keahlian' => $data['keahlian'], 'pengalaman' => $data['pengalaman'],
+                'sekolah' => $data['sekolah'], 'deskripsi' => $data['deskripsi'],
             ]);
             return redirect('guru/profil_guru')->with('alert', 'Profil Berhasil diperbarui');
         }
@@ -54,6 +56,26 @@ class GuruController extends Controller
             $imagee->move($destinationPath, $nama_image);
             $update['image'] = "$nama_image";
         }
+        User::where(['id' => $user_id])->update($update);
+        return redirect('guru/profil_guru')->with('alert', 'Foto Profil Berhasil diperbarui');
+    }
+
+    public function updateBerkasProfil(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $users = User::find($user_id);
+
+        $request->validate([
+            'file' => 'required|file|mimes:jpeg,png,jpg,doc,pdf,docx,zip|max:10000',
+        ]);
+
+        if ($filee = $request->file('file')) {
+            $destinationPath = 'berkasBiodata'; // upload path
+            $nama_file = date('YmdHis') . "." . $filee->getClientOriginalExtension();
+            $filee->move($destinationPath, $nama_file);
+            $update['file'] = "$nama_file";
+        }
+
         User::where(['id' => $user_id])->update($update);
         return redirect('guru/profil_guru')->with('alert', 'Foto Profil Berhasil diperbarui');
     }
