@@ -132,24 +132,26 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Keahlian</label>
-                                <textarea id="mytextarea" class="form-control" name="keahlian">{{ Auth::user()->keahlian }}</textarea>
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="keahlian">{{ Auth::user()->keahlian }}</textarea>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Pengalaman Mengajar / Volunteer</label>
                                 <div class="col-md-12">
-                                    <textarea id="mytextarea" class="form-control" name="pengalaman"> {{ Auth::user()->pengalaman}}</textarea>
+                                    <textarea class="form-control" name="pengalaman"> {{ Auth::user()->pengalaman}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Riwayat Pendidikan</label>
                                 <div class="col-md-12">
-                                    <textarea id="mytextarea" class="form-control " name="sekolah">{{ Auth::user()->sekolah }}</textarea>
+                                    <textarea class="form-control " name="sekolah">{{ Auth::user()->sekolah }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Deskripsi Diri</label>
                                 <div class="col-md-12">
-                                    <textarea id="mytextarea" class="form-control" name="deskripsi">{{ Auth::user()->deskripsi }}</textarea>
+                                    <textarea class="form-control" name="deskripsi">{{ Auth::user()->deskripsi }}</textarea>
                                 </div>
                             </div>
 

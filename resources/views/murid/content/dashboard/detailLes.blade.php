@@ -37,7 +37,7 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <h3>{{$les -> judul}}</h3>
-                                        <h2>{{$les -> harga}} / Pertemuan</h2>
+                                        <h2>@currency($les -> harga) / {{$les -> pertemuan}} Pertemuan</h2>
                                         <h4>Untuk : {{$les -> sasaran}} | Kelas : {{$les -> kelas}} </h4>
                                         <h5>Guru : {{$les -> users -> name}}</h5>
                                         <table class="table">
@@ -46,17 +46,25 @@
                                                 <td scope="col" style="text-align: left;">{{$les -> hari}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col">Tanggal Mulai Les </th>
-                                                <td scope="col" style="text-align: left;">{{$les -> tanggal_mulai}}</td>
-                                            </tr>
-                                            <tr>
                                                 <th scope="col">Waktu Les </th>
                                                 <td scope="col" style="text-align: left;">{{$les -> jam}}</td>
                                             </tr>
                                             <tr>
+                                                <th scope="col">Tanggal Mulai Les </th>
+                                                <td scope="col" style="text-align: left;">{{$les -> tanggal_mulai}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Tanggal Selesai Les </th>
+                                                <td scope="col" style="text-align: left;">{{$les -> tanggal_selesai}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Jumlah Pertemuan</th>
+                                                <td scope="col" style="text-align: left;">{{$les -> pertemuan}}</td>
+                                            </tr>
+                                            <tr>
                                                 <th scope="col">Deskripsi Les </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <textarea id="mytextarea" cols="30" rows="10">
+                                                    <textarea cols="30" rows="10" class="form-control">
                                                     {{$les->deskripsi}}
                                                     </textarea>
                                                 </td>
@@ -74,15 +82,11 @@
                                                 <td scope="col" style="text-align: left;">{{$les ->users-> kontak}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Email Guru </th>
-                                                <td scope="col" style="text-align: left;">{{$les ->users-> email}}</td>
-                                            </tr>
-                                            <tr>
                                                 <th scope="col"> Alamat Guru </th>
                                                 <td scope="col" style="text-align: left;">{{$les ->users-> alamat}}</td>
                                             </tr>
                                         </table>
-                                        <a href="{{route('murid/dashboard_murid')}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Checkout</a>
+                                        <a href="/murid/pilihLes/{{$les->id_les}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Checkout</a>
                                         <a href="{{route('murid/dashboard_murid')}}" class="btn btn-danger" type="button" style="color: white;">Back</a>
                                     </div>
                                 </div>

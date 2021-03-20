@@ -83,7 +83,7 @@
 
                         <div class="card">
                             <label style="color: black; font-size:15px;">Deskripsi Les <p style="color: red;">(* Deskripsi Les, Silabus dan Target Pencapaian Pembelajaran Les, dll )</p></label>
-                            <textarea id="mytextarea" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
+                            <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
                             @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
 

@@ -112,7 +112,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Jumlah Pertemuan</label>
+                                <label class="col-md-12 mb-0">Jumlah Pertemuan / Bulan</label>
                                 <div class="col-md-12">
                                     <input type="number" class="form-control @error('pertemuan') is-invalid @enderror" name="pertemuan" value="{{ $tampilkan_data->pertemuan}}">
                                     @error('pertemuan')<div class="invalid-feedback">{{$message}}</div> @enderror
@@ -131,7 +131,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Deskripsi Les</label>
                                 <div class="col-md-12">
-                                    <textarea id="mytextarea" class="form-control" name="deskripsi">{{ $tampilkan_data->deskripsi }}</textarea>
+                                    <textarea class="form-control" name="deskripsi">{{ $tampilkan_data->deskripsi }}</textarea>
                                 </div>
                             </div>
 

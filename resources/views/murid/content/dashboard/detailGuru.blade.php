@@ -28,6 +28,17 @@
                             </center>
                         </div>
                     </div>
+                    <br>
+                    <div class="card">
+                        <div class="productinfo text-center">
+                            <center class="m-t-30">
+                                <h4>Berkas Pendukung</h4>
+                                <a href="{{ url('/berkasBiodata/'. $les->users->file)}}" data-fancybox="gal">
+                                    <img src="{{ url('/berkasBiodata/'. $les->users->file)}}" alt="Image" class="img-fluid" style="height: 250px; width:300px">
+                                </a>
+                            </center>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-lg-8">
@@ -53,6 +64,41 @@
                                             <tr>
                                                 <th scope="col"> Alamat </th>
                                                 <td scope="col" style="text-align: left;">{{$les ->users-> alamat}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Pekerjaan </th>
+                                                <td scope="col" style="text-align: left;">{{$les ->users-> pekerjaan}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Bidang Keahlian</th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea cols="10" rows="5" class="form-control">
+                                                    {{$les ->users-> keahlian}}</textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Pengalaman</th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea cols="10" rows="5" class="form-control">
+                                                    {{$les ->users-> pengalaman}}
+                                                    </textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Riwayat Pendidikan</th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea cols="10" rows="5" class="form-control">
+                                                    {{$les ->users-> sekolah}}
+                                                    </textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Deskripsi Diri</th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea cols="10" rows="5" class="form-control">
+                                                    {{$les ->users-> deskripsi}}
+                                                    </textarea>
+                                                </td>
                                             </tr>
                                         </table>
                                         <a href="{{route('murid/dashboard_murid')}}" class="btn btn-danger" type="button" style="color: white;">Back</a>

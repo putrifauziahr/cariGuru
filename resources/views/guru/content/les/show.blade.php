@@ -60,6 +60,7 @@
                                         <th class="border-top-0">Tanggal Mulai</th>
                                         <th class="border-top-0">Tanggal Selesai</th>
                                         <th class="border-top-0">Jumlah Pertemuan</th>
+                                        <th class="border-top-0">Total Biaya</th>
                                         <th class="border-top-0">Aksi</th>
                                     </tr>
                                 </thead>
@@ -73,6 +74,7 @@
                                         <td>{{$a->tanggal_mulai}}</td>
                                         <td>{{$a->tanggal_selesai}}</td>
                                         <td>{{$a->pertemuan}}</td>
+                                        <td>@currency($a->harga)</td>
                                         <td>
                                             <button class="btn btn-primary"><a href="/guru/showDetailLes/{{$a->id_les}}" style="color: white;">Detail</a></button>
                                             <button class="btn btn-danger"><a href="/guru/hapusLes/{{$a->id_les}}" style="color: white;">Hapus</a></button>

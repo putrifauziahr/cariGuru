@@ -19,4 +19,9 @@ class Transaksi extends Model
     {
         return $this->belongsTo('\App\Les', 'id_les');
     }
+
+    public function transaksidetails()
+    {
+        return $this->hasMany('App\TransaksiDetail', 'id_trans');
+    }
 }

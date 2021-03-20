@@ -22,9 +22,7 @@ class TransaksiController extends Controller
         $trans->id_les = $les->id_les;
         $trans->id_guru = $les->id_guru;
         $trans->harga = $les->harga;
-        $trans->qty = 1;
-        $trans->subtotal = $les->harga;
-        $trans->adm = 2500;
+        $trans->adm = 3000;
         $trans->total = $les->harga + $trans->adm;
         $trans->save();
 
@@ -49,9 +47,6 @@ class TransaksiController extends Controller
             $data = $request->all();
 
             Transaksi::where(['id' => $id])->update([
-                'qty' => $data['qty'],
-                'subtotal' => $trans['harga'] * $data['qty'],
-                'total' => ($trans['harga'] * $data['qty']) + $trans['adm'],
                 'alamat' => $data['alamat'],
             ]);
             return back();
