@@ -50,20 +50,19 @@
                                     <tr>
                                         <th class="border-top-0">No</th>
                                         <th class="border-top-0">ID Transaksi</th>
-                                        <th class="border-top-0">Tanggal Transaksi</th>
+                                        <th class="border-top-0">Nama Pemesan</th>
                                         <th class="border-top-0">Total Transaksi</th>
                                         <th class="border-top-0">ID GURU</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($trans as $a )
+                                    @foreach($data as $a )
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$a->id}}</td>
-                                        <td>{{$a->created_at}}</td>
-                                        <td>{{$a->subtotal}}</td>
+                                        <td>{{$a->id_detail}}</td>
+                                        <td>{{$a->alamat}}</td>
                                         <td>
                                     </tr>
                                     @endforeach

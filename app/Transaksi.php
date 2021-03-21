@@ -15,7 +15,7 @@ class Transaksi extends Model
         return $this->belongsTo('\App\User', 'id_murid');
     }
 
-    public function less()
+    public function les()
     {
         return $this->belongsTo('\App\Les', 'id_les');
     }

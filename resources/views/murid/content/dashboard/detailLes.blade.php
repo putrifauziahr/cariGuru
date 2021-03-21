@@ -22,8 +22,8 @@
                     <div class="card">
                         <div class="productinfo text-center">
                             <center class="m-t-30">
-                                <a href="{{ url('/berkasLes/'. $les->file)}}" data-fancybox="gal">
-                                    <img src="{{ url('/berkasLes/'. $les->file)}}" alt="Image" class="img-fluid" style="height: 300px;">
+                                <a href="{{ url('/fotoProfil/'. $les->users->image)}}" data-fancybox="gal">
+                                    <img src="{{ url('/fotoProfil/'. $les->users->image)}}" alt="Image" class="img-fluid" style="height: 300px;">
                                 </a>
                             </center>
                         </div>
@@ -38,24 +38,23 @@
                                     <div class="productinfo text-center">
                                         <h3>{{$les -> judul}}</h3>
                                         <h2>@currency($les -> harga) / {{$les -> pertemuan}} Pertemuan</h2>
-                                        <h4>Untuk : {{$les -> sasaran}} | Kelas : {{$les -> kelas}} </h4>
                                         <h5>Guru : {{$les -> users -> name}}</h5>
                                         <table class="table">
-                                            <tr>
-                                                <th scope="col">Hari Les </th>
-                                                <td scope="col" style="text-align: left;">{{$les -> hari}}</td>
+                                            <tr hidden>
+                                                <th scope="col">ID Guru</th>
+                                                <td scope="col" style="text-align: left;">{{$les->users->id}}</td>
+                                            </tr>
+                                            <tr hidden>
+                                                <th scope="col">ID Les</th>
+                                                <td scope="col" style="text-align: left;">{{$les->id_les}}</td>
+                                            </tr>
+                                            <tr hidden>
+                                                <th scope="col">ID User</th>
+                                                <td scope="col" style="text-align: left;">{{Auth::user()->id}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Waktu Les </th>
                                                 <td scope="col" style="text-align: left;">{{$les -> jam}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col">Tanggal Mulai Les </th>
-                                                <td scope="col" style="text-align: left;">{{$les -> tanggal_mulai}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col">Tanggal Selesai Les </th>
-                                                <td scope="col" style="text-align: left;">{{$les -> tanggal_selesai}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Jumlah Pertemuan</th>

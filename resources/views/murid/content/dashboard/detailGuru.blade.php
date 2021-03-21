@@ -28,15 +28,47 @@
                             </center>
                         </div>
                     </div>
+
                     <br>
-                    <div class="card">
+                    <br>
+
+                    <div class="card border-info mb-3">
                         <div class="productinfo text-center">
-                            <center class="m-t-30">
-                                <h4>Berkas Pendukung</h4>
-                                <a href="{{ url('/berkasBiodata/'. $les->users->file)}}" data-fancybox="gal">
-                                    <img src="{{ url('/berkasBiodata/'. $les->users->file)}}" alt="Image" class="img-fluid" style="height: 250px; width:300px">
-                                </a>
-                            </center>
+                            <h2 class="title text-center">Tentang Guru</h2>
+
+                            <div class="card" style="width: 35rem;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="font-size: large; font-weight:bold">Jenis Les</li>
+                                    <li class="list-group-item">Privat</li>
+                                </ul>
+                            </div>
+
+                            <div class="card" style="width: 35rem;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="font-size: large; font-weight:bold">Tempat Les</li>
+                                    <li class="list-group-item">Rumah Anda</li>
+                                </ul>
+                            </div>
+
+                            <div class="card" style="width: 35rem;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="font-size: large; font-weight:bold">
+                                        Subjek yang diajarkan </li>
+                                    @foreach($subjek as $s)
+                                    <li class="list-group-item">{{$s->subjek}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                            <div class="card" style="width: 35rem;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="font-size: large; font-weight:bold">
+                                        Tingkat</li>
+                                    @foreach($tingkat as $t)
+                                    <li class="list-group-item">{{$t->tingkat}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,36 +102,32 @@
                                                 <td scope="col" style="text-align: left;">{{$les ->users-> pekerjaan}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Bidang Keahlian</th>
-                                                <td scope="col" style="text-align: left;">
-                                                    <textarea cols="10" rows="5" class="form-control">
-                                                    {{$les ->users-> keahlian}}</textarea>
-                                                </td>
+                                                <th scope="col"> Keahlian</th>
+                                                <td scope="col" style="text-align: left;">{{$les ->users-> keahlian}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col"> Pengalaman</th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <textarea cols="10" rows="5" class="form-control">
-                                                    {{$les ->users-> pengalaman}}
+                                                    <textarea cols="10" rows="5">{{$les ->users-> pengalaman}}</textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Riwayat Hidup</th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea cols="10" rows="5" class="form-group">{{$les ->users-> sekolah}}
                                                     </textarea>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Riwayat Pendidikan</th>
+                                                <th scope="col"> Deskripsi Les</th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <textarea cols="10" rows="5" class="form-control">
-                                                    {{$les ->users-> sekolah}}
-                                                    </textarea>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col"> Deskripsi Diri</th>
-                                                <td scope="col" style="text-align: left;">
-                                                    <textarea cols="10" rows="5" class="form-control">
+                                                    <textarea cols="10" rows="5" class="form-group">
                                                     {{$les ->users-> deskripsi}}
+
                                                     </textarea>
                                                 </td>
                                             </tr>
+
                                         </table>
                                         <a href="{{route('murid/dashboard_murid')}}" class="btn btn-danger" type="button" style="color: white;">Back</a>
                                     </div>

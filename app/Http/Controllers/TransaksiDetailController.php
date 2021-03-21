@@ -32,4 +32,18 @@ class TransaksiDetailController extends Controller
 
         return redirect('murid/showPembayaran');
     }
+
+    public function showDataTrans()
+    {
+        $les = Les::all();
+        $users = User::all();
+        $user_id = Auth::user()->id;
+        $data = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id')
+            ->join('users', 'transaksidetails.id_murid', '=', 'users.id')
+            ->where('transaksidetails.id_murid', '=', $user_id)
+            ->get();
+
+        return view('murid/content/dashboard/showDataTrans', compact('les', 'users', 'trans', 'data'));
+    }
 }

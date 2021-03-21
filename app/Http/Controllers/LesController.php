@@ -5,17 +5,22 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use App\Les;
+use App\SubjekLes;
+use App\TingkatLes;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LesController extends Controller
 {
     public function showLes()
     {
         $tampilkan_data = Auth::user()->les()->paginate(10);
-        return view('guru/content/les/show', compact('tampilkan_data'));
+        $tingkat = TingkatLes::where('id_guru', Auth::user()->id)->get();
+        $subjek = SubjekLes::where('id_guru', Auth::user()->id)->get();
+        return view('guru/content/les/show', compact('tampilkan_data',  'tingkat', 'subjek'));
     }
 
     public function showDetailLes(Les $tampilkan_data)
@@ -25,46 +30,23 @@ class LesController extends Controller
 
     public function tambahLes()
     {
-        return view('guru/content/les/tambah');
+        $user_id = Auth::user()->id;
+        $tingkat = TingkatLes::where('id_guru',  $user_id)->get();
+        $subjek = SubjekLes::where('id_guru', $user_id)->get();
+        return view('guru/content/les/tambah', compact('tingkat', 'subjek'));
     }
 
     public function postTambahLes(Request $request)
     {
-        $request->validate([
-            'judul' => 'required',
-            'hari' => 'required',
-            'jam' => 'required',
-            'sasaran' => 'required',
-            'kelas' => 'required',
-            'deskripsi' => 'required',
-            'tanggal_mulai' => 'required',
-            'tanggal_selesai' => 'required',
-            'pertemuan' => 'required',
-            'harga' => 'required',
-            'file' => 'required|file|mimes:jpeg,png,jpg,doc,pdf,docx,zip|max:10000',
-        ]);
-
-        // menyimpan data file yang diupload ke variabel $gambar
-        $file = $request->file('file');
-        $nama_file = time() . "_" . $file->getClientOriginalName();
-        // isi dengan nama folder tempat kemana file diupload
-        $destinationPath = 'berkasLes';
-        $file->move($destinationPath, $nama_file);
-
-
         $post = new Les;
         $post->judul = $request->judul;
-        $post->hari = $request->hari;
         $post->jam = $request->jam;
-        $post->sasaran = $request->sasaran;
         $post->kelas = $request->kelas;
         $post->deskripsi = $request->deskripsi;
-        $post->tanggal_mulai = $request->tanggal_mulai;
-        $post->tanggal_selesai = $request->tanggal_selesai;
         $post->pertemuan = $request->pertemuan;
         $post->harga = $request->harga;
-        $post->file = $nama_file;
         Auth::user()->les()->save($post);
+
         return redirect('guru/showLes')->with('alert', 'Data Les Berhasil ditambah');
     }
 
@@ -77,8 +59,6 @@ class LesController extends Controller
             'sasaran' => 'required',
             'kelas' => 'required',
             'deskripsi' => 'required',
-            'tanggal_mulai' => 'required',
-            'tanggal_selesai' => 'required',
             'pertemuan' => 'required',
             'harga' => 'required',
         ]);

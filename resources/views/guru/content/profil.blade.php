@@ -44,6 +44,10 @@
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
                     <div class="card-body profile-card">
+                        <div class="card-header" style="color: black; font-size:20px; text-align:center;">
+                            <i class="fa fa-user mr-1"></i>
+                            Profil Guru
+                        </div>
                         <center class="m-t-30"><a href="{{ url('/fotoProfil/'. Auth::user()->image) }}" data-fancybox="gal"> <img src="{{ url('/fotoProfil/'. Auth::user()->image) }}" width="200" alt="Image" class="img-fluid" /></a>
                             <h4 class="card-title m-t-10">{{ Auth::user()->name }}</h4>
                             <h6 class="card-subtitle">Guru</h6>
@@ -58,29 +62,6 @@
                                     <div class="col-sm-12 d-flex">
                                         <button class="btn btn-success mx-auto mx-md-0 text-white">Update
                                             Foto Profile</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body profile-card">
-                        <center class="m-t-30">
-                            <h4 class="card-title m-t-10">Sertifikat Keahlian / Berkas Pendukung</h4>
-                            <a href="{{ url('/berkasBiodata/'. Auth::user()->file) }}" data-fancybox="gal">
-                                <img src="{{ url('/berkasBiodata/'. Auth::user()->file) }}" width="200" />
-                            </a>
-                        </center>
-                        <form action="/guru/updateBerkasProfil" method="POST" enctype="multipart/form-data">
-                            {{csrf_field()}}
-                            <div class="form-group alert-up-pd">
-                                <div class="form-group">
-                                    <input name="file" type="file" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12 d-flex">
-                                        <button class="btn btn-success mx-auto mx-md-0 text-white">Update Berkas</button>
                                     </div>
                                 </div>
                             </div>
@@ -125,31 +106,31 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Pekerjaan</label>
-                                <div class="col-md-12">
-                                    <input rows="5" class="form-control pl-0 form-control-line" name="pekerjaan" value="{{ Auth::user()->pekerjaan }}"></input>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-12 mb-0">Keahlian</label>
                                 <div class="col-md-12">
                                     <textarea class="form-control" name="keahlian">{{ Auth::user()->keahlian }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Pengalaman Mengajar / Volunteer</label>
+                                <label class="col-md-12 mb-0">Pekerjaan</label>
+                                <div class="col-md-12">
+                                    <input rows="5" class="form-control pl-0 form-control-line" name="pekerjaan" value="{{ Auth::user()->pekerjaan }}"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Pengalaman</label>
                                 <div class="col-md-12">
                                     <textarea class="form-control" name="pengalaman"> {{ Auth::user()->pengalaman}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Riwayat Pendidikan</label>
+                                <label class="col-md-12 mb-0">Riwayat Hidup</label>
                                 <div class="col-md-12">
                                     <textarea class="form-control " name="sekolah">{{ Auth::user()->sekolah }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Deskripsi Diri</label>
+                                <label class="col-md-12 mb-0">Deskripsi Les</label>
                                 <div class="col-md-12">
                                     <textarea class="form-control" name="deskripsi">{{ Auth::user()->deskripsi }}</textarea>
                                 </div>

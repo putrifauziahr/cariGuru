@@ -25,9 +25,7 @@
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
                     <div class="card-body profile-card">
-                        <center class="m-t-30"><a href="{{ url('/berkasLes/'.$tampilkan_data->file) }}" data-fancybox="gal"> <img src="{{ url('/berkasLes/'.$tampilkan_data->file) }}" width="300"></a>
-                            <br>
-                            <br>
+                        <center class="m-t-30">
                             <p style="color: black; font-size:20px">{{ $tampilkan_data->judul}}</p>
                             <p style="color: black; font-size:20px">Untuk : {{ $tampilkan_data->sasaran}} | Kelas : {{$tampilkan_data->kelas}}</p>
                         </center>
@@ -48,22 +46,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Hari Les</label>
-                                <div class="col-md-12">
-                                    <select name="hari" id="hari" class="form-control">
-                                        <option>{{$tampilkan_data->hari}}</option>
-                                        <option value="Senin">Senin</option>
-                                        <option value="Selasa">Selasa</option>
-                                        <option value="Rabu">Rabu</option>
-                                        <option value="Kamis">Kamis</option>
-                                        <option value="Jumat">Jumat</option>
-                                        <option value="Sabtu">Sabtu</option>
-                                        <option value="Minggu">Minggu</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="col-md-12 mb-0">Waktu Les</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control @error('jam') is-invalid @enderror" name="jam" value="{{ $tampilkan_data->jam}}">
@@ -72,18 +54,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Sasaran Murid Les</label>
+                                <label class="col-md-12 mb-0">Tingkat</label>
                                 <div class="col-md-12">
-                                    <select name="sasaran" id="sasaran" class="form-control">
-                                        <option>{{$tampilkan_data->sasaran}}</option>
-                                        <option value="PAUD">Anak Usia PAUD</option>
-                                        <option value="TK">Anak Usia TK</option>
-                                        <option value="SD">SD</option>
-                                        <option value="SMP">SMP</option>
-                                        <option value="SMA">SMA</option>
-                                        <option value="MAHASISWA">Mahasiswa</option>
-                                        <option value="MASYARAKAT UMUM">Masyarakat Umum</option>
-                                    </select>
+                                    <textarea name="sasaran" id="sasaran" class="form-control">
+                                    {{$tampilkan_data->sasaran}}
+                                    </textarea>
                                 </div>
                             </div>
 
@@ -92,22 +67,6 @@
                                 <div class="col-md-12">
                                     <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ $tampilkan_data->kelas}}">
                                     @error('kelas')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-12 mb-0">Tanggal Mulai Les</label>
-                                <div class="col-md-12">
-                                    <input type="date" class="form-control @error('tanggal_mulai') is-invalid @enderror" name="tanggal_mulai" value="{{ $tampilkan_data->tanggal_mulai}}">
-                                    @error('tanggal_mulai')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-12 mb-0">Tanggal Selesai Les</label>
-                                <div class="col-md-12">
-                                    <input type="date" class="form-control @error('tanggal_selesai') is-invalid @enderror" name="tanggal_selesai" value="{{ $tampilkan_data->tanggal_selesai}}">
-                                    @error('tanggal_selesai')<div class="invalid-feedback">{{$message}}</div> @enderror
                                 </div>
                             </div>
 
@@ -136,20 +95,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Berkas Pendukung </label>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input name="file" type="file" class="form-control" multiple />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <div class="col-sm-12">
                                     <button class="btn btn-success mx-auto mx-md-0 text-white">Update Data Les</button>
                                     <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('guru/showLes')}}">Back</a>
                                 </div>
                             </div>
+
+
 
                         </form>
                     </div>

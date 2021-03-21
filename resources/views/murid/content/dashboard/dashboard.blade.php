@@ -81,17 +81,17 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{ url('/berkasLes/'. $l->file) }}" width="300" />
-                                    <h3>{{$l -> judul}}</h3>
-                                    <h2>@currency($l -> harga) / {{$l -> pertemuan}} Pertemuan</h2>
-                                    <h5>Untuk : {{$l -> sasaran}} | Kelas : {{$l -> kelas}} </h5>
-                                    <p>Guru : {{$l ->users-> name}}</p>
+                                    <img src="{{ url('/fotoProfil/'. $l->users->image) }}" width="300" />
+                                    <h3>{{$l -> users-> name}}</h3>
+                                    <p>Guru</p>
+                                    <h2>{{$l -> judul}} </h2>
+                                    <h5>{{$l->users->alamat}} </h5>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Checkout</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
                                         <h3 style="color: white;">{{$l -> judul}}</h3>
-                                        <h2>@currency($l -> harga) / {{$l -> pertemuan}} Pertemuan</h2>
+                                        <h2>@currency($l -> harga) / Bulan</h2>
                                         <a href="/murid/showDetailGuru/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Profil Guru</a>
                                         <a href="/murid/showDetailLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Detail Les</a>
                                         <a href="/murid/pilihLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Checkout</a>

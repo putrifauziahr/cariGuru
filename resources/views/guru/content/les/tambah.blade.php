@@ -29,104 +29,47 @@
                         <i class="fas fa-table mr-1"></i>
                         Tambah Les
                     </div>
-
-                    <form method="POST" action="/guru/postTambahLes" enctype="multipart/form-data">
+                    <form action="/guru/postTambahLes" method="POST">
                         {{csrf_field()}}
-
-                        <br>
-                        <br>
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Judul Les</label>
-                            <textarea name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old ('judul')}}"></textarea>
-                            @error('judul')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        <div class="form-group alert-up-pd">
+                            <div class="form-group">
+                                <label for=""> Judul Les</label>
+                                <textarea name="judul" type="text" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for=""> Waktu</label>
+                                <input name="jam" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for=""> Kelas Murid</label>
+                                <input name="kelas" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for=""> Deskripsi</label>
+                                <textarea name="deskripsi" type="text" class="form-control"> </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for=""> Jumlah Pertemuan / Bulan</label>
+                                <input name="pertemuan" type="number" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for=""> Biaya / Bulan</label>
+                                <input name="harga" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 d-flex">
+                                    <button class="btn btn-success mx-auto mx-md-0 text-white">
+                                        Tambah
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Hari Les</label>
-                            <select name="hari" id="hari" class="form-control">
-                                <option value="pilih">Pilih</option>
-                                <option value="Senin">Senin</option>
-                                <option value="Selasa">Selasa</option>
-                                <option value="Rabu">Rabu</option>
-                                <option value="Kamis">Kamis</option>
-                                <option value="Jumat">Jumat</option>
-                                <option value="Sabtu">Sabtu</option>
-                                <option value="Minggu">Minggu</option>
-                            </select>
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Waktu Les <p style="color: red;">(*Waktu Mulai sampai Selesai Les. Misal : 14.00-15.00 WIB)</p></label>
-                            <input name="jam" class="form-control @error('jam') is-invalid @enderror" value="{{ old ('jam')}}"></input>
-                            @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Sasaran Murid</label>
-                            <select name="sasaran" id="sasaran" class="form-control">
-                                <option value="pilih">Pilih</option>
-                                <option value="PAUD">Anak Usia PAUD</option>
-                                <option value="TK">Anak Usia TK</option>
-                                <option value="SD">SD</option>
-                                <option value="SMP">SMP</option>
-                                <option value="SMA">SMA</option>
-                                <option value="MAHASISWA">Mahasiswa</option>
-                                <option value="MASYARAKAT UMUM">Masyarakat Umum</option>
-                            </select>
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Kelas Sasaran Murid </label>
-                            <input name="kelas" class="form-control @error('kelas') is-invalid @enderror"></input>
-                            @error('kelas')<div class="invalid-feedback">{{$message}}</div> @enderror
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Deskripsi Les <p style="color: red;">(* Deskripsi Les, Silabus dan Target Pencapaian Pembelajaran Les, dll )</p></label>
-                            <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
-                            @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Tanggal Mulai Les <p style="color: red;">(*Tanggal Pertemuan Pertama)</p></label>
-                            <input type="date" name="tanggal_mulai" class="form-control @error('tanggal_mulai') is-invalid @enderror"></input>
-                            @error('tanggal_mulai')<div class="invalid-feedback">{{$message}}</div> @enderror
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Tanggal Selesai Les<p style="color: red;">(*Tanggal Pertemuan Terakhir)</p></label>
-                            <input type="date" name="tanggal_selesai" class="form-control @error('tanggal_selesai') is-invalid @enderror"></input>
-                            @error('tanggal_selesai')<div class="invalid-feedback">{{$message}}</div> @enderror
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Jumlah Pertemuan<p style="color: red;">(*Jumlah Pertemuan dalam 1 Bulan)</p></label>
-                            <input type="number" class="form-control @error('pertemuan') is-invalid @enderror" name="pertemuan">
-                            @error('pertemuan')<div class="invalid-feedback">{{$message}}</div> @enderror
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Total Biaya</label>
-                            <input name="harga" class="form-control @error('harga') is-invalid @enderror"></input>
-                            @error('harga')<div class="invalid-feedback">{{$message}}</div> @enderror
-                        </div>
-
-                        <div class="card">
-                            <label style="color: black; font-size:15px;">Sertifikat / File Pendukung <p style="color: red;">(* Isi dengan Gambar)</p></label>
-                            <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" value="{{ old ('file')}}">
-                            @error('file')<div class="invalid-feedback">{{$file}}</div> @enderror
-                        </div>
-
-                        <div class="card-body">
-                            <button type="submit" class="btn btn-success d-none d-md-inline-block text-white">Submit</button>
-                        </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>
-</div>
 
 
 
-@endsection
+    @endsection

@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use App\Les;
 use App\Transaksi;
+use App\TransaksiDetail;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -16,12 +17,15 @@ class GuruTransaksiController extends Controller
 {
     public function showDataTrans()
     {
-        $les = Auth::user()->les()->paginate(10);
         $less = Les::all();
+        $users = User::all();
         $user_id = Auth::user()->id;
-        $users = User::find($user_id);
-        $trans = DB::table('transaksis')->join('les', 'transaksis.id_les', '=',  'les.id_les')->get();
-        $data = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->first();
+        $user_id = Auth::user()->id;
+        $data = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id')
+            ->where('transaksidetails.id_guru', '=', $user_id)
+            ->get();
+
         return view('guru/content/dataTrans/show', compact('les', 'users', 'trans', 'less', 'data'));
     }
 }
