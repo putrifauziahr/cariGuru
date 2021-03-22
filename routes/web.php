@@ -20,6 +20,14 @@ Route::get('login/admin', 'LoginAdminController@login')->name('login/admin');
 Route::post('loginAdminPost', 'LoginAdminController@loginPost')->name('loginAdminPost');
 Route::get('register/admin', 'LoginAdminController@register')->name('register/admin');
 Route::post('registerAdminPost', 'LoginAdminController@registerPost')->name('registerAdminPost');
+//======================data guru=============
+Route::get('admin/showDataGuru', 'AdminController@showDataGuru')->name('admin/showDataGuru');
+Route::get('admin/showDetailGuru/{guru}', 'AdminController@showDetailGuru')->name('admin/showDetailGuru');
+//======================data les=============
+Route::get('admin/showDataMurid', 'AdminController@showDataMurid')->name('admin/showDataMurid');
+//======================data transaksi=============
+Route::get('admin/showDataTrans', 'AdminController@showDataTrans')->name('admin/showDataTrans');
+
 
 
 

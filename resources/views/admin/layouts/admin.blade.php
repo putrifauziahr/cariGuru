@@ -107,7 +107,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{ url('/fotoProfil/'. Auth::user()->image) }}" class="profile-pic mr-2" height="30px" width="40px">{{ Auth::user()->name }}</a>
+                                <i class="mr-3 fa fa-user" aria-hidden="true"></i>Administrator</a>
                         </li>
                     </ul>
                 </div>
@@ -127,26 +127,26 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/dashboard_guru')}}" aria-expanded="false"><i class="mr-3 far fa-clock fa-fw" aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('dashboard_admin')}}" aria-expanded="false"><i class="mr-3 far fa-clock fa-fw" aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/profil_guru')}}" aria-expanded="false">
-                                <i class="mr-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Profile</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('dashboard_admin')}}" aria-expanded="false">
+                                <i class="mr-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Profile Admin</span></a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showLes')}}" aria-expanded="false">
-                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Les</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin/showDataMurid')}}" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Murid</span></a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
-                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Murid Les</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin/showDataGuru')}}" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Guru</span></a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showDataTrans')}}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin/showDataTrans')}}" aria-expanded="false">
                                 <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Transaksi</span></a>
                         </li>
 
