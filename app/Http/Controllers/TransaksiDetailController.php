@@ -23,9 +23,9 @@ class TransaksiDetailController extends Controller
     }
     public function bayarLes(Request $request, $id)
     {
-        $transs = Transaksi::where('id', $id)->first();
+        $transs = Transaksi::where('id', $id)->get();
         $transDet = new TransaksiDetail;
-        $transDet->id_trans = $transs->id;
+        $transDet->id_trans = $id;
         $transDet->id_murid = Auth::user()->id;
         $transDet->id_guru = $transs->id_guru;
         $transDet->save();
@@ -39,7 +39,7 @@ class TransaksiDetailController extends Controller
         $users = User::all();
         $user_id = Auth::user()->id;
         $data = DB::table('transaksidetails')
-            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
             ->join('users', 'transaksidetails.id_murid', '=', 'users.id')
             ->where('transaksidetails.id_murid', '=', $user_id)
             ->get();

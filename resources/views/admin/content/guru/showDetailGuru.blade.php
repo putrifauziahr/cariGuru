@@ -74,17 +74,45 @@
                                         <th class="border-top-0">Alamat</th>
                                         <td>{{$guru->alamat}}</td>
                                     </tr>
+
                                     <tr>
                                         <th class="border-top-0">Subjek yang diajarkan</th>
                                         @foreach($subjek as $s)
                                         <td>{{$s -> subjek}}</td>
-                                        @endforeach
+                                    <tr class="border-top-0"></tr>
+                                    <td class="border-top-0"></td>
+                                    @endforeach
                                     </tr>
+
+
                                     <tr>
                                         <th class="border-top-0">Tingkat</th>
                                         @foreach($tingkat as $t)
-                                        <td>{{$t -> tingkat}}</td>
-                                        @endforeach
+                                        <td>{{$t -> tingkat}} </td>
+                                    <tr class="border-top-0"></tr>
+                                    <td class="border-top-0"></td>
+                                    @endforeach
+                                    </tr>
+
+
+                                    <tr>
+                                        <th class="border-top-0">Les</th>
+                                        <th class="border-top-0">Judul</th>
+                                        <th class="border-top-0">Waktu</th>
+                                        <th class="border-top-0">Pertemuan</th>
+                                        <th class="border-top-0">Harga</th>
+                                        <th class="border-top-0">Dekripsi</th>
+                                    <tr class="border-top-0"></tr>
+                                    <td class="border-top-0"></td>
+                                    @foreach($les as $l)
+                                    <td>{{$l -> judul}} </td>
+                                    <td>{{$l -> jam}} </td>
+                                    <td>{{$l -> pertemuan}} </td>
+                                    <td>@currency($l -> harga) </td>
+                                    <td>{{$l -> deskripsi}} </td>
+                                    <tr class="border-top-0"></tr>
+                                    <td class="border-top-0"></td>
+                                    @endforeach
                                     </tr>
                                 </tbody>
                             </table>

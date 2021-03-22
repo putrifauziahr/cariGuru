@@ -33,11 +33,11 @@
                         {{csrf_field()}}
                         <div class="form-group alert-up-pd">
                             <div class="form-group">
-                                <label for=""> Judul Les</label>
+                                <label style="color:black"> Judul Les</label>
                                 <textarea name="judul" type="text" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for=""> Waktu</label>
+                                <label for=""> Waktu (Misal : 120 Menit / Pertemuan)</label>
                                 <input name="jam" type="text" class="form-control">
                             </div>
                             <div class="form-group">
@@ -45,7 +45,7 @@
                                 <input name="kelas" type="text" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for=""> Deskripsi</label>
+                                <label for=""> Deskripsi Les (Silabus, Capaian pembelajaran dll)</label>
                                 <textarea name="deskripsi" type="text" class="form-control"> </textarea>
                             </div>
                             <div class="form-group">
@@ -53,7 +53,7 @@
                                 <input name="pertemuan" type="number" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for=""> Biaya / Bulan</label>
+                                <label for=""> Biaya / Bulan (Contoh pengisian : 350000)</label>
                                 <input name="harga" class="form-control">
                             </div>
                             <div class="form-group">

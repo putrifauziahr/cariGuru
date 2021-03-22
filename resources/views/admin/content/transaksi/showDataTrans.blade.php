@@ -52,16 +52,27 @@
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">No</th>
-                                        <th class="border-top-0">Waktu</th>
                                         <th class="border-top-0">ID Transaksi</th>
                                         <th class="border-top-0">Nama Pemesan</th>
-                                        <th class="border-top-0">Judul Les</th>
+                                        <th class="border-top-0">Alamat</th>
+                                        <th class="border-top-0">Total Pembayaran</th>
                                         <th class="border-top-0">Status</th>
                                         <th class="border-top-0">Aksi</th>
-
                                     </tr>
                                 </thead>
-                                <tbody> </tbody>
+                                <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach($trans as $a)
+                                    <?php $no++; ?>
+                                    <tr>
+                                        <td>{{$no}}</td>
+                                        <td>{{$a -> id_detail}}</td>
+                                        <td>{{$a -> name}}</td>
+                                        <td>{{$a -> alamat}}</td>
+                                        <td>@currency($a -> total)</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>

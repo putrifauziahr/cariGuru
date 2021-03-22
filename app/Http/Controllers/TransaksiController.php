@@ -14,9 +14,8 @@ use Illuminate\Support\Facades\DB;
 
 class TransaksiController extends Controller
 {
-    public function pilihLes(Request $request, $id_les)
+    public function pilihLes(Request $request, Les $les)
     {
-        $les = Les::where('id_les', $id_les)->first();
         $trans = new Transaksi;
         $trans->id_murid = Auth::user()->id;
         $trans->id_les = $les->id_les;
@@ -26,16 +25,32 @@ class TransaksiController extends Controller
         $trans->total = $les->harga + $trans->adm;
         $trans->save();
 
-        $less = Les::all();
-        $data = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->first();
-        $transs = Transaksi::where('id_les', $id_les)->first();
-        return view('murid/content/les/pilihLes', compact('les', 'transs', 'less', 'data'));
+        return redirect('/murid/showPilihLes');
     }
 
-    public function hapusTempLes(Transaksi $transs)
+    public function showPilihLes()
     {
-        Transaksi::destroy($transs->id);
-        return redirect('murid/dashboard_murid');
+        $user_id = Auth::user()->id;
+        $trans = DB::table('transaksis')
+            ->join('users', 'transaksis.id_murid', '=', 'users.id')
+            ->join('les', 'transaksis.id_les', '=', 'les.id_les')
+            ->where('transaksis.id_murid', $user_id)
+            ->get();
+        return view('murid/content/les/showPilihLes', compact('trans'));
+    }
+
+    public function showDetailTempLes(Transaksi $trans)
+    {
+        $less = Les::all();
+        $data = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->first();
+        $transs = DB::table('transaksis')->join('les', 'transaksis.id_les', '=', 'les.id_les')->get();
+        return view('murid/content/les/showPilihLes', compact('transs', 'data', 'less', 'trans'));
+    }
+
+    public function hapusTempLes(Transaksi $trans)
+    {
+        Transaksi::destroy($trans->id_trans);
+        return back();
     }
 
     public function ubahTempLes(Request $request, $id)

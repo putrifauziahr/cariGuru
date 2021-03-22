@@ -8,7 +8,7 @@ class Transaksi extends Model
 {
     protected $fillable = ['id_murid', 'id_les', 'id_guru'];
     protected $table = "transaksis";
-    protected $primaryKey = "id";
+    protected $primaryKey = "id_trans";
 
     public function users()
     {

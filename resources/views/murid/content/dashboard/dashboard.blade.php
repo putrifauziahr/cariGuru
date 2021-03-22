@@ -94,7 +94,7 @@
                                         <h2>@currency($l -> harga) / Bulan</h2>
                                         <a href="/murid/showDetailGuru/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Profil Guru</a>
                                         <a href="/murid/showDetailLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Detail Les</a>
-                                        <a href="/murid/pilihLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Checkout</a>
+                                        <a href="/murid/pilihLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Reservasi</a>
                                     </div>
                                 </div>
                             </div>

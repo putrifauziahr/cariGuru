@@ -7,6 +7,8 @@ use App\User;
 use App\Les;
 use App\SubjekLes;
 use App\TingkatLes;
+use App\Transaksi;
+use App\TransaksiDetail;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -32,7 +34,8 @@ class AdminController extends Controller
         $id = $guru->id;
         $subjek = SubjekLes::where('id_guru', $id)->get();
         $tingkat = TingkatLes::where('id_guru', $id)->get();
-        return view('admin/content/guru/showDetailGuru', compact('guru', 'subjek', 'tingkat'));
+        $les = Les::where('id_guru', $id)->get();
+        return view('admin/content/guru/showDetailGuru', compact('guru', 'subjek', 'tingkat', 'les'));
     }
 
     public function hapusDataGuru(User $guru)
@@ -57,9 +60,15 @@ class AdminController extends Controller
         return redirect('admin/showDataMurid');
     }
 
+    //========================================================//
+
     public function showDataTrans()
     {
-
-        return view('admin/content/transaksi/showDataTrans');
+        $trans = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id')
+            ->join('users', 'transaksidetails.id_murid', '=', 'users.id')
+            ->orderBy('transaksidetails.id_detail', 'desc')
+            ->get();
+        return view('admin/content/transaksi/showDataTrans', compact('trans'));
     }
 }

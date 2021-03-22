@@ -20,9 +20,7 @@
                 <div class="card">
                     <div class="productinfo text-center">
                         <center class="m-t-30">
-                            <a href="{{ url('/berkasLes/'. $transs->less->file)}}" data-fancybox="gal">
-                                <img src="{{ url('/berkasLes/'. $transs->less->file)}}" alt="Image" class="img-fluid" style="height: 300px;">
-                            </a>
+
                         </center>
                     </div>
                 </div>
@@ -34,19 +32,14 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <h3>{{$transs->less->judul}}</h3>
-                                    <h2>@currency($transs->less->harga) / {{$transs->less->pertemuan}} Pertemuan</h2>
-                                    <h5>Untuk tingkatan : {{$transs->less->sasaran}} | Kelas : {{$transs->less->kelas}}</h5>
+                                    <h3>{{$trans->judul}}</h3>
+                                    <h2>@currency($trans->harga) / {{$trans->pertemuan}} Pertemuan</h2>
                                     <table class="table">
                                         <form action="/murid/ubahTempLes/{{$transs->id}}" method="POST">
                                             {{csrf_field()}}
                                             <tr>
                                                 <th scope="col"> Nama Pemesan</th>
-                                                <td scope="col" style="text-align: left;">{{Auth::user()->name}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col"> Nama Guru</th>
-                                                <td scope="col" style="text-align: left;">{{$data->name}}</td>
+                                                <td scope="col" style="text-align: left;">{{$trans->name}}</td>
                                             </tr>
 
                                             <tr>
@@ -54,32 +47,78 @@
                                                 <td scope="col" style="text-align: left;">==================</td>
                                             </tr>
                                             <tr>
+                                                <th scope="col"> Gambaran Anda</p>
+                                                </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea name="" type="text" value="" placeholder="Isi dengan kebutuhan belajarmu, gambarkan tentang kebutuhan kamu saat ini. Agar guru dapat mengerti dan membantu mu" class="form-control">
+                                                    </textarea>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="col">
+                                                    Ajukan tanggal pertemuan pertama
+                                                </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <input type="date" value="" class="form-control" name="">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="col">
+                                                    Ajukan jam pembelajaran
+                                                </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <input type="text" class="form-control" name="">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="col">
+                                                    Nama Pemesan
+                                                </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <input type="text" class="form-control" name="">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="col">
+                                                    Kontak Pemesan
+                                                </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <input type="text" class="form-control" name="">
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
                                                 <th scope="col"> Alamat Tempat Belajar <p style="color: red;">(* Isi dengan Alamat Tempat Belajar)</p>
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="text" value="{{$transs->alamat}}" placeholder="Isi Alamat Tempat Belajar mu" class="form-control" name="alamat">
+                                                    <input type="text" value="{{$trans->alamat}}" placeholder="Isi Alamat Tempat Belajar mu" class="form-control" name="alamat">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="col"> Biaya Les</th>
-                                                <td scope="col" style="text-align: left;">@currency($transs->harga)</td>
+                                                <td scope="col" style="text-align: left;">@currency($trans->harga)</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col"> Adminitrasi </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    @currency($transs->adm)
+                                                    @currency($trans->adm)
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="col"> Total Pembayaran </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    @currency($transs->total)
+                                                    @currency($trans->total)
                                                 </td>
                                             </tr>
                                     </table>
                                     <button type="submit" class="btn btn-info">Ubah</button>
-                                    <a href="/murid/bayarLes/{{$transs->id}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
-                                    <a href="/murid/hapusTempLes/{{$transs->id}}" class="btn btn-danger" type="button" style="color: white;">Batal</a>
+                                    <a href="/murid/bayarLes/{{$trans->id}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
+                                    <a href="{{route ('murid/dashboard_murid')}}" class="btn btn-danger" type="button" style="color: white;">Batal</a>
                                     </form>
                                 </div>
                             </div>

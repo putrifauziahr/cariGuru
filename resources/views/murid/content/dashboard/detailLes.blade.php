@@ -85,7 +85,7 @@
                                                 <td scope="col" style="text-align: left;">{{$les ->users-> alamat}}</td>
                                             </tr>
                                         </table>
-                                        <a href="/murid/pilihLes/{{$les->id_les}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Checkout</a>
+                                        <a href="/murid/pilihLes/{{$les->id_les}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Reservasi</a>
                                         <a href="{{route('murid/dashboard_murid')}}" class="btn btn-danger" type="button" style="color: white;">Back</a>
                                     </div>
                                 </div>

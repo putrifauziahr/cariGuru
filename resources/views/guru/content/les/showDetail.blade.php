@@ -22,19 +22,14 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 col-xlg-3 col-md-5">
-                <div class="card">
-                    <div class="card-body profile-card">
-                        <center class="m-t-30">
-                            <p style="color: black; font-size:20px">{{ $tampilkan_data->judul}}</p>
-                            <p style="color: black; font-size:20px">Untuk : {{ $tampilkan_data->sasaran}} | Kelas : {{$tampilkan_data->kelas}}</p>
-                        </center>
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-8 col-xlg-9 col-md-7">
                 <div class="card">
                     <div class="card-body">
+                        <div class="card-header" style="color: white; font-size:20px; background-color:gray">
+                            <i class="fas fa-table mr-1" style="color: white;"></i>
+                            Detail Les
+                        </div>
+                        <br>
                         <form class="form-horizontal form-material" action="/guru/postUpdateLes/{{$tampilkan_data->id_les}}" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
@@ -50,15 +45,6 @@
                                 <div class="col-md-12">
                                     <input type="text" class="form-control @error('jam') is-invalid @enderror" name="jam" value="{{ $tampilkan_data->jam}}">
                                     @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-12 mb-0">Tingkat</label>
-                                <div class="col-md-12">
-                                    <textarea name="sasaran" id="sasaran" class="form-control">
-                                    {{$tampilkan_data->sasaran}}
-                                    </textarea>
                                 </div>
                             </div>
 

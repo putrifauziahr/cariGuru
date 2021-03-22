@@ -54,9 +54,7 @@ class LesController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'hari' => 'required',
             'jam' => 'required',
-            'sasaran' => 'required',
             'kelas' => 'required',
             'deskripsi' => 'required',
             'pertemuan' => 'required',
@@ -65,33 +63,17 @@ class LesController extends Controller
 
         $update = [
             'judul' => $request->judul,
-            'hari' => $request->hari,
             'jam' => $request->jam,
-            'sasaran' => $request->sasaran,
             'kelas' => $request->kelas,
             'deskripsi' => $request->deskripsi,
-            'tanggal_mulai' => $request->tanggal_mulai,
-            'tanggal_selesai' => $request->tanggal_selesai,
             'pertemuan' => $request->pertemuan,
             'harga' => $request->harga,
         ];
 
-
-        if ($filee = $request->file('file')) {
-            $destinationPath = 'berkasLes'; // upload path
-            $nama_file = date('YmdHis') . "." . $filee->getClientOriginalExtension();
-            $filee->move($destinationPath, $nama_file);
-            $update['file'] = "$nama_file";
-        }
-
         $update['judul'] = $request->get('judul');
-        $update['hari'] = $request->get('hari');
         $update['jam'] = $request->get('jam');
-        $update['sasaran'] = $request->get('sasaran');
         $update['kelas'] = $request->get('kelas');
         $update['deskripsi'] = $request->get('deskripsi');
-        $update['tanggal_mulai'] = $request->get('tanggal_mulai');
-        $update['tanggal_selesai'] = $request->get('tanggal_selesai');
         $update['pertemuan'] = $request->get('pertemuan');
         $update['harga'] = $request->get('harga');
 

@@ -43,7 +43,10 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tambah LES</h4>
+                        <div class="card-header" style="font-size:20px;">
+                            <i class="fas fa-table mr-1"></i>
+                            Tambah Les
+                        </div>
                         <form action="/guru/postTambahLes" method="POST">
                             {{csrf_field()}}
                             <div class="form-group alert-up-pd">
@@ -52,7 +55,7 @@
                                     <textarea name="judul" type="text" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""> Waktu</label>
+                                    <label for=""> Waktu (Misal : 120 Menit / Pertemuan)</label>
                                     <input name="jam" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -60,7 +63,7 @@
                                     <input name="kelas" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for=""> Deskripsi</label>
+                                    <label for=""> Deskripsi (Silabus, Capaian pembelajaran dll)</label>
                                     <textarea name="deskripsi" type="text" class="form-control"> </textarea>
                                 </div>
                                 <div class="form-group">
@@ -68,7 +71,7 @@
                                     <input name="pertemuan" type="number" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for=""> Biaya / Bulan</label>
+                                    <label for=""> Biaya / Bulan (Contoh pengisian : 350000)</label>
                                     <input name="harga" class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -87,7 +90,10 @@
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tabel Subjek Les</h4>
+                        <div class="card-header" style="color: white; font-size:20px; background-color:gray">
+                            <i class="fas fa-table mr-1" style="color: white;"></i>
+                            Data Les
+                        </div>
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
                                 <thead>
@@ -116,7 +122,8 @@
                                         <td>{{$a->pertemuan}}</td>
                                         <td>@currency($a->harga)</td>
                                         <td>
-                                            <a href="/guru/hapusSubjekLes/{{$a->id}}" class="btn btn-danger">Hapus</a>
+                                            <a href="/guru/showDetailLes/{{$a->id_les}}" class="btn btn-info">Detail</a>
+                                            <a href="/guru/hapusLes/{{$a->id_les}}" class="btn btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach

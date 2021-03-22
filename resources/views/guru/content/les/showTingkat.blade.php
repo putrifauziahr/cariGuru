@@ -1,6 +1,6 @@
 @extends('guru/layouts/guru')
 
-@section('title', 'Tingkat Les | Guru | CariGuru.com')
+@section('title', 'Tingkat dan Subjek | CariGuru.com')
 
 @section ('container')
 <div class="page-wrapper">
@@ -12,7 +12,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/dashboard_guru')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Tingkat</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tingkat dan Subjek</li>
                         </ol>
                     </nav>
                 </div>
@@ -44,7 +44,10 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tambah Tingkat</h4>
+                        <div class="card-header" style="font-size:20px;">
+                            <i class="fas fa-table mr-1"></i>
+                            Tambah Tingkat
+                        </div>
                         <form action="/guru/tambahTingkatLes" method="POST">
                             {{csrf_field()}}
                             <div class="form-group alert-up-pd">
@@ -68,7 +71,10 @@
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tabel Tingkat</h4>
+                        <div class="card-header" style="color: white; font-size:20px; background-color:gray">
+                            <i class="fas fa-table mr-1" style="color: white;"></i>
+                            Data Tingkat <p style="font-size: medium;">(Tingkatan yang akan diajar oleh Guru. Misal : Sekolah Dasar )</p>
+                        </div>
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
                                 <thead>
@@ -103,7 +109,10 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tambah Subjek Les</h4>
+                        <div class="card-header" style="font-size:20px;">
+                            <i class="fas fa-table mr-1"></i>
+                            Tambah Subjek
+                        </div>
                         <form action="/guru/tambahSubjekLes" method="POST">
                             {{csrf_field()}}
                             <div class="form-group alert-up-pd">
@@ -127,7 +136,10 @@
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tabel Subjek Les</h4>
+                        <div class="card-header" style="color: white; font-size:20px; background-color:gray">
+                            <i class="fas fa-table mr-1" style="color: white;"></i>
+                            Data Subjek <p style="font-size: medium;">(Subjek yang akan diajarkan oleh Guru. Misal : Matematika )</p>
+                        </div>
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
                                 <thead>
