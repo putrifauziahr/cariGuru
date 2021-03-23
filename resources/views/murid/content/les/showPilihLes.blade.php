@@ -32,32 +32,33 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Pemesan</th>
-                                                <th>Judul Les</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 0; ?>
-                                            @foreach($trans as $a)
-                                            <?php $no++; ?>
-                                            <tr>
-                                                <td>{{$no}}</td>
-                                                <td>{{$a->name}}</td>
-                                                <td>{{$a->judul}}</td>
-                                                <td>
-                                                    <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
-                                                    <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-
+                                    <div class="table-responsive">
+                                        <table class="table user-table no-wrap" border="1" style="border-color: grey;">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Judul Les</th>
+                                                    <th>Total Biaya</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $no = 0; ?>
+                                                @foreach($trans as $a)
+                                                <?php $no++; ?>
+                                                <tr>
+                                                    <td scope="col">{{$no}}</td>
+                                                    <td scope="col">{{$a->judul}}</td>
+                                                    <td>{{$a->total}}</td>
+                                                    <td>
+                                                        <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Bayar</a>
+                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>

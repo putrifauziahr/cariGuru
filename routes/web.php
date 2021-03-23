@@ -81,7 +81,7 @@ Route::get('murid/showPilihLes', 'TransaksiController@showPilihLes')->name('muri
 Route::get('murid/showDetailTempLes/{trans}', 'TransaksiController@showDetailTempLes')->name('murid/showDetailTempLes');
 Route::match(['get', 'post'], 'murid/pilihLes/{les}', 'TransaksiController@pilihLes')->name('murid/pilihLes');
 Route::get('murid/hapusTempLes/{trans}', 'TransaksiController@hapusTempLes')->name('murid/hapusTempLes');
-Route::match(['get', 'post'], 'murid/ubahTempLes/{transs}', 'TransaksiController@ubahTempLes')->name('murid/ubahTempLes');
+Route::match(['get', 'post'], 'murid/ubahTempLes/{trans}', 'TransaksiController@ubahTempLes')->name('murid/ubahTempLes');
 //==========Pembayaran======
 Route::get('murid/showPembayaran', 'TransaksiDetailController@showPembayaran')->name('murid/showPembayaran');
 Route::match(['get', 'post'], 'murid/bayarLes/{transs}', 'TransaksiDetailController@bayarLes')->name('murid/bayarLes');

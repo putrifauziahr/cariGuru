@@ -32,25 +32,26 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <h3>{{$trans->judul}}</h3>
-                                    <h2>@currency($trans->harga) / {{$trans->pertemuan}} Pertemuan</h2>
+                                    @foreach($less as $a)
+                                    <h3>{{$a->judul}}</h3>
+                                    <h2>@currency($a->harga) / {{$a->pertemuan}} Pertemuan</h2>
+                                    @endforeach
+                                    @foreach($guru as $a)
+                                    <h4>Nama Guru : {{$a->name}}</h4>
+                                    @endforeach
                                     <table class="table">
-                                        <form action="/murid/ubahTempLes/{{$transs->id}}" method="POST">
+                                        <form action="/murid/ubahTempLes/{{$trans->id_trans}}" method="POST">
                                             {{csrf_field()}}
-                                            <tr>
-                                                <th scope="col"> Nama Pemesan</th>
-                                                <td scope="col" style="text-align: left;">{{$trans->name}}</td>
-                                            </tr>
 
                                             <tr>
                                                 <th scope="col">===========</th>
                                                 <td scope="col" style="text-align: left;">==================</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Gambaran Anda</p>
+                                                <th scope="col"> Gambaran Tentang Kebutuhan Anda</p>
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <textarea name="" type="text" value="" placeholder="Isi dengan kebutuhan belajarmu, gambarkan tentang kebutuhan kamu saat ini. Agar guru dapat mengerti dan membantu mu" class="form-control">
+                                                    <textarea name="" type="text" id="mytextarea" value="" placeholder="Isi dengan kebutuhan belajarmu, gambarkan tentang kebutuhan kamu saat ini. Agar guru dapat mengerti dan membantu mu" class="form-control">
                                                     </textarea>
                                                 </td>
                                             </tr>
@@ -96,7 +97,7 @@
                                                 <th scope="col"> Alamat Tempat Belajar <p style="color: red;">(* Isi dengan Alamat Tempat Belajar)</p>
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="text" value="{{$trans->alamat}}" placeholder="Isi Alamat Tempat Belajar mu" class="form-control" name="alamat">
+                                                    <input type="text" value="{{$trans->alamat}}" class="form-control" name="alamat">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -117,8 +118,8 @@
                                             </tr>
                                     </table>
                                     <button type="submit" class="btn btn-info">Ubah</button>
-                                    <a href="/murid/bayarLes/{{$trans->id}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
-                                    <a href="{{route ('murid/dashboard_murid')}}" class="btn btn-danger" type="button" style="color: white;">Batal</a>
+                                    <a href="/murid/bayarLes/{{$trans->id_trans}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
+                                    <a href="{{route ('murid/showPilihLes')}}" class="btn btn-danger" type="button" style="color: white;">Batal</a>
                                     </form>
                                 </div>
                             </div>

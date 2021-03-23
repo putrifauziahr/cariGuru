@@ -41,10 +41,11 @@ class TransaksiController extends Controller
 
     public function showDetailTempLes(Transaksi $trans)
     {
-        $less = Les::all();
-        $data = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->first();
-        $transs = DB::table('transaksis')->join('les', 'transaksis.id_les', '=', 'les.id_les')->get();
-        return view('murid/content/les/showPilihLes', compact('transs', 'data', 'less', 'trans'));
+        $id = $trans->id_les;
+        $idguru = $trans->id_guru;
+        $less = Les::where('id_les', '=', $id)->get();
+        $guru = User::where('id', '=', $idguru)->get();
+        return view('murid/content/les/pilihLes', compact('trans', 'less', 'guru'));
     }
 
     public function hapusTempLes(Transaksi $trans)
@@ -53,15 +54,13 @@ class TransaksiController extends Controller
         return back();
     }
 
-    public function ubahTempLes(Request $request, $id)
+    public function ubahTempLes(Request $request, $id_trans)
     {
-        $trans = Transaksi::where('id', $id)->first();
-
         if ($request->isMethod('post')) {
 
             $data = $request->all();
 
-            Transaksi::where(['id' => $id])->update([
+            Transaksi::where(['id_trans' => $id_trans])->update([
                 'alamat' => $data['alamat'],
             ]);
             return back();
