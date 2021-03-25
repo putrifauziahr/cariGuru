@@ -41,13 +41,15 @@ class LesController extends Controller
         $post = new Les;
         $post->judul = $request->judul;
         $post->jam = $request->jam;
-        $post->kelas = $request->kelas;
         $post->deskripsi = $request->deskripsi;
         $post->pertemuan = $request->pertemuan;
         $post->harga = $request->harga;
         Auth::user()->les()->save($post);
-
-        return redirect('guru/showLes')->with('alert', 'Data Les Berhasil ditambah');
+        if ($post) {
+            return redirect('guru/showLes')->with('alert', 'Data Les Berhasil ditambah');
+        } else {
+            return redirect('guru/showLes')->with('alert-danger', 'Data Les Gagal ditambah');
+        }
     }
 
     public function postUpdateLes(Request $request, $id_les)
@@ -55,7 +57,6 @@ class LesController extends Controller
         $request->validate([
             'judul' => 'required',
             'jam' => 'required',
-            'kelas' => 'required',
             'deskripsi' => 'required',
             'pertemuan' => 'required',
             'harga' => 'required',
@@ -64,7 +65,6 @@ class LesController extends Controller
         $update = [
             'judul' => $request->judul,
             'jam' => $request->jam,
-            'kelas' => $request->kelas,
             'deskripsi' => $request->deskripsi,
             'pertemuan' => $request->pertemuan,
             'harga' => $request->harga,
@@ -72,7 +72,6 @@ class LesController extends Controller
 
         $update['judul'] = $request->get('judul');
         $update['jam'] = $request->get('jam');
-        $update['kelas'] = $request->get('kelas');
         $update['deskripsi'] = $request->get('deskripsi');
         $update['pertemuan'] = $request->get('pertemuan');
         $update['harga'] = $request->get('harga');

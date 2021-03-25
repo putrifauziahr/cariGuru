@@ -49,14 +49,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12 mb-0">Sasaran Kelas Murid Les</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ $tampilkan_data->kelas}}">
-                                    @error('kelas')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="col-md-12 mb-0">Jumlah Pertemuan / Bulan</label>
                                 <div class="col-md-12">
                                     <input type="number" class="form-control @error('pertemuan') is-invalid @enderror" name="pertemuan" value="{{ $tampilkan_data->pertemuan}}">

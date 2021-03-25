@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Admin;
 use App\User;
 use App\Les;
 use App\SubjekLes;
@@ -14,12 +15,19 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Helper\Table;
 
 class AdminController extends Controller
 {
     public function dashboard_admin()
     {
         return view('admin/content/dashboard');
+    }
+    //=======================================================//
+    public function showProfil($id_admin)
+    {
+        $admin = DB::table('admins')->where('id_admin', '=', $id_admin)->get();
+        return view('admin/content/showProfil', compact('admin'));
     }
     //========================================================//
     public function showDataGuru()

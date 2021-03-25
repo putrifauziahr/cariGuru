@@ -23,13 +23,12 @@ class MuridLesController extends Controller
         return view('murid/content/dashboard/detailLes', compact('les', 'users'));
     }
 
-    public function showDetailGuru(Les $les)
+    public function showDetailGuru(User $guru)
     {
-        $guru_id = $les->id_guru;
-        $subjek = SubjekLes::where('id_guru', '=', $guru_id)->get();
-        $tingkat = TingkatLes::where('id_guru', '=', $guru_id)->get();
-        $users = User::all();
-        $guru = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->get();
-        return view('murid/content/dashboard/detailGuru', compact('les', 'users', 'guru', 'subjek', 'tingkat'));
+        $id = $guru->id;
+        $subjek = SubjekLes::where('id_guru', $id)->get();
+        $tingkat = TingkatLes::where('id_guru', $id)->get();
+        $les = Les::where('id_guru', $id)->get();
+        return view('murid/content/dashboard/detailGuru', compact('les', 'guru', 'subjek', 'tingkat'));
     }
 }

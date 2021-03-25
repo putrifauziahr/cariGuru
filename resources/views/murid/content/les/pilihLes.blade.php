@@ -51,7 +51,8 @@
                                                 <th scope="col"> Gambaran Tentang Kebutuhan Anda</p>
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <textarea name="" type="text" id="mytextarea" value="" placeholder="Isi dengan kebutuhan belajarmu, gambarkan tentang kebutuhan kamu saat ini. Agar guru dapat mengerti dan membantu mu" class="form-control">
+                                                    <textarea name="kebutuhan" type="text" style="height: 100px;" class="form-control">
+                                                    {{$trans -> kebutuhan}}
                                                     </textarea>
                                                 </td>
                                             </tr>
@@ -61,7 +62,8 @@
                                                     Ajukan tanggal pertemuan pertama
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="date" value="" class="form-control" name="">
+                                                    <input class="form-control" disabled value="{{$trans -> tanggal_mulai}}">
+                                                    <input type="date" class="form-control" name="tanggal_mulai">
                                                 </td>
                                             </tr>
 
@@ -70,16 +72,25 @@
                                                     Ajukan jam pembelajaran
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="text" class="form-control" name="">
+                                                    <input type="text" class="form-control" name="jam" value="{{$trans -> jam}}">
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <th scope="col">
-                                                    Nama Pemesan
+                                                    Nama Murid
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="text" class="form-control" name="">
+                                                    <input type="text" value="{{$trans -> nama}}" class="form-control" name="nama">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="col">
+                                                    Tingkat Pendidikan dan Kelas Murid
+                                                </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <input type="text" class="form-control" name="kelas" value="{{$trans -> kelas}}">
                                                 </td>
                                             </tr>
 
@@ -88,16 +99,22 @@
                                                     Kontak Pemesan
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="text" class="form-control" name="">
+                                                    <input type="text" class="form-control" name="kontak" value="{{$trans -> kontak}}">
                                                 </td>
                                             </tr>
-
 
                                             <tr>
                                                 <th scope="col"> Alamat Tempat Belajar <p style="color: red;">(* Isi dengan Alamat Tempat Belajar)</p>
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
                                                     <input type="text" value="{{$trans->alamat}}" class="form-control" name="alamat">
+                                                </td>
+                                            </tr>
+                                            <tr hidden>
+                                                <th scope="col"> Status
+                                                </th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <input type="text" value="Menunggu Konfirmasi" class="form-control" name="status">
                                                 </td>
                                             </tr>
                                             <tr>

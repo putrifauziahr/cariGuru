@@ -24,6 +24,7 @@ class LoginAdminController extends Controller
         if ($data) { //apakah email tersebut ada atau tidak
             if (Hash::check($password, $data->password)) {
                 Session::put('nama', $data->name);
+                Session::put('id_admin', $data->id_admin);
                 Session::put('email', $data->email);
                 Session::put('login', TRUE);
                 return redirect('dashboard_admin');

@@ -25,7 +25,7 @@
                                 <div class="productinfo text-center">
                                     <center class="m-t-30">
                                         <a href="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" data-fancybox="gal">
-                                            <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-fluid" style="height: 250px; width:350px">
+                                            <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
                                         </a>
                                         <form action="/murid/updateFotoProfil" method="POST" enctype="multipart/form-data">
                                             {{csrf_field()}}

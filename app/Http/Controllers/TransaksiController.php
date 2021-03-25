@@ -61,7 +61,10 @@ class TransaksiController extends Controller
             $data = $request->all();
 
             Transaksi::where(['id_trans' => $id_trans])->update([
-                'alamat' => $data['alamat'],
+                'kebutuhan' => $data['kebutuhan'], 'tanggal_mulai' => $data['tanggal_mulai'],  'jam' => $data['jam'],
+                'nama' => $data['nama'], 'kelas' => $data['kelas'],
+                'kontak' => $data['kontak'], 'alamat' => $data['alamat'],
+                'status' => $data['status'],
             ]);
             return back();
         }

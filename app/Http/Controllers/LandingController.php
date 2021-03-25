@@ -18,8 +18,9 @@ class LandingController extends Controller
 {
     public function index()
     {
+
+        $guru = User::where('role', '=', 'guru')->get();
         $les = Les::all();
-        $users = User::all();
-        return view('landing/content/index', compact('les', 'users'));
+        return view('landing/content/index', compact('guru'));
     }
 }

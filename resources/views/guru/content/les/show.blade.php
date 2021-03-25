@@ -51,37 +51,53 @@
                             {{csrf_field()}}
                             <div class="form-group alert-up-pd">
                                 <div class="form-group">
-                                    <label for=""> Judul Les</label>
-                                    <textarea name="judul" type="text" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for=""> Waktu (Misal : 120 Menit / Pertemuan)</label>
-                                    <input name="jam" type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for=""> Kelas Murid</label>
-                                    <input name="kelas" type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for=""> Deskripsi (Silabus, Capaian pembelajaran dll)</label>
-                                    <textarea name="deskripsi" type="text" class="form-control"> </textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for=""> Jumlah Pertemuan / Bulan</label>
-                                    <input name="pertemuan" type="number" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for=""> Biaya / Bulan (Contoh pengisian : 350000)</label>
-                                    <input name="harga" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12 d-flex">
-                                        <button class="btn btn-success mx-auto mx-md-0 text-white">
-                                            Tambah
-                                        </button>
+                                    <label class="col-md-12 mb-0">Judul</label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul">
+                                        @error('judul')<div class="invalid-feedback">{{$message}}</div> @enderror
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Waktu Les</label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control @error('jam') is-invalid @enderror" name="jam">
+                                        @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Deskripsi Les</label>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" name="deskripsi"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Jumlah Pertemuan / Bulan</label>
+                                    <div class="col-md-12">
+                                        <input type="number" class="form-control @error('pertemuan') is-invalid @enderror" name="pertemuan">
+                                        @error('pertemuan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Biaya</label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control @error('harga') is-invalid @enderror" name="harga">
+                                        @error('harga')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                    </div>
+                                </div>
+
+
                             </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success mx-auto mx-md-0 text-white">Tambah</button>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>
@@ -101,7 +117,6 @@
                                         <th class="border-top-0">No</th>
                                         <th class="border-top-0">Judul</th>
                                         <th class="border-top-0">Waktu</th>
-                                        <th class="border-top-0">Kelas</th>
                                         <th class="border-top-0">Deskripsi</th>
                                         <th class="border-top-0">Pertemuan / Bulan</th>
                                         <th class="border-top-0">Biaya / Bulan</th>
@@ -117,7 +132,6 @@
                                         <td>{{$no}}</td>
                                         <td>{{$a->judul}}</td>
                                         <td>{{$a->jam}}</td>
-                                        <td>{{$a->kelas}}</td>
                                         <td>{{$a->deskripsi}}</td>
                                         <td>{{$a->pertemuan}}</td>
                                         <td>@currency($a->harga)</td>

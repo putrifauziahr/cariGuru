@@ -131,7 +131,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('dashboard_admin')}}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/showProfil/{{$id_admin}}" aria-expanded="false">
                                 <i class="mr-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Profile Admin</span></a>
                         </li>
 

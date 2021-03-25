@@ -53,7 +53,8 @@
                             <div class="form-group alert-up-pd">
                                 <div class="form-group">
                                     <label for="">Tingkat</label>
-                                    <input name="tingkat" type="text" class="form-control">
+                                    <input name="tingkat" type="text" class="form-control @error('tingkat') is-invalid @enderror">
+                                    @error('tingkat')<div class="invalid-feedback">{{$message}}</div> @enderror
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12 d-flex">
@@ -118,7 +119,8 @@
                             <div class="form-group alert-up-pd">
                                 <div class="form-group">
                                     <label for=""> Subjek Les</label>
-                                    <input name="subjek" type="text" class="form-control">
+                                    <input name="subjek" type="text" class="form-control @error('subjek') is-invalid @enderror">
+                                    @error('harga')<div class="invalid-feedback">{{$message}}</div> @enderror
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12 d-flex">

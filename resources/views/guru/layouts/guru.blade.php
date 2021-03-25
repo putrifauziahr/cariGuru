@@ -135,12 +135,12 @@
                                 <i class="mr-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Profile</span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showTingkatLes')}}" aria-expanded="false">
-                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu"> Data Subjek dan Tingkat</span></a>
-                        </li>
-                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showLes')}}" aria-expanded="false">
                                 <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Les</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showTingkatLes')}}" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu"> Data Subjek & Tingkat</span></a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showDataTrans')}}" aria-expanded="false">

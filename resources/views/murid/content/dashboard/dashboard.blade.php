@@ -76,25 +76,22 @@
                     <!--features_items-->
                     <h2 class="title text-center"><strong style="font-size: 25px;">CARI GURU</strong></h2>
 
-                    @foreach($les as $l)
+                    @foreach($guru as $l)
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{ url('/fotoProfil/'. $l->users->image) }}" width="300" />
-                                    <h3>{{$l -> users-> name}}</h3>
+                                    <img src="{{ url('/fotoProfil/'. $l->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                                    <h3>{{$l ->name}}</h3>
                                     <p>Guru</p>
-                                    <h2>{{$l -> judul}} </h2>
-                                    <h5>{{$l->users->alamat}} </h5>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Checkout</a>
+                                    <h5>{{$l->alamat}} </h5>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Reservasi</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
-                                        <h3 style="color: white;">{{$l -> judul}}</h3>
-                                        <h2>@currency($l -> harga) / Bulan</h2>
-                                        <a href="/murid/showDetailGuru/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Profil Guru</a>
-                                        <a href="/murid/showDetailLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Detail Les</a>
-                                        <a href="/murid/pilihLes/{{$l->id_les}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Reservasi</a>
+                                        <h3 style="color: white;">{{$l -> name}}</h3>
+                                        <h2>{{$l -> alamat}}</h2>
+                                        <a href="/murid/showDetailGuru/{{$l->id}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Profil Guru</a>
                                     </div>
                                 </div>
                             </div>

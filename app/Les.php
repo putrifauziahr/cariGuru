@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Les extends Model
 {
-    protected $fillable = ['id_guru', 'judul', 'jam', 'kelas', 'deskripsi', 'pertemuan', 'harga'];
+    protected $fillable = ['id_guru', 'judul', 'jam', 'deskripsi', 'pertemuan', 'harga'];
     protected $table = "les";
     protected $primaryKey = "id_les";
 

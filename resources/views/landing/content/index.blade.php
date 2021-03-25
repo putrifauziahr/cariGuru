@@ -1,4 +1,4 @@
-@extends('landing/layouts/landing')
+@extends('murid/layouts/murid')
 
 @section('title', 'CariGuru.com')
 
@@ -76,25 +76,22 @@
                     <!--features_items-->
                     <h2 class="title text-center"><strong style="font-size: 25px;">CARI GURU</strong></h2>
 
-                    @foreach($les as $l)
+                    @foreach($guru as $l)
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{ url('/berkasLes/'. $l->file) }}" width="300" />
-                                    <h2>{{$l -> harga}}</h2>
-                                    <h3>{{$l -> judul}}</h3>
-                                    <p>Guru : {{$l ->users-> name}}</p>
-                                    <p>Kontak : {{$l->users->kontak}}</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Checkout</a>
+                                    <img src="{{ url('/fotoProfil/'. $l->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                                    <h3>{{$l ->name}}</h3>
+                                    <p>Guru</p>
+                                    <h5>{{$l->alamat}} </h5>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Reservasi</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
-                                        <h2>{{$l -> harga}}</h2>
-                                        <h3 style="color: white;">{{$l -> judul}}</h3>
+                                        <h3 style="color: white;">{{$l -> name}}</h3>
+                                        <h2>{{$l -> alamat}}</h2>
                                         <a href="{{route('login')}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Profil Guru</a>
-                                        <a href="{{route('login')}}" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Detail Les</a>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Checkout</a>
                                     </div>
                                 </div>
                             </div>

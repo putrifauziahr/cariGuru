@@ -20,6 +20,8 @@ Route::get('login/admin', 'LoginAdminController@login')->name('login/admin');
 Route::post('loginAdminPost', 'LoginAdminController@loginPost')->name('loginAdminPost');
 Route::get('register/admin', 'LoginAdminController@register')->name('register/admin');
 Route::post('registerAdminPost', 'LoginAdminController@registerPost')->name('registerAdminPost');
+//================================Profil admin============
+Route::get('admin/showProfil/{id_admin}', 'AdminController@showProfil')->name('admin/showProfil');
 //======================data guru=============
 Route::get('admin/showDataGuru', 'AdminController@showDataGuru')->name('admin/showDataGuru');
 Route::get('admin/showDetailGuru/{guru}', 'AdminController@showDetailGuru')->name('admin/showDetailGuru');
@@ -75,7 +77,7 @@ Route::match(['get', 'post'], 'murid/updateProfil', 'MuridController@updateProfi
 Route::match(['get', 'post'], 'murid/updateFotoProfil', 'MuridController@updateFotoProfil')->name('murid/updateFotoProfil');
 //=================les=======================
 Route::get('murid/showDetailLes/{les}', 'MuridLesController@showDetailLes')->name('murid/showDetailLes');
-Route::get('murid/showDetailGuru/{les}', 'MuridLesController@showDetailGuru')->name('murid/showDetailGuru');
+Route::get('murid/showDetailGuru/{guru}', 'MuridLesController@showDetailGuru')->name('murid/showDetailGuru');
 //=====================Transaksi===========
 Route::get('murid/showPilihLes', 'TransaksiController@showPilihLes')->name('murid/showPilihLes');
 Route::get('murid/showDetailTempLes/{trans}', 'TransaksiController@showDetailTempLes')->name('murid/showDetailTempLes');

@@ -12,7 +12,7 @@
             <div class="col-sm-12 padding-right">
                 <div class="features_items">
                     <!--features_items-->
-                    <h2 class="title text-center"><strong style="font-size: 25px;">PROFIL GURU</strong></h2>
+                    <h2 class="title text-center"><strong style="font-size: 25px;">GURU LES PRIVAT</strong></h2>
                 </div>
             </div>
         </div>
@@ -22,8 +22,8 @@
                     <div class="card">
                         <div class="productinfo text-center">
                             <center class="m-t-30">
-                                <a href="{{ url('/fotoProfil/'. $les->users->image)}}" data-fancybox="gal">
-                                    <img src="{{ url('/fotoProfil/'. $les->users->image)}}" alt="Image" class="img-fluid" style="height: 250px; width:300px">
+                                <a href="{{ url('/fotoProfil/'. $guru->image)}}" data-fancybox="gal">
+                                    <img src="{{ url('/fotoProfil/'. $guru->image)}}" alt="Image" class="img-circle" style="height: 250px; width:250px">
                                 </a>
                             </center>
                         </div>
@@ -52,21 +52,12 @@
 
                             <div class="card" style="width: 35rem;">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" style="font-size: large; font-weight:bold">
-                                        Subjek yang diajarkan </li>
-                                    @foreach($subjek as $s)
-                                    <li class="list-group-item">{{$s->subjek}}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-
-                            <div class="card" style="width: 35rem;">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" style="font-size: large; font-weight:bold">
-                                        Tingkat</li>
-                                    @foreach($tingkat as $t)
-                                    <li class="list-group-item">{{$t->tingkat}}</li>
-                                    @endforeach
+                                    <li class="list-group-item" style="font-size: large; font-weight:bold">Kontak Guru</li>
+                                    <li class="list-group-item">Email : {{$guru->email}}</li>
+                                    <li class="list-group-item">Kontak : {{$guru->kontak}}</li>
+                                    <li class="list-group-item">Alamat : {{$guru->alamat}}</li>
+                                    <li class="list-group-item">Pekerjaan : {{$guru->pekerjaan}}</li>
+                                    <li class="list-group-item">Keahlian : {{$guru->keahlian}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -79,57 +70,78 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <h3>{{$les -> users -> name}}</h3>
-                                        <table class="table">
+                                        @foreach($les as $les)
+                                        <h3>{{$les-> judul}}</h3>
+                                        <h4>Guru : {{$guru->name}}</h4>
+                                        <table class="table user-table no-wrap">
                                             <tr>
-                                                <th scope="col"> Nama Lengkap </th>
-                                                <td scope="col" style="text-align: left;">{{$les ->users-> name}}</td>
+                                                <th scope="col"> Judul Les </th>
+                                                <td scope="col" style="text-align: left;">{{$les -> judul}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Kontak </th>
-                                                <td scope="col" style="text-align: left;">{{$les ->users-> kontak}}</td>
+                                                <th scope="col"> Waktu Les </th>
+                                                <td scope="col" style="text-align: left;">{{$les -> jam}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Email </th>
-                                                <td scope="col" style="text-align: left;">{{$les ->users-> email}}</td>
+                                                <th class="border-top-0"> Subjek yang diajarkan</th>
+                                                @foreach($subjek as $s)
+                                                <td class="border-top-0" style="text-align: left;">{{$s-> subjek}}</td>
+                                            <tr class="border-top-0"></tr>
+                                            <td class="border-top-0"></td>
+                                            @endforeach
+                                            </tr>
+
+                                            <tr>
+                                                <th class="border-top-0">Tingkat yang diajar</th>
+                                                @foreach($tingkat as $t)
+                                                <td class="border-top-0" style="text-align: left;">{{$t->tingkat}}</td>
+                                            <tr class="border-top-0"></tr>
+                                            <td class="border-top-0"></td>
+                                            @endforeach
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="col"> Jumlah Pertemuan</th>
+                                                <td scope="col" style="text-align: left;">{{$les -> pertemuan}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Alamat </th>
-                                                <td scope="col" style="text-align: left;">{{$les ->users-> alamat}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col"> Pekerjaan </th>
-                                                <td scope="col" style="text-align: left;">{{$les ->users-> pekerjaan}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col"> Keahlian</th>
-                                                <td scope="col" style="text-align: left;">{{$les ->users-> keahlian}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col"> Pengalaman</th>
-                                                <td scope="col" style="text-align: left;">
-                                                    <textarea cols="10" rows="5">{{$les ->users-> pengalaman}}</textarea>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col"> Riwayat Hidup</th>
-                                                <td scope="col" style="text-align: left;">
-                                                    <textarea cols="10" rows="5" class="form-group">{{$les ->users-> sekolah}}
-                                                    </textarea>
-                                                </td>
+                                                <th scope="col"> Biaya Les </th>
+                                                <td scope="col" style="text-align: left;">@currency($les-> harga) / {{$les->pertemuan}} Pertemuan</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col"> Deskripsi Les</th>
                                                 <td scope="col" style="text-align: left;">
+                                                    <textarea name="" id="" cols="10" rows="5">{{$les -> deskripsi}}</textarea>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="col"> Metode Mengajar</th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea cols="10" rows="5">{{$guru->pengalaman}}</textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Pengalaman dan Riwayat Hidup</th>
+                                                <td scope="col" style="text-align: left;">
+                                                    <textarea cols="10" rows="5" class="form-group">{{$guru -> sekolah}}
+                                                    </textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"> Deskripsi Diri</th>
+                                                <td scope="col" style="text-align: left;">
                                                     <textarea cols="10" rows="5" class="form-group">
-                                                    {{$les ->users-> deskripsi}}
+                                                    {{$guru->deskripsi}}
 
                                                     </textarea>
                                                 </td>
                                             </tr>
-
                                         </table>
+                                        <a href="/murid/pilihLes/{{$les->id_les}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Reservasi</a>
                                         <a href="{{route('murid/dashboard_murid')}}" class="btn btn-danger" type="button" style="color: white;">Back</a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
