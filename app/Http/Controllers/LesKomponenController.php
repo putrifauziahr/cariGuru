@@ -29,6 +29,15 @@ class LesKomponenController extends Controller
 
     public function tambahSubjekLes(Request $request)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+        $this->validate($request, [
+            'subjek' => 'required'
+        ], $messages);
+
         $post = new SubjekLes();
         $post->subjek = $request->subjek;
         Auth::user()->subjekles()->save($post);
@@ -52,6 +61,15 @@ class LesKomponenController extends Controller
 
     public function tambahTingkatLes(Request $request)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+        $this->validate($request, [
+            'tingkat' => 'required'
+        ], $messages);
+
 
         $post = new TingkatLes();
         $post->tingkat = $request->tingkat;

@@ -38,7 +38,6 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Riwayat Transaksi</h4>
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
                                 <thead>

@@ -67,8 +67,8 @@
                                         <td>{{$no}}</td>
                                         <td>{{$r->nama}}</td>
                                         <td>{{$r->tanggal_mulai}}</td>
-                                        <td>{{$r->jam}}</td>
-                                        <td>{{$r->alamat}}</td>
+                                        <td>{{$r->waktu}}</td>
+                                        <td>{{$r->alamat_belajar}}</td>
                                         <td>{{$r->status}}</td>
                                         <td>
                                             <a href="/guru/detailReservasi/{{$r->id_trans}}" class="btn btn-danger">Ubah</a>

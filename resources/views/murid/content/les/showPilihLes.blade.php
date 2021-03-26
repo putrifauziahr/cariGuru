@@ -24,6 +24,7 @@
                                 <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 100px; width:100px">
                                 <h4>{{Auth::user()->name}}</h4>
                                 <p>Pemesan</p>
+                            </a>
                         </center>
                     </div>
                 </div>
@@ -68,7 +69,7 @@
                                                     @elseif ($a->status == "Diterima")
                                                     <td scope="col" style="text-align: left;">
                                                         <a href="/murid/bayarLes/{{$a->id_trans}}" class="btn btn-success"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
-                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
+                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Batalkan Reservasi</a>
                                                     </td>
                                                     @elseif ($a->status == "Ditolak")
                                                     <td scope="col" style="text-align: left;">

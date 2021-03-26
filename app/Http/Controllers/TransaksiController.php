@@ -66,15 +66,33 @@ class TransaksiController extends Controller
 
     public function ubahTempLes(Request $request, $id_trans)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+        $this->validate($request, [
+            'kebutuhan' => 'required',
+            'tanggal_mulai' => 'required',
+            'nama' => 'required',
+            'kelas' => 'required',
+            'waktu' => 'required',
+            'alamat_belajar' => 'required',
+
+        ], $messages);
+
         if ($request->isMethod('post')) {
 
             $data = $request->all();
 
             Transaksi::where(['id_trans' => $id_trans])->update([
-                'kebutuhan' => $data['kebutuhan'], 'tanggal_mulai' => $data['tanggal_mulai'],  'jam' => $data['jam'],
-                'nama' => $data['nama'], 'kelas' => $data['kelas'],
-                'kontak' => $data['kontak'], 'alamat' => $data['alamat'],
-                'status' => $data['status'],
+                'kebutuhan' => $data['kebutuhan'],
+                'tanggal_mulai' => $data['tanggal_mulai'],
+                'waktu' => $data['waktu'],
+                'nama' => $data['nama'],
+                'kelas' => $data['kelas'],
+                'alamat_belajar' => $data['alamat_belajar'],
+                'status' => "Menunggu Konfirmasi Guru"
             ]);
             return redirect('murid/showPilihLes');
         }

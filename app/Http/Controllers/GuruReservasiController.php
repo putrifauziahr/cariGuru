@@ -17,7 +17,10 @@ class GuruReservasiController extends Controller
     public function showReservasi()
     {
         $id_user = Auth::user()->id;
-        $reserv = Transaksi::where('id_guru', '=', $id_user)->get();
+        $reserv = DB::table('transaksis')
+            ->join('les', 'transaksis.id_les', '=', 'les.id_les')
+            ->join('users', 'transaksis.id_murid', '=', 'users.id')
+            ->where('transaksis.id_guru', '=', $id_user)->get();
         return view('guru/content/reservasi/showReservasi', compact('reserv'));
     }
 

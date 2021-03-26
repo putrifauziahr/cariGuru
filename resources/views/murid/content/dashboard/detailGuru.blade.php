@@ -80,8 +80,9 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         @foreach($les as $les)
+                                        <h3>{{$guru->name}}</h3>
                                         <h3>{{$les-> judul}}</h3>
-                                        <h4>Guru : {{$guru->name}}</h4>
+                                        <H2>@currency($les->harga) / {{$les->pertemuan}} Pertemuan</H2>
                                         <table class="table user-table no-wrap">
                                             <tr>
                                                 <th scope="col"> Judul Les </th>

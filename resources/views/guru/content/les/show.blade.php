@@ -69,7 +69,8 @@
                                 <div class="form-group">
                                     <label class="col-md-12 mb-0">Deskripsi Les</label>
                                     <div class="col-md-12">
-                                        <textarea class="form-control" cols="10" rows="5" name="deskripsi"></textarea>
+                                        <textarea class="form-control @error('deskripsi') is-invalid @enderror" cols="10" rows="5" name="deskripsi"></textarea>
+                                        @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
                                     </div>
                                 </div>
 

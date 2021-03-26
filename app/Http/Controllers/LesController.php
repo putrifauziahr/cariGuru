@@ -38,6 +38,20 @@ class LesController extends Controller
 
     public function postTambahLes(Request $request)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+        $this->validate($request, [
+            'judul' => 'required|min:5|max:255',
+            'jam' => 'required',
+            'deskripsi' => 'required',
+            'pertemuan' => 'required|numeric',
+            'harga' => 'required',
+        ], $messages);
+
+
         $post = new Les;
         $post->judul = $request->judul;
         $post->jam = $request->jam;

@@ -120,7 +120,7 @@
                                 <div class="form-group">
                                     <label for=""> Subjek Les</label>
                                     <input name="subjek" type="text" class="form-control @error('subjek') is-invalid @enderror">
-                                    @error('harga')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                    @error('subjek')<div class="invalid-feedback">{{$message}}</div> @enderror
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12 d-flex">

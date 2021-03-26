@@ -41,6 +41,13 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="col-md-12 mb-0">Kontak</label>
+                                <div class="col-md-12">
+                                    <input disabled type="text" class="form-control" value="{{ $reserv->kontak}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="col-md-12 mb-0">Kelas</label>
                                 <div class="col-md-12">
                                     <input disabled type="text" class="form-control" value="{{ $reserv->kelas}}">
@@ -58,7 +65,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Alamat Tempat Belajar</label>
                                 <div class="col-md-12">
-                                    <input disabled type="text" class="form-control" value="{{ $reserv->alamat}}">
+                                    <input disabled type="text" class="form-control" value="{{ $reserv->alamat_belajar}}">
                                 </div>
                             </div>
 
@@ -72,7 +79,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Jam Belajar yang diajukan</label>
                                 <div class="col-md-12">
-                                    <input disabled class="form-control" value="{{ $reserv->jam }}"></input>
+                                    <input disabled class="form-control" value="{{ $reserv->waktu}}"></input>
                                 </div>
                             </div>
 
