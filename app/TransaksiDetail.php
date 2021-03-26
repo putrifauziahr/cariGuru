@@ -6,14 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransaksiDetail extends Model
 {
-    protected $fillable = ['id_trans', 'id_murid', 'id_guru'];
+    protected $fillable = ['id_trans'];
     protected $table = "transaksidetails";
     protected $primaryKey = "id_detail";
-
-    public function users()
-    {
-        return $this->belongsTo('\App\User', 'id_murid');
-    }
 
     public function transaksis()
     {

@@ -59,7 +59,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Waktu Les</label>
+                                    <label class="col-md-12 mb-0">Waktu Les (Misal : 120 menit/pertemuan)</label>
                                     <div class="col-md-12">
                                         <input type="text" class="form-control @error('jam') is-invalid @enderror" name="jam">
                                         @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
@@ -69,7 +69,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12 mb-0">Deskripsi Les</label>
                                     <div class="col-md-12">
-                                        <textarea class="form-control" name="deskripsi"></textarea>
+                                        <textarea class="form-control" cols="10" rows="5" name="deskripsi"></textarea>
                                     </div>
                                 </div>
 

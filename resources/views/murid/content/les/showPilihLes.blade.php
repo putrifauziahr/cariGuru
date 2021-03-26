@@ -20,7 +20,10 @@
                 <div class="card">
                     <div class="productinfo text-center">
                         <center class="m-t-30">
-
+                            <a href="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" data-fancybox="gal">
+                                <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 100px; width:100px">
+                                <h4>{{Auth::user()->name}}</h4>
+                                <p>Pemesan</p>
                         </center>
                     </div>
                 </div>
@@ -33,13 +36,14 @@
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <div class="table-responsive">
-                                        <table class="table user-table no-wrap" border="1" style="border-color: grey;">
+                                        <table class="table user-table no-wrap" style="border-color: grey;">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">No</th>
                                                     <th scope="col">Judul Les</th>
-                                                    <th>Total Biaya</th>
-                                                    <th>Aksi</th>
+                                                    <th scope="col">Total Biaya</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -47,13 +51,31 @@
                                                 @foreach($trans as $a)
                                                 <?php $no++; ?>
                                                 <tr>
-                                                    <td scope="col">{{$no}}</td>
-                                                    <td scope="col">{{$a->judul}}</td>
-                                                    <td>{{$a->total}}</td>
-                                                    <td>
-                                                        <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Bayar</a>
+                                                    <td scope="col" style="text-align: left;">{{$no}}</td>
+                                                    <td scope="col" style="text-align: left;">{{$a->judul}}</td>
+                                                    <td scope="col" style="text-align: left;">{{$a->total}}</td>
+                                                    <td scope="col" style="text-align: left;">{{$a->status}}</td>
+                                                    @if ($a->status == "Belum diajukan")
+                                                    <td scope="col" style="text-align: left;">
+                                                        <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
                                                         <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
                                                     </td>
+                                                    @elseif ($a->status == "Menunggu Konfirmasi Guru")
+                                                    <td scope="col" style="text-align: left;">
+                                                        <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
+                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
+                                                    </td>
+                                                    @elseif ($a->status == "Diterima")
+                                                    <td scope="col" style="text-align: left;">
+                                                        <a href="/murid/bayarLes/{{$a->id_trans}}" class="btn btn-success"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
+                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
+                                                    </td>
+                                                    @elseif ($a->status == "Ditolak")
+                                                    <td scope="col" style="text-align: left;">
+                                                        <a href="/murid/showDetailLesLagi/{{$a->id_trans}}" class="btn btn-info">Detail</a>
+                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
+                                                    </td>
+                                                    @endif
                                                 </tr>
                                                 @endforeach
                                             </tbody>

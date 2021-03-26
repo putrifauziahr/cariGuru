@@ -17,33 +17,37 @@ class TransaksiDetailController extends Controller
 {
     public function showPembayaran()
     {
-        $tampil_bayar = Auth::user()->transaksidetails()->paginate(10);
-        // $tampil = DB::table('transaksidetails')->join('users', 'transaksidetails.id_murid', '=', 'users.id')->get();
-        return view('murid/content/bayar/show', compact('tampil_bayar'));
+        $user_id = Auth::user()->id;
+        $detail = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
+            ->where('transaksis.id_murid', '=', $user_id)
+            ->get();
+        return view('murid/content/bayar/show', compact('detail'));
     }
-    public function bayarLes(Request $request, $id)
+    public function bayarLes(Request $request, $id_trans)
     {
-        $transs = Transaksi::where('id', $id)->get();
         $transDet = new TransaksiDetail;
-        $transDet->id_trans = $id;
-        $transDet->id_murid = Auth::user()->id;
-        $transDet->id_guru = $transs->id_guru;
+        $transDet->id_trans = $id_trans;
+        $transDet->status_detail = "Belum Melakukan Pembayaran";
         $transDet->save();
 
         return redirect('murid/showPembayaran');
     }
 
-    public function showDataTrans()
+    public function showDetailBayar(TransaksiDetail $detail)
     {
-        $les = Les::all();
-        $users = User::all();
-        $user_id = Auth::user()->id;
-        $data = DB::table('transaksidetails')
-            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
-            ->join('users', 'transaksidetails.id_murid', '=', 'users.id')
-            ->where('transaksidetails.id_murid', '=', $user_id)
+        $id_det = $detail->id_trans;
+        $detaill = DB::table('transaksis')
+            ->join('les', 'transaksis.id_les', '=', 'les.id_les')
+            ->where('id_trans', '=', $id_det)
             ->get();
 
-        return view('murid/content/dashboard/showDataTrans', compact('les', 'users', 'trans', 'data'));
+        return view('murid/content/bayar/showDetail', compact('detaill'));
+    }
+
+    public function hapusDetailTrans(TransaksiDetail $detail)
+    {
+        TransaksiDetail::destroy($detail->id_detail);
+        return back();
     }
 }

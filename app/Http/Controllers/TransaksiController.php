@@ -23,6 +23,7 @@ class TransaksiController extends Controller
         $trans->harga = $les->harga;
         $trans->adm = 3000;
         $trans->total = $les->harga + $trans->adm;
+        $trans->status = "Belum diajukan";
         $trans->save();
 
         return redirect('/murid/showPilihLes');
@@ -48,6 +49,15 @@ class TransaksiController extends Controller
         return view('murid/content/les/pilihLes', compact('trans', 'less', 'guru'));
     }
 
+    public function showDetailLesLagi(Transaksi $trans)
+    {
+        $id = $trans->id_les;
+        $idguru = $trans->id_guru;
+        $less = Les::where('id_les', '=', $id)->get();
+        $guru = User::where('id', '=', $idguru)->get();
+        return view('murid/content/les/pilihLes2', compact('trans', 'less', 'guru'));
+    }
+
     public function hapusTempLes(Transaksi $trans)
     {
         Transaksi::destroy($trans->id_trans);
@@ -66,7 +76,7 @@ class TransaksiController extends Controller
                 'kontak' => $data['kontak'], 'alamat' => $data['alamat'],
                 'status' => $data['status'],
             ]);
-            return back();
+            return redirect('murid/showPilihLes');
         }
     }
 }

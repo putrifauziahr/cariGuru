@@ -44,26 +44,24 @@
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">No</th>
-                                        <th class="border-top-0">ID DETAIL TRANSAKSI</th>
-                                        <th class="border-top-0">ID TRANSAKSI</th>
-                                        <th class="border-top-0">ID USER</th>
-                                        <th class="border-top-0">ID GURU</th>
+                                        <th class="border-top-0">Nama Pemesan</th>
+                                        <th class="border-top-0">Total Pembayaran</th>
+                                        <th class="border-top-0">Status</th>
                                         <th class="border-top-0">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($tampil_bayar as $a )
+                                    @foreach($detail as $a )
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$a->id_detail}}</td>
-                                        <td>{{$a->id_trans}}</td>
-                                        <td>{{$a->id_murid}}</td>
-                                        <td>{{$a->id_guru}}</td>
+                                        <td>{{Auth::user()->name}}</td>
+                                        <td>@currency($a->total)</td>
+                                        <td>{{$a->status_detail}}</td>
                                         <td>
-                                            <button class="btn btn-success"><a href="" style="color: white;">Konfirmasi Pembayaran</a></button>
-                                            <button class="btn btn-danger"><a href="" style="color: white;">Batal Transaksi</a></button>
+                                            <button class="btn btn-success"><a href="/murid/showDetailBayar/{{$a->id_detail}}" style="color: white;">Detail</a></button>
+                                            <button class="btn btn-danger"><a href="/murid/hapusDetailTrans/{{$a->id_detail}}" style="color: white;">Batal Transaksi</a></button>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -60,6 +60,15 @@
                                     <li class="list-group-item">Keahlian : {{$guru->keahlian}}</li>
                                 </ul>
                             </div>
+
+                            <div class="card" style="width: 35rem;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="font-size: large; font-weight:bold">Sertifikat Keahlian / Piagam Perlombaan</li>
+                                    <li class="list-group-item">
+                                        <embed width="300px" type="application/pdf" src="{{ url('/berkasBiodata/'. $guru->file) }}" />
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

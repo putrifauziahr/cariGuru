@@ -66,6 +66,11 @@ Route::get('guru/hapusSubjekLes/{subjek}', 'LesKomponenController@hapusSubjekLes
 Route::get('guru/showTingkatLes', 'LesKomponenController@showTingkatLes')->name('guru/showTingkatLes');
 Route::post('guru/tambahTingkatLes', 'LesKomponenController@tambahTingkatLes')->name('guru/tambahTingkatLes');
 Route::get('guru/hapusTingkatLes/{tingkat}', 'LesKomponenController@hapusTingkatLes')->name('guru/hapusTingkatLes');
+//=======================================================
+Route::get('guru/showReservasi', 'GuruReservasiController@showReservasi')->name('guru/showReservasi');
+Route::get('guru/detailReservasi/{reserv}', 'GuruReservasiController@detailReservasi')->name('guru/detailReservasi');
+Route::match(['get', 'post'], 'guru/postUpdateReservasi/{id_trans}', 'GuruReservasiController@postUpdateReservasi')->name('guru/postUpdateReservasi');
+
 
 
 
@@ -80,14 +85,17 @@ Route::get('murid/showDetailLes/{les}', 'MuridLesController@showDetailLes')->nam
 Route::get('murid/showDetailGuru/{guru}', 'MuridLesController@showDetailGuru')->name('murid/showDetailGuru');
 //=====================Transaksi===========
 Route::get('murid/showPilihLes', 'TransaksiController@showPilihLes')->name('murid/showPilihLes');
+Route::get('murid/showDetailLesLagi/{trans}', 'TransaksiController@showDetailLesLagi')->name('murid/showDetailLesLagi');
 Route::get('murid/showDetailTempLes/{trans}', 'TransaksiController@showDetailTempLes')->name('murid/showDetailTempLes');
 Route::match(['get', 'post'], 'murid/pilihLes/{les}', 'TransaksiController@pilihLes')->name('murid/pilihLes');
 Route::get('murid/hapusTempLes/{trans}', 'TransaksiController@hapusTempLes')->name('murid/hapusTempLes');
 Route::match(['get', 'post'], 'murid/ubahTempLes/{trans}', 'TransaksiController@ubahTempLes')->name('murid/ubahTempLes');
 //==========Pembayaran======
 Route::get('murid/showPembayaran', 'TransaksiDetailController@showPembayaran')->name('murid/showPembayaran');
+Route::get('murid/showDetailBayar/{detail}', 'TransaksiDetailController@showDetailBayar')->name('murid/showDetailBayar');
 Route::match(['get', 'post'], 'murid/bayarLes/{transs}', 'TransaksiDetailController@bayarLes')->name('murid/bayarLes');
 Route::get('murid/showDataTrans', 'TransaksiDetailController@showDataTrans')->name('murid/showDataTrans');
+Route::get('murid/hapusDetailTrans/{detail}', 'TransaksiDetailController@hapusDetailTrans')->name('murid/hapusDetailTrans');
 
 
 

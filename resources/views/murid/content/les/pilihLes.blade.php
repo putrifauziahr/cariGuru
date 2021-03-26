@@ -20,7 +20,6 @@
                 <div class="card">
                     <div class="productinfo text-center">
                         <center class="m-t-30">
-
                         </center>
                     </div>
                 </div>
@@ -35,6 +34,7 @@
                                     @foreach($less as $a)
                                     <h3>{{$a->judul}}</h3>
                                     <h2>@currency($a->harga) / {{$a->pertemuan}} Pertemuan</h2>
+                                    <h4>Waktu Belajar : {{$a->jam}}</h4>
                                     @endforeach
                                     @foreach($guru as $a)
                                     <h4>Nama Guru : {{$a->name}}</h4>
@@ -48,11 +48,17 @@
                                                 <td scope="col" style="text-align: left;">==================</td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"> Gambaran Tentang Kebutuhan Anda</p>
+                                                <th scope="col"> Gambaran Tentang Kebutuhan Anda
+                                                    <p>(Isi dengan kebutuhan belajar anda,
+                                                        <br>apa yang menjadi kendala anda.
+                                                        <br>
+                                                        Agar guru dapat memahami
+                                                        <br>dan membantu anda)
+                                                    </p>
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <textarea name="kebutuhan" type="text" style="height: 100px;" class="form-control">
-                                                    {{$trans -> kebutuhan}}
+                                                    <textarea placeholder="Masukan Nama Anda" name="kebutuhan" type="text" style="height: 100px;" class="form-control">
+                                                    {{$trans->kebutuhan}}
                                                     </textarea>
                                                 </td>
                                             </tr>
@@ -110,11 +116,12 @@
                                                     <input type="text" value="{{$trans->alamat}}" class="form-control" name="alamat">
                                                 </td>
                                             </tr>
+
                                             <tr hidden>
                                                 <th scope="col"> Status
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="text" value="Menunggu Konfirmasi" class="form-control" name="status">
+                                                    <input type="text" value="Menunggu Konfirmasi Guru" class="form-control" name="status">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -134,9 +141,8 @@
                                                 </td>
                                             </tr>
                                     </table>
-                                    <button type="submit" class="btn btn-info">Ubah</button>
-                                    <a href="/murid/bayarLes/{{$trans->id_trans}}" class="btn btn-success" type="button" style="color: white;"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
-                                    <a href="{{route ('murid/showPilihLes')}}" class="btn btn-danger" type="button" style="color: white;">Batal</a>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-shopping-cart" style="color: white;"></i> Ajukan Reservasi</button>
+                                    <a href="{{route ('murid/showPilihLes')}}" class="btn btn-danger" type="button" style="color: white;">Kembali</a>
                                     </form>
                                 </div>
                             </div>

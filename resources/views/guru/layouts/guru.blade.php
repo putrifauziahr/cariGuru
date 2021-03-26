@@ -62,7 +62,7 @@
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="{{ asset('/assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                            <img src="{{ asset('/assets/images/cariguru_.jpg')}}" alt="homepage" class="dark-logo" />
 
                         </span>
                     </a>
@@ -143,10 +143,18 @@
                                 <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu"> Data Subjek & Tingkat</span></a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showReservasi')}}" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu"> Data Request Reservasi </span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Murid Les</span></a>
+                        </li>
+
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('guru/showDataTrans')}}" aria-expanded="false">
                                 <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Transaksi</span></a>
                         </li>
-
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('logout')}}" aria-expanded="false">
                                 <i class="mr-3 fas fa-power-off" aria-hidden="true"></i><span class="hide-menu">Logout</span></a>

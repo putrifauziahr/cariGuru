@@ -149,19 +149,19 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Metode Mengajar</label>
                                 <div class="col-md-12">
-                                    <textarea class="form-control" name="pengalaman"> {{ Auth::user()->pengalaman}}</textarea>
+                                    <textarea class="form-control" cols="10" rows="5" name="pengalaman"> {{ Auth::user()->pengalaman}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Pengalaman dan Riwayat Hidup</label>
                                 <div class="col-md-12">
-                                    <textarea class="form-control " name="sekolah">{{ Auth::user()->sekolah }}</textarea>
+                                    <textarea class="form-control" cols="10" rows="5" name="sekolah">{{ Auth::user()->sekolah }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Deskripsi Diri</label>
                                 <div class="col-md-12">
-                                    <textarea class="form-control" name="deskripsi">{{ Auth::user()->deskripsi }}</textarea>
+                                    <textarea class="form-control" cols="10" rows="5" name="deskripsi">{{ Auth::user()->deskripsi }}</textarea>
                                 </div>
                             </div>
 
