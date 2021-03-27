@@ -51,32 +51,33 @@
                                                 <?php $no = 0; ?>
                                                 @foreach($trans as $a)
                                                 <?php $no++; ?>
-                                                <tr>
-                                                    <td scope="col" style="text-align: left;">{{$no}}</td>
-                                                    <td scope="col" style="text-align: left;">{{$a->judul}}</td>
-                                                    <td scope="col" style="text-align: left;">{{$a->total}}</td>
-                                                    <td scope="col" style="text-align: left;">{{$a->status}}</td>
-                                                    @if ($a->status == "Belum diajukan")
-                                                    <td scope="col" style="text-align: left;">
-                                                        <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
-                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
-                                                    </td>
-                                                    @elseif ($a->status == "Menunggu Konfirmasi Guru")
-                                                    <td scope="col" style="text-align: left;">
-                                                        <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
-                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
-                                                    </td>
-                                                    @elseif ($a->status == "Diterima")
-                                                    <td scope="col" style="text-align: left;">
-                                                        <a href="/murid/bayarLes/{{$a->id_trans}}" class="btn btn-success"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
-                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Batalkan Reservasi</a>
-                                                    </td>
-                                                    @elseif ($a->status == "Ditolak")
-                                                    <td scope="col" style="text-align: left;">
-                                                        <a href="/murid/showDetailLesLagi/{{$a->id_trans}}" class="btn btn-info">Detail</a>
-                                                        <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
-                                                    </td>
-                                                    @endif
+                                                <td scope="col" style="text-align: left;">{{$no}}</td>
+                                                <td scope="col" style="text-align: left;">{{$a->judul}}</td>
+                                                <td scope="col" style="text-align: left;">{{$a->total}}</td>
+                                                <td scope="col" style="text-align: left;">
+                                                    <input type="text" name="status" value="Berhasil" hidden>{{$a->status}}
+                                                </td>
+                                                @if ($a->status == "Belum diajukan")
+                                                <td scope="col" style="text-align: left;">
+                                                    <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
+                                                    <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
+                                                </td>
+                                                @elseif ($a->status == "Menunggu Konfirmasi Guru")
+                                                <td scope="col" style="text-align: left;">
+                                                    <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
+                                                    <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
+                                                </td>
+                                                @elseif ($a->status == "Diterima")
+                                                <td scope="col" style="text-align: left;">
+                                                    <a href="/murid/bayarLes/{{$a->id_trans}}" class="btn btn-success"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
+                                                    <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Batalkan Reservasi</a>
+                                                </td>
+                                                @elseif ($a->status == "Ditolak")
+                                                <td scope="col" style="text-align: left;">
+                                                    <a href="/murid/showDetailLesLagi/{{$a->id_trans}}" class="btn btn-info">Detail</a>
+                                                    <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
+                                                </td>
+                                                @endif
                                                 </tr>
                                                 @endforeach
                                             </tbody>

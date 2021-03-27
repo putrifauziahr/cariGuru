@@ -36,6 +36,7 @@ class TransaksiController extends Controller
             ->join('users', 'transaksis.id_murid', '=', 'users.id')
             ->join('les', 'transaksis.id_les', '=', 'les.id_les')
             ->where('transaksis.id_murid', $user_id)
+            ->orderBy('transaksis.id_trans', 'desc')
             ->get();
         return view('murid/content/les/showPilihLes', compact('trans'));
     }

@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Data Murid | CariGuru.com')
+@section('title', 'Admin | Data Reservasi| CariGuru.com')
 
 @section ('container')
 
@@ -13,14 +13,13 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/dashboard_guru')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data Murid</li>
+                            <li class="breadcrumb-item active" aria-current="page">Data Reservasi</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="container-fluid">
         <div class="col-md-6 col-4">
         </div>
@@ -46,30 +45,29 @@
                     <div class="card-body">
                         <div class="card-header" style="color: white; font-size:20px; background-color:gray">
                             <i class="fas fa-table mr-1" style="color: white;"></i>
-                            Data Murid
+                            Data Reservasi
                         </div>
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">No</th>
-                                        <th class="border-top-0">Nama</th>
-                                        <th class="border-top-0">Kontak</th>
-                                        <th class="border-top-0">Email</th>
-                                        <th class="border-top-0">Alamat</th>
-
+                                        <th class="border-top-0">Nama Pemesan</th>
+                                        <th class="border-top-0">Judul</th>
+                                        <th class="border-top-0">Total Pembayaran</th>
+                                        <th class="border-top-0">Status Reservasi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($murid as $a)
+                                    @foreach($reserv as $a)
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$a->name}}</td>
-                                        <td>{{$a->kontak}}</td>
-                                        <td>{{$a->email}}</td>
-                                        <td>{{$a->alamat}}</td>
+                                        <td>{{$a -> name}}</td>
+                                        <td>{{$a -> judul}}</td>
+                                        <td>@currency($a -> total)</td>
+                                        <td>{{$a -> status}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -79,9 +77,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
-
 @endsection

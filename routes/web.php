@@ -25,10 +25,17 @@ Route::get('admin/showProfil/{id_admin}', 'AdminController@showProfil')->name('a
 //======================data guru=============
 Route::get('admin/showDataGuru', 'AdminController@showDataGuru')->name('admin/showDataGuru');
 Route::get('admin/showDetailGuru/{guru}', 'AdminController@showDetailGuru')->name('admin/showDetailGuru');
-//======================data les=============
+//======================data murid=============
 Route::get('admin/showDataMurid', 'AdminController@showDataMurid')->name('admin/showDataMurid');
 //======================data transaksi=============
 Route::get('admin/showDataTrans', 'AdminController@showDataTrans')->name('admin/showDataTrans');
+Route::get('admin/showDetailTrans/{trans}', 'AdminController@showDetailTrans')->name('admin/showDetailTrans');
+Route::get('admin/showDataReservasi', 'AdminController@showDataReservasi')->name('admin/showDataReservasi');
+Route::match(['get', 'post'], 'admin/updateDetailTrans/{id_detail}', 'AdminController@updateDetailTrans')->name('guru/updateDetailTrans');
+//======================data Les=============
+Route::get('admin/showDataLes', 'AdminController@showDataLes')->name('admin/showDataLes');
+Route::get('admin/showDetailLes/{dataLes}', 'AdminController@showDetailLes')->name('admin/showDetailLes');
+
 
 
 
@@ -93,7 +100,9 @@ Route::match(['get', 'post'], 'murid/ubahTempLes/{trans}', 'TransaksiController@
 //==========Pembayaran======
 Route::get('murid/showPembayaran', 'TransaksiDetailController@showPembayaran')->name('murid/showPembayaran');
 Route::get('murid/showDetailBayar/{detail}', 'TransaksiDetailController@showDetailBayar')->name('murid/showDetailBayar');
-Route::match(['get', 'post'], 'murid/bayarLes/{transs}', 'TransaksiDetailController@bayarLes')->name('murid/bayarLes');
+Route::get('murid/showDetailBayarLagi/{detail}', 'TransaksiDetailController@showDetailBayarLagi')->name('murid/showDetailBayarLagi');
+Route::match(['get', 'post'], 'murid/bayarLes/{trans}', 'TransaksiDetailController@bayarLes')->name('murid/bayarLes');
+Route::match(['get', 'post'], 'murid/updateBayar/{trans}', 'TransaksiDetailController@updateBayar')->name('murid/updateBayar');
 Route::get('murid/showDataTrans', 'TransaksiDetailController@showDataTrans')->name('murid/showDataTrans');
 Route::get('murid/hapusDetailTrans/{detail}', 'TransaksiDetailController@hapusDetailTrans')->name('murid/hapusDetailTrans');
 

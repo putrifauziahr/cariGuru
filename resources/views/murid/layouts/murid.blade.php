@@ -77,10 +77,10 @@
                     <div class="col-md-8 clearfix">
                         <div class="shop-menu clearfix pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="{{route('murid/dashboard_murid')}}"><i class="fa fa-user"></i>Beranda</a></li>
-                                <li><a href=""><i class="fa fa-crosshairs"></i>Cari Guru</a></li>
+                                <li><a href="{{route('murid/dashboard_murid')}}"><i class="fa fa-user"></i>CariGuru</a></li>
                                 <li><a href=""><i class="fa fa-star"></i>Les Privat</a></li>
-                                <li><a href="{{route('murid/showPilihLes')}}"><i class="fa fa-shopping-cart"></i>Transaksi</a></li>
+                                <li><a href="{{route('murid/showPilihLes')}}"><i class="fa fa-shopping-cart"></i>Reservasi</a></li>
+                                <li><a href="{{route('murid/showPembayaran')}}"><i class="fa fa-shopping-cart"></i>Transaksi</a></li>
                                 <li><a href="{{route('murid/profil_murid')}}"><i class="fa fa-user"></i>{{Auth::user()->name}}</a></li>
                                 <li><a href="{{route('logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
                             </ul>

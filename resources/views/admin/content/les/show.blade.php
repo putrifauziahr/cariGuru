@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Data Murid | CariGuru.com')
+@section('title', 'Admin | Data Les | CariGuru.com')
 
 @section ('container')
 
@@ -13,7 +13,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/dashboard_guru')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data Murid</li>
+                            <li class="breadcrumb-item active" aria-current="page">Data Les</li>
                         </ol>
                     </nav>
                 </div>
@@ -53,23 +53,27 @@
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">No</th>
-                                        <th class="border-top-0">Nama</th>
-                                        <th class="border-top-0">Kontak</th>
-                                        <th class="border-top-0">Email</th>
+                                        <th class="border-top-0">Nama Pemesan</th>
                                         <th class="border-top-0">Alamat</th>
+                                        <th class="border-top-0">Total Biaya</th>
+                                        <th class="border-top-0">Status</th>
+                                        <th class="border-top-0">Aksi</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($murid as $a)
+                                    @foreach($dataLes as $a)
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$a->name}}</td>
-                                        <td>{{$a->kontak}}</td>
-                                        <td>{{$a->email}}</td>
-                                        <td>{{$a->alamat}}</td>
+                                        <td>{{$a->nama}}</td>
+                                        <td>{{$a->alamat_belajar}}</td>
+                                        <td>@currency($a->total)</td>
+                                        <td>{{$a->status_detail}}</td>
+                                        <td>
+                                            <a href="/admin/showDetailLes/{{$a->id_detail}}" class="btn btn-info">Detail</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

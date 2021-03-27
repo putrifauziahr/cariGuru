@@ -21,14 +21,12 @@ class AdminController extends Controller
 {
     public function dashboard_admin()
     {
-        return view('admin/content/dashboard');
+        $murid = User::where('role', '=', "murid")->count();
+        $guru = User::where('role', '=', "guru")->count();
+        $trans = TransaksiDetail::where('status_detail', '=', "Berhasil")->count();
+        return view('admin/content/dashboard', compact('murid', 'guru', 'trans'));
     }
-    //=======================================================//
-    public function showProfil($id_admin)
-    {
-        $admin = DB::table('admins')->where('id_admin', '=', $id_admin)->get();
-        return view('admin/content/showProfil', compact('admin'));
-    }
+
     //========================================================//
     public function showDataGuru()
     {
@@ -73,10 +71,73 @@ class AdminController extends Controller
     public function showDataTrans()
     {
         $trans = DB::table('transaksidetails')
-            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id')
-            ->join('users', 'transaksidetails.id_murid', '=', 'users.id')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
+            ->where('status_detail', '=', "Menunggu Konfirmasi Admin")
             ->orderBy('transaksidetails.id_detail', 'desc')
             ->get();
         return view('admin/content/transaksi/showDataTrans', compact('trans'));
+    }
+
+    public function showDetailTrans(TransaksiDetail $trans)
+    {
+        $id_trans = $trans->id_trans;
+        $id_guru = $trans->id_guru;
+        $transs = DB::table('transaksis')
+            ->join('users', 'transaksis.id_murid', '=', 'users.id')
+            ->join('les', 'transaksis.id_les', '=', 'les.id_les')
+            ->where('id_trans', '=', $id_trans)
+            ->get();
+        $guru = User::where('id', '=', $id_guru)->get();
+        return view('admin/content/transaksi/showDetailTrans', compact('transs', 'trans', 'guru'));
+    }
+
+    public function updateDetailTrans(Request $request, $id_detail)
+    {
+        if ($request->isMethod('post')) {
+
+            $data = $request->all();
+
+            TransaksiDetail::where(['id_detail' => $id_detail])->update([
+                'status_detail' => $data['status_detail']
+            ]);
+            return redirect('admin/showDataTrans')->with('alert', 'Status Berhasil diperbarui');;
+        }
+    }
+
+
+    public function showDataReservasi()
+    {
+        $id = User::where('role', '=', 'guru')->get();
+        $reserv = DB::table('transaksis')
+            ->join('users', 'transaksis.id_murid', '=', 'users.id')
+            ->join('les', 'transaksis.id_les', '=', 'les.id_les')
+            ->orderBy('transaksis.id_trans', 'desc')
+            ->get();
+        return view('admin/content/transaksi/showDataReservasi', compact('reserv'));
+    }
+
+    //==============================================================//
+    public function showDataLes()
+    {
+        $dataLes = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
+            ->where('status_detail', '=', "Berhasil")
+            ->orderBy('transaksis.id_trans', 'desc')
+            ->get();
+        return view('admin/content/les/show', compact('dataLes'));
+    }
+
+    public function showDetailLes(TransaksiDetail $dataLes)
+    {
+        $id_trans = $dataLes->id_trans;
+        $id_guru = $dataLes->id_guru;
+        $transs = DB::table('transaksis')
+            ->join('users', 'transaksis.id_murid', '=', 'users.id')
+            ->join('les', 'transaksis.id_les', '=', 'les.id_les')
+            ->where('id_trans', '=', $id_trans)
+            ->get();
+        $guru = User::where('id', '=', $id_guru)->get();
+        $subjek = SubjekLes::where('id_guru', '=', $id_guru)->get();
+        return view('admin/content/les/showDetail', compact('transs', 'dataLes', 'guru', 'subjek'));
     }
 }

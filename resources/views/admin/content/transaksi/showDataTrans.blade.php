@@ -52,7 +52,6 @@
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">No</th>
-                                        <th class="border-top-0">ID Transaksi</th>
                                         <th class="border-top-0">Nama Pemesan</th>
                                         <th class="border-top-0">Alamat</th>
                                         <th class="border-top-0">Total Pembayaran</th>
@@ -66,10 +65,13 @@
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$a -> id_detail}}</td>
-                                        <td>{{$a -> name}}</td>
-                                        <td>{{$a -> alamat}}</td>
+                                        <td>{{$a -> nama}}</td>
+                                        <td>{{$a -> alamat_belajar}}</td>
                                         <td>@currency($a -> total)</td>
+                                        <td>{{$a -> status_detail}}</td>
+                                        <td>
+                                            <a href="/admin/showDetailTrans/{{$a->id_detail}}" class="btn btn-info">Ubah</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

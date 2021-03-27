@@ -57,7 +57,6 @@
                                         <th class="border-top-0">Kontak</th>
                                         <th class="border-top-0">Email</th>
                                         <th class="border-top-0">Alamat</th>
-                                        <th class="border-top-0"></th>
                                         <th class="border-top-0">Aksi</th>
 
                                     </tr>
@@ -74,7 +73,6 @@
                                         <td>{{$a->alamat}}</td>
                                         <td>
                                             <a href="/admin/showDetailGuru/{{$a->id}}" class="btn btn-info">Detail</a>
-                                            <a href="/admin/hapusDataGuru/{{$a->id}}" class="btn btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach

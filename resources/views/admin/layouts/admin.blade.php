@@ -131,7 +131,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/showProfil/{{$id_admin}}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/showProfil/" aria-expanded="false">
                                 <i class="mr-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Profile Admin</span></a>
                         </li>
 
@@ -146,8 +146,18 @@
                         </li>
 
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin/showDataReservasi')}}" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Reservasi</span></a>
+                        </li>
+
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin/showDataTrans')}}" aria-expanded="false">
                                 <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Transaksi</span></a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin/showDataLes')}}" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Les</span></a>
                         </li>
 
                         <li class="sidebar-item">

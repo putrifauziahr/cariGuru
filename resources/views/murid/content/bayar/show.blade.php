@@ -58,10 +58,25 @@
                                         <td>{{Auth::user()->name}}</td>
                                         <td>@currency($a->total)</td>
                                         <td>{{$a->status_detail}}</td>
+                                        @if ($a->status_detail == "Belum Melakukan Pembayaran")
                                         <td>
-                                            <button class="btn btn-success"><a href="/murid/showDetailBayar/{{$a->id_detail}}" style="color: white;">Detail</a></button>
+                                            <button class="btn btn-info"><a href="/murid/showDetailBayar/{{$a->id_detail}}" style="color: white;">Detail</a></button>
                                             <button class="btn btn-danger"><a href="/murid/hapusDetailTrans/{{$a->id_detail}}" style="color: white;">Batal Transaksi</a></button>
                                         </td>
+                                        @elseif ($a->status_detail == "Menunggu Konfirmasi Admin")
+                                        <td>
+                                            <button class="btn btn-info"><a href="/murid/showDetailBayarLagi/{{$a->id_detail}}" style="color: white;">Detail</a></button>
+                                        </td>
+                                        @elseif ($a->status_detail == "Berhasil")
+                                        <td>
+                                            <button class="btn btn-info"><a href="/murid/showDetailBayarLagi/{{$a->id_detail}}" style="color: white;">Detail</a></button>
+                                        </td>
+                                        @elseif ($a->status_detail == "Gagal")
+                                        <td>
+                                            <button class="btn btn-info"><a href="/murid/showDetailBayar/{{$a->id_detail}}" style="color: white;">Detail</a></button>
+                                            <button class="btn btn-danger"><a href="/murid/hapusDetailTrans/{{$a->id_detail}}" style="color: white;">Batal Transaksi</a></button>
+                                        </td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </tbody>
