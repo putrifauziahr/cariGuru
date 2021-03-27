@@ -84,7 +84,7 @@
 
 
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Biaya</label>
+                                    <label class="col-md-12 mb-0">Biaya (Contoh Pengisian : 300000)</label>
                                     <div class="col-md-12">
                                         <input type="text" class="form-control @error('harga') is-invalid @enderror" name="harga">
                                         @error('harga')<div class="invalid-feedback">{{$message}}</div> @enderror

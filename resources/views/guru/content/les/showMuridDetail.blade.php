@@ -1,6 +1,6 @@
-@extends('admin/layouts/admin')
+@extends('guru/layouts/guru')
 
-@section('title', 'Admin | Detail Les | CariGuru.com')
+@section('title', 'Guru | Detail Murid Les | CariGuru.com')
 
 @section ('container')
 
@@ -8,12 +8,12 @@
     <div class="page-breadcrumb">
         <div class="row align-items-center">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="page-title mb-0 p-0">Dashboard Admin</h3>
+                <h3 class="page-title mb-0 p-0">Dashboard Guru</h3>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/dashboard_guru')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Detail Les</li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail Murid Les</li>
                         </ol>
                     </nav>
                 </div>
@@ -45,43 +45,24 @@
                 <div class="card">
                     <div class="card-header" style="color: white; font-size:20px; background-color:gray">
                         <i class="fas fa-table mr-1" style="color: white;"></i>
-                        Data Detail Les
+                        Data Detail Murid Les
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
                                 <tbody>
-                                    <form action="/admin/postUpdateDataLes/{{$dataLes->id_detail}}" method="POST" enctype="multipart/form-data">
+                                    <form action="/guru/updateDataMurid/{{$murid->id_detail}}" method="POST">
                                         {{csrf_field()}}
                                         @foreach($transs as $t)
                                         @foreach($guru as $g)
-                                        <tr>
-                                            <th class="border-top-0">Judul Les</th>
-                                            <td>{{$t -> judul}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="border-top-0">Subjek yang diajarkan</th>
-                                            @foreach($subjek as $s)
-                                            <td>{{$s -> subjek}}</td>
-                                        <tr class="border-top-0"></tr>
-                                        <td class="border-top-0"></td>
-                                        @endforeach
-                                        </tr>
-                                        <tr>
-                                            <th class="border-top-0">Jumlah Pertemuan</th>
-                                            <td>{{$t -> pertemuan}} / Bulan</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="border-top-0">Deskripsi Les</th>
-                                            <td>{{$t -> deskripsi}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="border-top-0">=====================</th>
-                                            <td>======================</td>
-                                        </tr>
+
                                         <tr>
                                             <th class="border-top-0">Nama Murid</th>
                                             <td>{{$t -> nama}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="border-top-0">Kontak</th>
+                                            <td>{{$t -> kontak}}</td>
                                         </tr>
                                         <tr>
                                             <th class="border-top-0">Kelas Murid</th>
@@ -104,48 +85,47 @@
                                             <th class="border-top-0">Jam Belajar</th>
                                             <td>{{$t->waktu}}</td>
                                         </tr>
+
                                         <tr>
                                             <th class="border-top-0">=====================</th>
                                             <td>======================</td>
                                         </tr>
+
                                         <tr>
-                                            <th class="border-top-0">Nama Guru</th>
-                                            <td>{{$g->name}}</td>
+                                            <th class="border-top-0">Judul Les</th>
+                                            <td>{{$t -> judul}}</td>
                                         </tr>
                                         <tr>
-                                            <th class="border-top-0">Kontak</th>
-                                            <td>{{$g->kontak}}</td>
+                                            <th class="border-top-0">Subjek yang diajarkan</th>
+                                            @foreach($subjek as $s)
+                                            <td>{{$s -> subjek}}</td>
+                                        <tr class="border-top-0"></tr>
+                                        <td class="border-top-0"></td>
+                                        @endforeach
                                         </tr>
                                         <tr>
-                                            <th class="border-top-0">Alamat</th>
-                                            <td>{{$g->alamat}}</td>
+                                            <th class="border-top-0">Jumlah Pertemuan</th>
+                                            <td>{{$t -> pertemuan}} / Bulan</td>
                                         </tr>
                                         <tr>
-                                            <th class="border-top-0">=====================</th>
-                                            <td>======================</td>
+                                            <th class="border-top-0">Deskripsi Les</th>
+                                            <td>{{$t -> deskripsi}}</td>
                                         </tr>
+                                        @endforeach
+                                        @endforeach
                                         <tr>
-                                            <th class="border-top-0">Status Transfer Admin</th>
+                                            <th class="border-top-0">Status Belajar</th>
                                             <td>
-                                                <select name="status_bukti" class="form-control">
-                                                    <option>{{$dataLes->status_bukti}}</option>
-                                                    <option value="Sudah Transfer">Sudah Transfer</option>
+                                                <select name="status_belajar" class="form-control">
+                                                    <option>{{$murid -> status_belajar}}</option>
+                                                    <option value="Mulai">Mulai</option>
                                                 </select>
                                             </td>
                                         </tr>
-
-                                        <tr>
-                                            <th class="border-top-0">Bukti Transfer</th>
-                                            <td>
-                                                <input type="file" name="buktilagi" class="form-control">
-                                            </td>
-                                        </tr>
-
-                                        @endforeach
-                                        @endforeach
                                 </tbody>
                             </table>
                             <button type="submit" class="btn btn-info">Ubah</button>
+                            <a href="{{route('guru/showMuridLes')}}" class="btn btn-danger">Kembali</a>
                             </form>
                         </div>
                     </div>

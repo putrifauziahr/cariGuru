@@ -38,7 +38,7 @@
                             <h4 style="color: black;">{{$murid}}</h4>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{$murid}}%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                                 <h4 style="color: black;">{{$guru}}</h4>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{$guru}}%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -73,20 +73,39 @@
                                 <h4 style="color: black;">{{$trans}}</h4>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{$trans}}%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-body">Pemasukan Aplikasi</h4>
+                    <div class="card-body">
+                        <h4 class="card-title">Pemasukan Aplikasi</h4>
                         <div class="text-right">
                             <h2 class="font-light m-b-0">
                                 <h4 style="color: black;">@currency($trans * 3000)</h4>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{$trans}}%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Column -->
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Data Les</h4>
+                        <div class="text-right">
+                            <h2 class="font-light m-b-0">
+                                <h4 style="color: black;">{{$trans}}</h4>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{$trans}}%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>

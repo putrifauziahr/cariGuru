@@ -92,7 +92,7 @@
 
                                             <tr>
                                                 <th scope="col">
-                                                    Nama Murid
+                                                    Nama Pemesan
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
                                                     <input type="text" value="{{$trans -> nama}}" class="form-control @error('nama') is-invalid @enderror" name="nama">
@@ -124,7 +124,8 @@
                                                     Kontak Pemesan
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    {{Auth::user()->kontak}}
+                                                    <input type="text" value="{{$trans -> kontak}}" class="form-control @error('kontak') is-invalid @enderror" name="kontak">
+                                                    @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
                                                 </td>
                                             </tr>
 

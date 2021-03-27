@@ -116,6 +116,16 @@ class AdminController extends Controller
         return view('admin/content/transaksi/showDataReservasi', compact('reserv'));
     }
 
+    public function showDataTransaksi()
+    {
+        $dataLes = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
+            ->where('status_detail', '=', "Berhasil")
+            ->orderBy('transaksis.id_trans', 'desc')
+            ->get();
+        return view('admin/content/transaksi/showTrans', compact('dataLes'));
+    }
+
     //==============================================================//
     public function showDataLes()
     {
@@ -139,5 +149,27 @@ class AdminController extends Controller
         $guru = User::where('id', '=', $id_guru)->get();
         $subjek = SubjekLes::where('id_guru', '=', $id_guru)->get();
         return view('admin/content/les/showDetail', compact('transs', 'dataLes', 'guru', 'subjek'));
+    }
+
+    public function postUpdateDataLes(Request $request, TransaksiDetail $dataLes)
+    {
+        $id_detail = $dataLes->id_detail;
+        $request->validate([
+            'status_bukti' => 'required',
+        ]);
+
+        $update = [
+            'status_bukti' => $request->status_bukti,
+        ];
+
+
+        if ($buktilagii = $request->file('buktilagi')) {
+            $destinationPath = 'berkasTransfer'; // upload path
+            $nama_bukti = date('YmdHis') . "." . $buktilagii->getClientOriginalExtension();
+            $buktilagii->move($destinationPath, $nama_bukti);
+            $update['buktilagi'] = "$nama_bukti";
+        }
+        TransaksiDetail::where(['id_detail' => $id_detail])->update($update);
+        return redirect('admin/showDataLes')->with('alert', 'Status Berhasil Diperbarui');
     }
 }

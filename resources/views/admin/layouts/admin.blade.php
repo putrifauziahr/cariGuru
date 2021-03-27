@@ -62,7 +62,7 @@
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="{{ asset('/assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                            <img src="{{ asset('/assets/images/cariguru_.jpg')}}" alt="homepage" class="dark-logo" />
 
                         </span>
                     </a>
@@ -152,6 +152,11 @@
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin/showDataTrans')}}" aria-expanded="false">
+                                <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Konfirmasi Pembayaran</span></a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin/showDataTransaksi')}}" aria-expanded="false">
                                 <i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Data Transaksi</span></a>
                         </li>
 

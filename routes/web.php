@@ -32,9 +32,11 @@ Route::get('admin/showDataTrans', 'AdminController@showDataTrans')->name('admin/
 Route::get('admin/showDetailTrans/{trans}', 'AdminController@showDetailTrans')->name('admin/showDetailTrans');
 Route::get('admin/showDataReservasi', 'AdminController@showDataReservasi')->name('admin/showDataReservasi');
 Route::match(['get', 'post'], 'admin/updateDetailTrans/{id_detail}', 'AdminController@updateDetailTrans')->name('guru/updateDetailTrans');
+Route::get('admin/showDataTransaksi', 'AdminController@showDataTransaksi')->name('admin/showDataTransaksi');
 //======================data Les=============
 Route::get('admin/showDataLes', 'AdminController@showDataLes')->name('admin/showDataLes');
 Route::get('admin/showDetailLes/{dataLes}', 'AdminController@showDetailLes')->name('admin/showDetailLes');
+Route::match(['get', 'post'], 'admin/postUpdateDataLes/{dataLes}', 'AdminController@postUpdateDataLes')->name('admin/postUpdateDataLes');
 
 
 
@@ -57,6 +59,7 @@ Route::post('guru/postCreateBiodata', 'GuruController@postCreateBiodata')->name(
 Route::match(['get', 'post'], 'guru/editBiodata', 'GuruController@editBiodata')->name('guru/editBiodata');
 
 //===========les, CRUD les==============
+Route::get('guru/showLesLagi', 'LesController@showLesLagi')->name('guru/showLesLagi');
 Route::get('guru/showLes', 'LesController@showLes')->name('guru/showLes');
 Route::get('guru/showDetailLes/{tampilkan_data}', 'LesController@showDetailLes')->name('guru/showDetailLes');
 Route::get('guru/tambahLes', 'LesController@tambahLes')->name('guru/tambahLes');
@@ -65,7 +68,9 @@ Route::match(['get', 'post'], 'guru/postUpdateLes/{id_les}', 'LesController@post
 Route::get('guru/hapusLes/{tampilkan_data}', 'LesController@hapusLes')->name('guru/hapusLes');
 //============Data Transaksi Murid=================
 Route::get('guru/showDataTrans', 'GuruTransaksiController@showDataTrans')->name('guru/showDataTrans');
-//==============================================================
+Route::get('guru/showDetailTrans/{data}', 'GuruTransaksiController@showDetailTrans')->name('guru/showDetailTrans');
+Route::match(['get', 'post'], 'guru/updateDataTrans/{data}', 'GuruTransaksiController@updateDataTrans')->name('guru/updateDataTrans');
+//==============================================================Subjek Tingkat===========
 Route::get('guru/showSubjekLes', 'LesKomponenController@showSubjekLes')->name('guru/showSubjekLes');
 Route::post('guru/tambahSubjekLes', 'LesKomponenController@tambahSubjekLes')->name('guru/tambahSubjekLes');
 Route::get('guru/hapusSubjekLes/{subjek}', 'LesKomponenController@hapusSubjekLes')->name('guru/hapusSubjekLes');
@@ -73,10 +78,15 @@ Route::get('guru/hapusSubjekLes/{subjek}', 'LesKomponenController@hapusSubjekLes
 Route::get('guru/showTingkatLes', 'LesKomponenController@showTingkatLes')->name('guru/showTingkatLes');
 Route::post('guru/tambahTingkatLes', 'LesKomponenController@tambahTingkatLes')->name('guru/tambahTingkatLes');
 Route::get('guru/hapusTingkatLes/{tingkat}', 'LesKomponenController@hapusTingkatLes')->name('guru/hapusTingkatLes');
-//=======================================================
+//=======================================================Reservasi===========
 Route::get('guru/showReservasi', 'GuruReservasiController@showReservasi')->name('guru/showReservasi');
 Route::get('guru/detailReservasi/{reserv}', 'GuruReservasiController@detailReservasi')->name('guru/detailReservasi');
 Route::match(['get', 'post'], 'guru/postUpdateReservasi/{id_trans}', 'GuruReservasiController@postUpdateReservasi')->name('guru/postUpdateReservasi');
+//===========================Murid Les=========================
+Route::get('guru/showMuridLes', 'LesController@showMuridLes')->name('guru/showMuridLes');
+Route::get('guru/showDetailMurid/{murid}', 'LesController@showDetailMurid')->name('guru/showDetailMurid');
+Route::match(['get', 'post'], 'guru/updateDataMurid/{murid}', 'LesController@updateDataMurid')->name('guru/updateDataMurid');
+
 
 
 
@@ -90,6 +100,9 @@ Route::match(['get', 'post'], 'murid/updateFotoProfil', 'MuridController@updateF
 //=================les=======================
 Route::get('murid/showDetailLes/{les}', 'MuridLesController@showDetailLes')->name('murid/showDetailLes');
 Route::get('murid/showDetailGuru/{guru}', 'MuridLesController@showDetailGuru')->name('murid/showDetailGuru');
+Route::get('murid/showDataLes', 'MuridLesController@showDataLes')->name('murid/showDataLes');
+Route::get('murid/showDetailData/{les}', 'MuridLesController@showDetailData')->name('murid/showDetailData');
+Route::match(['get', 'post'], 'murid/postUpdateDataLes/{id_detail}', 'MuridLesController@postUpdateDataLes')->name('murid/postUpdateDataLes');
 //=====================Transaksi===========
 Route::get('murid/showPilihLes', 'TransaksiController@showPilihLes')->name('murid/showPilihLes');
 Route::get('murid/showDetailLesLagi/{trans}', 'TransaksiController@showDetailLesLagi')->name('murid/showDetailLesLagi');

@@ -38,7 +38,7 @@ class GuruReservasiController extends Controller
             Transaksi::where(['id_trans' => $id_trans])->update([
                 'status' => $data['status'], 'alasan' => $data['alasan']
             ]);
-            return redirect('guru/showReservasi');
+            return redirect('guru/showReservasi')->with('alert', 'Status Berhasil Diubah');;
         }
     }
 }

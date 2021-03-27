@@ -46,7 +46,7 @@
                     <div class="card-body">
                         <div class="card-header" style="color: white; font-size:20px; background-color:gray">
                             <i class="fas fa-table mr-1" style="color: white;"></i>
-                            Data Murid
+                            Data Les
                         </div>
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
@@ -54,9 +54,10 @@
                                     <tr>
                                         <th class="border-top-0">No</th>
                                         <th class="border-top-0">Nama Pemesan</th>
-                                        <th class="border-top-0">Alamat</th>
-                                        <th class="border-top-0">Total Biaya</th>
-                                        <th class="border-top-0">Status</th>
+                                        <th class="border-top-0">Total Biaya Guru</th>
+                                        <th class="border-top-0">Status Belajar</th>
+                                        <th class="border-top-0">Status Transfer Admin</th>
+                                        <th class="border-top-0">Bukti Transfer</th>
                                         <th class="border-top-0">Aksi</th>
 
                                     </tr>
@@ -68,9 +69,14 @@
                                     <tr>
                                         <td>{{$no}}</td>
                                         <td>{{$a->nama}}</td>
-                                        <td>{{$a->alamat_belajar}}</td>
-                                        <td>@currency($a->total)</td>
-                                        <td>{{$a->status_detail}}</td>
+                                        <td>@currency($a->harga)</td>
+                                        <td>{{$a->status_belajar}}</td>
+                                        <td>{{$a->status_bukti}}</td>
+                                        <td>
+                                            <a href="{{ url('/berkasTransfer/'. $a->buktilagi) }}" data-fancybox="gal">
+                                                <img src="{{ url('/berkasTransfer/'. $a->buktilagi) }}" alt="Image" class="img-fluid" width="150px" height="100px">
+                                            </a>
+                                        </td>
                                         <td>
                                             <a href="/admin/showDetailLes/{{$a->id_detail}}" class="btn btn-info">Detail</a>
                                         </td>

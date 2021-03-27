@@ -1,6 +1,6 @@
 @extends('guru/layouts/guru')
 
-@section('title', 'Les Guru | CariGuru.com')
+@section('title', 'Data Transaksi| CariGuru.com')
 
 @section ('container')
 <div class="page-wrapper">
@@ -49,10 +49,12 @@
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">No</th>
-                                        <th class="border-top-0">ID Transaksi</th>
                                         <th class="border-top-0">Nama Pemesan</th>
-                                        <th class="border-top-0">Total Transaksi</th>
-                                        <th class="border-top-0">ID GURU</th>
+                                        <th class="border-top-0">Status Belajar</th>
+                                        <th class="border-top-0">Status Bukti Admin</th>
+                                        <th class="border-top-0">Jumlah Pemasukan</th>
+                                        <th class="border-top-0">Bukti</th>
+                                        <th class="border-top-0">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,11 +63,27 @@
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$a->id_detail}}</td>
-                                        <td>{{$a->alamat}}</td>
+                                        <td>{{$a->nama}}</td>
+                                        <td>{{$a->status_belajar}}</td>
+                                        <td>{{$a->status_bukti}}</td>
+                                        <td>@currency($a->harga)</td>
                                         <td>
+                                            <a href="{{ url('/berkasTransfer/'. $a->buktilagi) }}" data-fancybox="gal">
+                                                <img src="{{ url('/berkasTransfer/'. $a->buktilagi) }}" alt="Image" class="img-fluid" width="150px" height="100px">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="/guru/showDetailTrans/{{$a->id_detail}}" class="btn btn-info"> Detail</a>
+                                        </td>
                                     </tr>
                                     @endforeach
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Total Pemasukan</th>
+                                        <td>@currency($income)</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

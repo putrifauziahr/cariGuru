@@ -7,6 +7,7 @@ use App\User;
 use App\Les;
 use App\SubjekLes;
 use App\TingkatLes;
+use App\TransaksiDetail;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -15,6 +16,14 @@ use Illuminate\Support\Facades\DB;
 
 class LesController extends Controller
 {
+    public function showLesLagi()
+    {
+        $tampilkan_data = Auth::user()->les()->paginate(10);
+        $tingkat = TingkatLes::where('id_guru', Auth::user()->id)->get();
+        $subjek = SubjekLes::where('id_guru', Auth::user()->id)->get();
+        return view('guru/content/les/showLes', compact('tampilkan_data',  'tingkat', 'subjek'));
+    }
+
     public function showLes()
     {
         $tampilkan_data = Auth::user()->les()->paginate(10);
@@ -60,9 +69,9 @@ class LesController extends Controller
         $post->harga = $request->harga;
         Auth::user()->les()->save($post);
         if ($post) {
-            return redirect('guru/showLes')->with('alert', 'Data Les Berhasil ditambah');
+            return redirect('guru/showLesLagi')->with('alert', 'Data Les Berhasil ditambah');
         } else {
-            return redirect('guru/showLes')->with('alert-danger', 'Data Les Gagal ditambah');
+            return redirect('guru/showLesLagi')->with('alert-danger', 'Data Les Gagal ditambah');
         }
     }
 
@@ -99,5 +108,47 @@ class LesController extends Controller
     {
         Les::destroy($tampilkan_data->id_les);
         return redirect('guru/showLes')->with('alert', 'Les Berhasil Dihapus!');
+    }
+
+    //=================Murid Les===================
+    public function showMuridLes()
+    {
+        $guru = Auth::user()->id;
+        $murid = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
+            ->where('transaksidetails.id_guru', '=', $guru)
+            ->where('status_detail', '=', "Berhasil")
+            ->orderBy('transaksis.id_trans', 'desc')
+            ->get();
+
+        return view('guru/content/les/showMuridLes', compact('murid'));
+    }
+
+    public function showDetailMurid(TransaksiDetail $murid)
+    {
+        $id_trans = $murid->id_trans;
+        $id_guru = Auth::user()->id;
+        $transs = DB::table('transaksis')
+            ->join('users', 'transaksis.id_murid', '=', 'users.id')
+            ->join('les', 'transaksis.id_les', '=', 'les.id_les')
+            ->where('id_trans', '=', $id_trans)
+            ->get();
+        $guru = User::where('id', '=', $id_guru)->get();
+        $subjek = SubjekLes::where('id_guru', '=', $id_guru)->get();
+        return view('guru/content/les/showMuridDetail', compact('transs', 'murid', 'guru', 'subjek'));
+    }
+
+    public function updateDataMurid(Request $request, TransaksiDetail $murid)
+    {
+        $id_detail = $murid->id_detail;
+        if ($request->isMethod('post')) {
+
+            $data = $request->all();
+
+            TransaksiDetail::where(['id_detail' => $id_detail])->update([
+                'status_belajar' => $data['status_belajar']
+            ]);
+            return redirect('guru/showMuridLes')->with('alert', 'Status Berhasil Diubah');
+        }
     }
 }

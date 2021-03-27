@@ -23,6 +23,9 @@ class TransaksiController extends Controller
         $trans->harga = $les->harga;
         $trans->adm = 3000;
         $trans->total = $les->harga + $trans->adm;
+        $trans->nama = Auth::user()->name;
+        $trans->kontak = Auth::user()->kontak;
+        $trans->alamat_belajar = Auth::user()->alamat;
         $trans->status = "Belum diajukan";
         $trans->save();
 
@@ -77,6 +80,7 @@ class TransaksiController extends Controller
             'tanggal_mulai' => 'required',
             'nama' => 'required',
             'kelas' => 'required',
+            'kontak' => 'required',
             'waktu' => 'required',
             'alamat_belajar' => 'required',
 
@@ -92,6 +96,7 @@ class TransaksiController extends Controller
                 'waktu' => $data['waktu'],
                 'nama' => $data['nama'],
                 'kelas' => $data['kelas'],
+                'kontak' => $data['kontak'],
                 'alamat_belajar' => $data['alamat_belajar'],
                 'status' => "Menunggu Konfirmasi Guru"
             ]);

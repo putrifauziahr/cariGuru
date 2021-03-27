@@ -98,6 +98,6 @@ class TransaksiDetailController extends Controller
             $update['bukti'] = "$nama_bukti";
         }
         TransaksiDetail::where(['id_detail' => $id_detail])->update($update);
-        return back();
+        return redirect('murid/showPembayaran');
     }
 }

@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Data Transaksi | CariGuru.com')
+@section('title', 'Admin | Data Les | CariGuru.com')
 
 @section ('container')
 
@@ -13,13 +13,14 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/dashboard_guru')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data Transaksi</li>
+                            <li class="breadcrumb-item active" aria-current="page">Data Les</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="container-fluid">
         <div class="col-md-6 col-4">
         </div>
@@ -45,7 +46,7 @@
                     <div class="card-body">
                         <div class="card-header" style="color: white; font-size:20px; background-color:gray">
                             <i class="fas fa-table mr-1" style="color: white;"></i>
-                            Data Konfirmasi Pembayaran
+                            Data Les
                         </div>
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
@@ -53,24 +54,27 @@
                                     <tr>
                                         <th class="border-top-0">No</th>
                                         <th class="border-top-0">Nama Pemesan</th>
-                                        <th class="border-top-0">Alamat</th>
-                                        <th class="border-top-0">Total Pembayaran</th>
-                                        <th class="border-top-0">Status</th>
-                                        <th class="border-top-0">Aksi</th>
+                                        <th class="border-top-0">Total Biaya</th>
+                                        <th class="border-top-0">Status Transaksi</th>
+                                        <th class="border-top-0">Tanggal Konfirmasi</th>
+                                        <th class="border-top-0">Bukti Transfer</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($trans as $a)
+                                    @foreach($dataLes as $a)
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$a -> nama}}</td>
-                                        <td>{{$a -> alamat_belajar}}</td>
-                                        <td>@currency($a -> total)</td>
-                                        <td>{{$a -> status_detail}}</td>
+                                        <td>{{$a->nama}}</td>
+                                        <td>@currency($a->total)</td>
+                                        <td>{{$a->status_detail}}</td>
+                                        <td>{{$a->updated_at}}</td>
                                         <td>
-                                            <a href="/admin/showDetailTrans/{{$a->id_detail}}" class="btn btn-info">Ubah</a>
+                                            <a href="{{ url('/berkasBayar/'. $a->bukti) }}" data-fancybox="gal">
+                                                <img src="{{ url('/berkasBayar/'. $a->bukti) }}" alt="Image" class="img-fluid" width="150px" height="100px">
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -81,6 +85,9 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
+
 @endsection
