@@ -117,6 +117,7 @@ Route::get('murid/showDetailBayarLagi/{detail}', 'TransaksiDetailController@show
 Route::match(['get', 'post'], 'murid/bayarLes/{trans}', 'TransaksiDetailController@bayarLes')->name('murid/bayarLes');
 Route::match(['get', 'post'], 'murid/updateBayar/{trans}', 'TransaksiDetailController@updateBayar')->name('murid/updateBayar');
 Route::get('murid/showDataTrans', 'TransaksiDetailController@showDataTrans')->name('murid/showDataTrans');
+Route::get('murid/buat-kadaluwarsa/{id_detail}', 'TransaksiDetailController@makeExpired')->name('murid/buat-kadaluwarsa');
 Route::get('murid/hapusDetailTrans/{detail}', 'TransaksiDetailController@hapusDetailTrans')->name('murid/hapusDetailTrans');
 
 

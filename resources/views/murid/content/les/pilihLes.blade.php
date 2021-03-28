@@ -153,7 +153,9 @@
                                                 </td>
                                             </tr>
                                     </table>
+                                    @if($trans->status === "Belum diajukan")
                                     <button type="submit" class="btn btn-success"><i class="fa fa-shopping-cart" style="color: white;"></i> Ajukan Reservasi</button>
+                                    @endif
                                     <a href="{{route ('murid/showPilihLes')}}" class="btn btn-danger" type="button" style="color: white;">Kembali</a>
                                     </form>
                                 </div>

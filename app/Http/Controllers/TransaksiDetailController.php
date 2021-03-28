@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Throwable;
 
 class TransaksiDetailController extends Controller
 {
@@ -35,12 +36,14 @@ class TransaksiDetailController extends Controller
                 'status' => "Berhasil"
             ]);
         }
-        $transDet = new TransaksiDetail;
-        $transDet->id_trans = $trans->id_trans;
-        $transDet->id_guru = $trans->id_guru;
-        $transDet->status_detail = "Belum Melakukan Pembayaran";
-        $transDet->save();
-
+        $check = TransaksiDetail::where('id_trans', $trans->id_trans)->where('id_guru', $trans->id_guru)->first();
+        if (!$check) {
+            $transDet = new TransaksiDetail;
+            $transDet->id_trans = $trans->id_trans;
+            $transDet->id_guru = $trans->id_guru;
+            $transDet->status_detail = "Belum Melakukan Pembayaran";
+            $transDet->save();
+        }
         return redirect('murid/showPembayaran');
     }
 
@@ -99,5 +102,24 @@ class TransaksiDetailController extends Controller
         }
         TransaksiDetail::where(['id_detail' => $id_detail])->update($update);
         return redirect('murid/showPembayaran');
+    }
+
+    public function makeExpired($id_detail)
+    {
+        try {
+            TransaksiDetail::where('id_detail', $id_detail)->update([
+                'status_detail' => 'kadaluwarsa'
+            ]);
+
+            $success['status'] = '1';
+            // $success['html'] = $html;
+            $success['message'] = 'Waktu kirim bukti transfer telah habis';
+            return response()->json($success, 200);
+        } catch (Throwable $e) {
+            $success['status'] = '0';
+            // $success['html'] = $html;
+            $success['message'] = $e;
+            return response()->json($success, 500);
+        }
     }
 }

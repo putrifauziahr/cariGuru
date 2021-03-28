@@ -175,6 +175,9 @@
     <script src="{{ asset('js/price-range.js')}}"></script>
     <script src="{{ asset('js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{ asset('js/main.js')}}s"></script>
+
+    @stack('custom-script')
+
 </body>
 
 </html>

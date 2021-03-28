@@ -24,23 +24,31 @@
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <center class="m-t-30">
-                                        <a href="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" data-fancybox="gal">
-                                            <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
-                                        </a>
-                                        <form action="/murid/updateFotoProfil" method="POST" enctype="multipart/form-data">
-                                            {{csrf_field()}}
-                                            <div class="form-group alert-up-pd">
-                                                <div class="form-group">
-                                                    <input name="image" type="file" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-sm-12 d-flex">
-                                                        <button class="btn btn-success mx-auto mx-md-0 text-white">Update
-                                                            Foto Profile</button>
+                                        <div class="mb-4">
+                                            <a href="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" data-fancybox="gal">
+                                                @if(Auth::user()->image != null)
+                                                <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                                                @else
+                                                <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="mt-4">
+                                            <form action="/murid/updateFotoProfil" method="POST" enctype="multipart/form-data">
+                                                {{csrf_field()}}
+                                                <div class="form-group alert-up-pd">
+                                                    <div class="form-group">
+                                                        <input name="image" type="file" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12 d-flex">
+                                                            <button class="btn btn-success mx-auto mx-md-0 text-white">Update
+                                                                Foto Profile</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </center>
                                 </div>
                             </div>

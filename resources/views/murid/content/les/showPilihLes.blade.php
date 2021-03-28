@@ -67,11 +67,29 @@
                                                     <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
                                                     <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
                                                 </td>
+
                                                 @elseif ($a->status == "Diterima")
+                                                @php
+                                                $ts_detail = App\TransaksiDetail::where('id_trans', $a->id_trans)->first();
+                                                @endphp
+                                                @if(!$ts_detail)
                                                 <td scope="col" style="text-align: left;">
                                                     <a href="/murid/bayarLes/{{$a->id_trans}}" class="btn btn-success"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
                                                     <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Batalkan Reservasi</a>
                                                 </td>
+                                                @else
+                                                @if($ts_detail->bukti === null)
+                                                <td scope="col" style="text-align: left;">
+                                                    <a href="/murid/bayarLes/{{$a->id_trans}}" class="btn btn-success"><i class="fa fa-shopping-cart" style="color: white;"></i> Bayar</a>
+                                                    <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Batalkan Reservasi</a>
+                                                </td>
+                                                @else
+                                                <td scope="col" style="text-align: left;">
+                                                    <a href="#" class="btn btn-success"><i class="fa fa-check mr-2" style="color: white;"></i>Sudah Bayar</a>
+                                                    <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
+                                                </td>
+                                                @endif
+                                                @endif
                                                 @elseif ($a->status == "Ditolak")
                                                 <td scope="col" style="text-align: left;">
                                                     <a href="/murid/showDetailLesLagi/{{$a->id_trans}}" class="btn btn-info">Detail</a>

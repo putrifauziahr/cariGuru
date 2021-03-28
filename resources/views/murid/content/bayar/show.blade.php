@@ -60,21 +60,28 @@
                                         <td>{{$a->status_detail}}</td>
                                         @if ($a->status_detail == "Belum Melakukan Pembayaran")
                                         <td>
-                                            <button class="btn btn-info"><a href="/murid/showDetailBayar/{{$a->id_detail}}" style="color: white;">Detail</a></button>
-                                            <button class="btn btn-danger"><a href="/murid/hapusDetailTrans/{{$a->id_detail}}" style="color: white;">Batal Transaksi</a></button>
+                                            <div class="d-flex">
+                                                <a class="btn btn-info mr-2" href="/murid/showDetailBayar/{{$a->id_detail}}" style="color: white;">Detail
+                                                </a>
+                                                <a class="btn btn-danger" href="/murid/hapusDetailTrans/{{$a->id_detail}}" style="color: white;">Batal Transaksi</a>
+                                            </div>
+
+
                                         </td>
                                         @elseif ($a->status_detail == "Menunggu Konfirmasi Admin")
                                         <td>
-                                            <button class="btn btn-info"><a href="/murid/showDetailBayarLagi/{{$a->id_detail}}" style="color: white;">Detail</a></button>
+                                            <a class="btn btn-info" href="/murid/showDetailBayarLagi/{{$a->id_detail}}" style="color: white;">Detail</a>
                                         </td>
                                         @elseif ($a->status_detail == "Berhasil")
                                         <td>
-                                            <button class="btn btn-info"><a href="/murid/showDetailBayarLagi/{{$a->id_detail}}" style="color: white;">Detail</a></button>
+                                            <a class="btn btn-info" href="/murid/showDetailBayarLagi/{{$a->id_detail}}" style="color: white;">Detail</a>
                                         </td>
                                         @elseif ($a->status_detail == "Gagal")
                                         <td>
-                                            <button class="btn btn-info"><a href="/murid/showDetailBayar/{{$a->id_detail}}" style="color: white;">Detail</a></button>
-                                            <button class="btn btn-danger"><a href="/murid/hapusDetailTrans/{{$a->id_detail}}" style="color: white;">Batal Transaksi</a></button>
+                                            <div class="d-flex">
+                                                <a class="btn btn-info mr-2" href="/murid/showDetailBayar/{{$a->id_detail}}" style="color: white;">Detail
+                                                </a>
+                                                <a class="btn btn-danger" href="/murid/hapusDetailTrans/{{$a->id_detail}}" style="color: white;">Batal Transaksi</a>
                                         </td>
                                         @endif
                                     </tr>
