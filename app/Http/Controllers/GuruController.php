@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use App\Biodata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -14,7 +15,18 @@ class GuruController extends Controller
 {
     public function dashboard_guru()
     {
-        return view('guru/content/index');
+        $user_id = Auth::user()->id;
+        $income = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
+            ->where('transaksidetails.id_guru', '=', $user_id)
+            ->where('status_bukti', '=', 'Sukses')
+            ->sum('transaksis.harga');
+        $les = DB::table('transaksidetails')
+            ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
+            ->where('transaksidetails.id_guru', '=', $user_id)
+            ->where('status_detail', '=', 'Berhasil')
+            ->count();
+        return view('guru/content/index', compact('income', 'les'));
     }
 
     //////////////////PROFIL/////////////////

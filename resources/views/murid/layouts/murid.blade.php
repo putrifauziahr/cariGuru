@@ -177,7 +177,6 @@
     <script src="{{ asset('js/main.js')}}s"></script>
 
     @stack('custom-script')
-
 </body>
 
 </html>

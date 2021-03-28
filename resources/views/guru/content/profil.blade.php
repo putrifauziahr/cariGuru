@@ -50,7 +50,11 @@
                         </div>
                         <center class="m-t-30">
                             <a href="{{ url('/fotoProfil/'. Auth::user()->image) }}" data-fancybox="gal">
+                                @if(Auth::user()->image != null)
                                 <img src="{{ url('/fotoProfil/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                                @else
+                                <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                @endif
                             </a>
                             <h4 class="card-title m-t-10">{{ Auth::user()->name }}</h4>
                             <h6 class="card-subtitle">Guru</h6>
@@ -79,7 +83,11 @@
                             Sertifikat Keahlian / Piagam Perlombaan
                         </div>
                         <center class="m-t-30">
-                            <a href="{{ url('/berkasBiodata/'. Auth::user()->file) }}" data-fancybox="gal"> <embed width="300px" type="application/pdf" src="{{ url('/berkasBiodata/'. Auth::user()->file) }}" /></a>
+                            @if(Auth::user()->file != null)
+                            <embed width="300px" type="application/pdf" src="{{ url('/berkasBiodata/'. Auth::user()->file) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                            @else
+                            <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                            @endif
                         </center>
                         <form action="/guru/updateBerkasProfil" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}

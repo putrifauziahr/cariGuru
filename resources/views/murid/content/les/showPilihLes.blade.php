@@ -21,9 +21,12 @@
                     <div class="productinfo text-center">
                         <center class="m-t-30">
                             <a href="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" data-fancybox="gal">
-                                <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 100px; width:100px">
-                                <h4>{{Auth::user()->name}}</h4>
-                                <p>Pemesan</p>
+                                @if(Auth::user()->image != null)
+                                <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                @else
+                                <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                @endif
+                            </a>
                             </a>
                         </center>
                     </div>
@@ -53,7 +56,7 @@
                                                 <?php $no++; ?>
                                                 <td scope="col" style="text-align: left;">{{$no}}</td>
                                                 <td scope="col" style="text-align: left;">{{$a->judul}}</td>
-                                                <td scope="col" style="text-align: left;">{{$a->total}}</td>
+                                                <td scope="col" style="text-align: left;">@currency($a->total)</td>
                                                 <td scope="col" style="text-align: left;">
                                                     <input type="text" name="status" value="Berhasil" hidden>{{$a->status}}
                                                 </td>

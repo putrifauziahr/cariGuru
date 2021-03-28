@@ -22,8 +22,12 @@
                     <div class="card">
                         <div class="productinfo text-center">
                             <center class="m-t-30">
-                                <a href="{{ url('/fotoProfil/'. $guru->image)}}" data-fancybox="gal">
-                                    <img src="{{ url('/fotoProfil/'. $guru->image)}}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                                <a href="{{ url('/fotoProfil/'. $guru->image) }}" data-fancybox="gal">
+                                    @if($guru->image != null)
+                                    <img src="{{ url('/fotoProfil/'. $guru->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                                    @else
+                                    <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                    @endif
                                 </a>
                             </center>
                         </div>
@@ -65,7 +69,11 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item" style="font-size: large; font-weight:bold">Sertifikat Keahlian / Piagam Perlombaan</li>
                                     <li class="list-group-item">
-                                        <embed width="300px" type="application/pdf" src="{{ url('/berkasBiodata/'. $guru->file) }}" />
+                                        @if($guru->file != null)
+                                        <embed width="300px" type="application/pdf" src="{{ url('/berkasBiodata/'.  $guru->file) }}" alt="Image" style="height: 250px; width:250px">
+                                        @else
+                                        <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                        @endif
                                     </li>
                                 </ul>
                             </div>

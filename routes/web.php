@@ -12,7 +12,9 @@
 */
 
 //UMUM
-Route::get('cariguru', 'LandingController@index')->name('cariguru');
+Route::get('/', 'LandingController@index')->name('/');
+Route::get('cariguru', 'LandingController@cariguru')->name('cariguru');
+Route::get('informasi', 'LandingController@informasi')->name('informasi');
 
 //ADMIN
 Route::get('dashboard_admin', 'AdminController@dashboard_admin')->name('dashboard_admin');

@@ -23,4 +23,17 @@ class LandingController extends Controller
         $les = Les::all();
         return view('landing/content/index', compact('guru'));
     }
+
+    public function cariguru()
+    {
+        $guru = User::where('role', '=', 'guru')->get();
+        $les = Les::all();
+        return view('landing/content/cariguru', compact('guru'));
+    }
+
+    public function informasi()
+    {
+
+        return view('landing/content/informasi');
+    }
 }

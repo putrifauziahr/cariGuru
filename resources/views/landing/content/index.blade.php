@@ -79,7 +79,13 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{ url('/fotoProfil/'. $l->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                                    <a href="{{ url('/fotoProfil/'. $l->image) }}" data-fancybox="gal">
+                                        @if($l->image != null)
+                                        <img src="{{ url('/fotoProfil/'. $l->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
+                                        @else
+                                        <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                        @endif
+                                    </a>
                                     <h3>{{$l ->name}}</h3>
                                     <p>Guru</p>
                                     <h5>{{$l->alamat}} </h5>

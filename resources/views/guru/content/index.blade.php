@@ -32,14 +32,13 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Data Murid Les</h4>
+                        <h4 class="card-title">Murid Les</h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> $120</h2>
-                            <span class="text-muted">Todays Income</span>
+                            <h2 class="font-light m-b-0">
+                                <h4 style="color: black;">{{$les}}</h4>
                         </div>
-                        <span class="text-success">80%</span>
                         <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width:{{$les}}%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -49,14 +48,13 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Pendapatan</h4>
+                        <h4 class="card-title">Saldo</h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="ti-arrow-up text-info"></i> $5,000</h2>
-                            <span class="text-muted">Todays Income</span>
+                            <h2 class="font-light m-b-0">
+                                <h4 style="color: black;">@currency($income)</h4>
                         </div>
-                        <span class="text-info">30%</span>
                         <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 30%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{$income}}%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>

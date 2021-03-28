@@ -18,7 +18,7 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/ico/apple-touch-icon-144-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/ico/apple-touch-icon-114-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
@@ -43,7 +43,7 @@
                     <div class="col-sm-6">
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
-                                <li><a href="#"><b style="color: white">CARIGURU.COM | Teman Belajar mu</b></a></li>
+                                <li><a href="{{url('/')}}"><b style="color: white">CARIGURU.COM | Teman Belajar mu</b></a></li>
                             </ul>
                         </div>
                     </div>
@@ -77,9 +77,10 @@
                     <div class="col-md-8 clearfix">
                         <div class="shop-menu clearfix pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="{{route('cariguru')}}"><i class="fa fa-user"></i>Beranda</a></li>
-                                <li><a href=""><i class="fa fa-crosshairs"></i>Cari Guru</a></li>
-                                <li><a href=""><i class="fa fa-star"></i>Informasi</a></li>
+                                <li><a href="{{url('/')}}"><i class="fa fa-user"></i>Beranda</a></li>
+                                <li><a href="{{route('cariguru')}}"><i class="fa fa-crosshairs"></i>Cari Guru</a></li>
+                                <li><a href="{{route('informasi')}}"><i class="fa fa-star"></i>Informasi</a></li>
+                                <li><a href="{{route('register')}}"><i class="fa fa-lock"></i>Register</a></li>
                                 <li><a href="{{route('login')}}"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
                         </div>
