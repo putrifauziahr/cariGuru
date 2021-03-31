@@ -19,9 +19,9 @@
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
                     <div class="productinfo text-center">
-                        <h2>Struck Pembayaran</h2>
+                        <h2>Nota Pembayaran</h2>
                         <center class="m-t-30">
-
+                            <a href="/murid/cetak_nota/{{$detail -> id_detail}}" class="btn btn-success" style="color: white;" target="_blank" type="button">Cetak Nota</a>
                         </center>
                     </div>
                 </div>

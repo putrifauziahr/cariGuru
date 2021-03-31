@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use App\Les;
 use App\Transaksi;
+use App\TransaksiDetail;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -40,7 +41,7 @@ class TransaksiController extends Controller
             ->join('les', 'transaksis.id_les', '=', 'les.id_les')
             ->where('transaksis.id_murid', $user_id)
             ->orderBy('transaksis.id_trans', 'desc')
-            ->get();
+            ->paginate(3);
         return view('murid/content/les/showPilihLes', compact('trans'));
     }
 

@@ -20,6 +20,20 @@
                 <div class="card">
                     <div class="productinfo text-center">
                         <center class="m-t-30">
+
+                            @foreach($guru as $g)
+                            <a href="{{ url('/fotoProfil/'. $g->image) }}" data-fancybox="gal">
+                                @if($g->image != null)
+                                <img src="{{ url('/fotoProfil/'. $g->image) }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                @else
+                                <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                @endif
+                            </a>
+                            <br>
+                            <br>
+                            <h4>{{$g->name}}</h4>
+                            <p>Guru</p>
+                            @endforeach
                         </center>
                     </div>
                 </div>

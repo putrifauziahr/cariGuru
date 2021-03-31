@@ -20,7 +20,9 @@ class GuruReservasiController extends Controller
         $reserv = DB::table('transaksis')
             ->join('les', 'transaksis.id_les', '=', 'les.id_les')
             ->join('users', 'transaksis.id_murid', '=', 'users.id')
-            ->where('transaksis.id_guru', '=', $id_user)->get();
+            ->where('transaksis.id_guru', '=', $id_user)
+            ->orderBy('transaksis.id_trans', 'desc')
+            ->get();
         return view('guru/content/reservasi/showReservasi', compact('reserv'));
     }
 

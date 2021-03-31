@@ -60,19 +60,17 @@ class LesController extends Controller
             'harga' => 'required',
         ], $messages);
 
-
-        $post = new Les;
-        $post->judul = $request->judul;
-        $post->jam = $request->jam;
-        $post->deskripsi = $request->deskripsi;
-        $post->pertemuan = $request->pertemuan;
-        $post->harga = $request->harga;
-        Auth::user()->les()->save($post);
-        if ($post) {
-            return redirect('guru/showLesLagi')->with('alert', 'Data Les Berhasil ditambah');
-        } else {
-            return redirect('guru/showLesLagi')->with('alert-danger', 'Data Les Gagal ditambah');
+        $check = Les::where('id_guru', Auth::user()->id)->first();
+        if (!$check) {
+            $post = new Les;
+            $post->judul = $request->judul;
+            $post->jam = $request->jam;
+            $post->deskripsi = $request->deskripsi;
+            $post->pertemuan = $request->pertemuan;
+            $post->harga = $request->harga;
+            Auth::user()->les()->save($post);
         }
+        return redirect('guru/showLesLagi')->with('alert', 'Data Les Berhasil ditambah');
     }
 
     public function postUpdateLes(Request $request, $id_les)

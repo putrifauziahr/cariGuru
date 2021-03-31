@@ -121,7 +121,8 @@ Route::match(['get', 'post'], 'murid/updateBayar/{trans}', 'TransaksiDetailContr
 Route::get('murid/showDataTrans', 'TransaksiDetailController@showDataTrans')->name('murid/showDataTrans');
 Route::get('murid/buat-kadaluwarsa/{id_detail}', 'TransaksiDetailController@makeExpired')->name('murid/buat-kadaluwarsa');
 Route::get('murid/hapusDetailTrans/{detail}', 'TransaksiDetailController@hapusDetailTrans')->name('murid/hapusDetailTrans');
-
+Route::get('murid/cetak_nota/{detail}', 'TransaksiDetailController@cetak_nota')->name('murid/cetak_nota');
+Route::get('murid/cari_guru', 'LandingController@cari_Guru')->name('murid/cari_Guru');
 
 
 Auth::routes();

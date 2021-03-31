@@ -9,7 +9,7 @@
     <div class="bg">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="title text-center"><strong style="font-size: 25px;">CHECKOUT</strong></h2>
+                <h2 class="title text-center"><strong style="font-size: 25px;">PENGAJUAN RESERVASI</strong></h2>
             </div>
         </div>
     </div>

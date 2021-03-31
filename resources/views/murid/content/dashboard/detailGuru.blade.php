@@ -42,20 +42,6 @@
 
                             <div class="card" style="width: 35rem;">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" style="font-size: large; font-weight:bold">Jenis Les</li>
-                                    <li class="list-group-item">Privat</li>
-                                </ul>
-                            </div>
-
-                            <div class="card" style="width: 35rem;">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" style="font-size: large; font-weight:bold">Tempat Les</li>
-                                    <li class="list-group-item">Rumah Anda</li>
-                                </ul>
-                            </div>
-
-                            <div class="card" style="width: 35rem;">
-                                <ul class="list-group list-group-flush">
                                     <li class="list-group-item" style="font-size: large; font-weight:bold">Kontak Guru</li>
                                     <li class="list-group-item">Email : {{$guru->email}}</li>
                                     <li class="list-group-item">Kontak : {{$guru->kontak}}</li>
@@ -121,7 +107,7 @@
 
                                             <tr>
                                                 <th scope="col"> Jumlah Pertemuan</th>
-                                                <td scope="col" style="text-align: left;">{{$les -> pertemuan}}</td>
+                                                <td scope="col" style="text-align: left;">{{$les -> pertemuan}} / Bulan</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col"> Biaya Les </th>

@@ -18,8 +18,8 @@ class MuridController extends Controller
     public function dashboard_murid()
     {
 
-        $guru = User::where('role', '=', 'guru')->get();
-        $les = Les::all();
+        $guru = User::where('role', '=', 'guru')->paginate(20);
+        $les = DB::table('les')->join('users', 'les.id_guru', '=', 'users.id')->get();
         return view('murid/content/dashboard/dashboard', compact('les', 'guru'));
     }
 

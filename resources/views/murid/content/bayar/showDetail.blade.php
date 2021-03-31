@@ -21,6 +21,16 @@
                 <div class="card">
                     <div class="productinfo text-center">
                         <center class="m-t-30">
+                            <div class="card" style="width: 35rem;">
+                                <h5>Pembayaran hanya dilakukan dengan proses transfer antar bank</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">BRI : 228-2354-06-7654 a.n Nurul Asnawiyah</li>
+                                    <li class="list-group-item">BCA : 906578934 a.n Nurul Asnawiyah</li>
+                                    <li class="list-group-item">BNI : 12-34567-089 a.n Nurul Asnawiyah</li>
+                                    <li class="list-group-item">Kontak : 085321041904 (wa) Nurul Asnawiyah</li>
+
+                                </ul>
+                            </div>
                         </center>
                     </div>
                 </div>
@@ -34,7 +44,7 @@
                                 <div class="productinfo text-center">
                                     <table class="table">
                                         @php
-                                        $maxTime = date('Y-m-d H:i:s', strtotime($detail->created_at . " +1 hours"))
+                                        $maxTime = date('Y-m-d H:i:s', strtotime($detail->created_at . " +24 hours"))
                                         @endphp
                                         <input type="hidden" id="max-time" value="{{$maxTime}}">
                                         <form action="/murid/updateBayar/{{$detail->id_detail}}" method="POST" enctype="multipart/form-data">

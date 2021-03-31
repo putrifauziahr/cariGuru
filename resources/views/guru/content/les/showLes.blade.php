@@ -40,7 +40,7 @@
         </div>
         @endif
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="card-header" style="color: white; font-size:20px; background-color:gray">
@@ -74,7 +74,6 @@
                                         <td>@currency($a->harga)</td>
                                         <td>
                                             <a href="/guru/showDetailLes/{{$a->id_les}}" class="btn btn-info">Detail</a>
-                                            <a href="/guru/hapusLes/{{$a->id_les}}" class="btn btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach

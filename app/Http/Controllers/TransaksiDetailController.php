@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use Auth;
 use App\User;
 use App\Les;
@@ -23,7 +24,7 @@ class TransaksiDetailController extends Controller
             ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
             ->where('transaksis.id_murid', '=', $user_id)
             ->orderBy('id_detail', 'desc')
-            ->get();
+            ->paginate(2);
         return view('murid/content/bayar/show', compact('detail'));
     }
     public function bayarLes(Request $request, Transaksi $trans)
@@ -121,5 +122,22 @@ class TransaksiDetailController extends Controller
             $success['message'] = $e;
             return response()->json($success, 500);
         }
+    }
+
+
+    public function cetak_nota(TransaksiDetail $detail)
+    {
+        $id_det = $detail->id_trans;
+        $id_guru = $detail->id_guru;
+        $id_user = Auth::user()->id;
+        $detaill = DB::table('transaksis')
+            ->join('users', 'transaksis.id_murid', '=', 'users.id')
+            ->join('les', 'transaksis.id_les', '=', 'les.id_les')
+            ->where('id_murid', '=', $id_user)
+            ->where('id_trans', '=', $id_det)
+            ->get();
+        $guru = User::where('id', '=', $id_guru)->get();
+        $pdf = PDF::loadview('murid/content/bayar/notabayar', compact('detail', 'detaill', 'guru'));
+        return $pdf->stream();
     }
 }

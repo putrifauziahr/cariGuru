@@ -138,7 +138,6 @@
                                         <td>@currency($a->harga)</td>
                                         <td>
                                             <a href="/guru/showDetailLes/{{$a->id_les}}" class="btn btn-info">Detail</a>
-                                            <a href="/guru/hapusLes/{{$a->id_les}}" class="btn btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach

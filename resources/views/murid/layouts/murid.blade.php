@@ -24,7 +24,15 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+    <link rel="stylesheet" type="text/css" href="path-to/bootstrap.min.css">
+    <!-- Bootstrap DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.bootstrap.css')}}">
+    <!-- Jquery -->
+    <script type="text/javascript" language="javascript" src="{{ asset('js/jquery-1.10.2.min.js')}}"></script>
+    <!-- Jquery DataTables -->
+    <script type="text/javascript" language="javascript" src="{{ asset('js/jquery.dataTables.min.js')}}"></script>
+    <!-- Bootstrap Javascript -->
+    <script type="text/javascript" language="javascript" src="{{ asset('js/dataTables.bootstrap.js')}}"></script>
     <script>
         tinymce.init({
             selector: '#mytextarea'

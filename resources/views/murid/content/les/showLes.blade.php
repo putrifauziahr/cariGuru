@@ -39,8 +39,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table user-table no-wrap">
-                                <thead>
+                            <table class="table table-bordered">
+                                <thead class="table-info">
                                     <tr>
                                         <th class="border-top-0">No</th>
                                         <th class="border-top-0">Tanggal Mulai Belajar</th>
@@ -68,9 +68,9 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
+        </div>
+    </div>
 </section>
 <br>
 <br>

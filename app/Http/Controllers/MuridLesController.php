@@ -42,7 +42,9 @@ class MuridLesController extends Controller
         $les = DB::table('transaksidetails')
             ->join('transaksis', 'transaksidetails.id_trans', '=', 'transaksis.id_trans')
             ->where('transaksis.id_murid', '=', $id_murid)
-            ->get();
+            ->where('status_detail', '=', 'berhasil')
+            ->orderBy('tanggal_mulai', 'asc')
+            ->paginate(10);
         $less = Les::all();
         return view('murid/content/les/showLes', compact('les', 'less'));
     }
@@ -50,7 +52,7 @@ class MuridLesController extends Controller
     public function showDetailData(TransaksiDetail $les)
     {
         $id_trans = $les->id_trans;
-        $id_guru = Auth::user()->id;
+        $id_guru = $les->id_guru;
         $transs = DB::table('transaksis')
             ->join('users', 'transaksis.id_murid', '=', 'users.id')
             ->join('les', 'transaksis.id_les', '=', 'les.id_les')

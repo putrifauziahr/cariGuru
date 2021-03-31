@@ -54,6 +54,7 @@
                                     <tr>
                                         <th class="border-top-0">No</th>
                                         <th class="border-top-0">Nama Pemesan</th>
+                                        <th class="border-top-0">Tanggal Mulai</th>
                                         <th class="border-top-0">Total Biaya Guru</th>
                                         <th class="border-top-0">Status Belajar</th>
                                         <th class="border-top-0">Status Transfer Admin</th>
@@ -69,6 +70,7 @@
                                     <tr>
                                         <td>{{$no}}</td>
                                         <td>{{$a->nama}}</td>
+                                        <td>{{$a->tanggal_mulai}}</td>
                                         <td>@currency($a->harga)</td>
                                         <td>{{$a->status_belajar}}</td>
                                         <td>{{$a->status_bukti}}</td>

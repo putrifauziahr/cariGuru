@@ -65,6 +65,6 @@ class LoginController extends Controller
     {
         Session::flush();
 
-        return redirect('/login')->with('alert-success', 'Anda telah logout');
+        return redirect('/')->with('alert-success', 'Anda telah logout');
     }
 }

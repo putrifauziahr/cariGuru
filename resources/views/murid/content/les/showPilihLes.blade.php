@@ -16,37 +16,20 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 col-xlg-3 col-md-5">
-                <div class="card">
-                    <div class="productinfo text-center">
-                        <center class="m-t-30">
-                            <a href="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" data-fancybox="gal">
-                                @if(Auth::user()->image != null)
-                                <img src="{{ url('/fotoProfilMurid/'. Auth::user()->image) }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
-                                @else
-                                <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
-                                @endif
-                            </a>
-                            </a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <div class="table-responsive">
-                                        <table class="table user-table no-wrap" style="border-color: grey;">
-                                            <thead>
+                                        <table class="table table-bordered">
+                                            <thead class="table-info">
                                                 <tr>
                                                     <th scope="col">No</th>
                                                     <th scope="col">Judul Les</th>
                                                     <th scope="col">Total Biaya</th>
-                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Status Reservasi</th>
                                                     <th scope="col">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -62,7 +45,7 @@
                                                 </td>
                                                 @if ($a->status == "Belum diajukan")
                                                 <td scope="col" style="text-align: left;">
-                                                    <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Detail</a>
+                                                    <a href="/murid/showDetailTempLes/{{$a->id_trans}}" class="btn btn-info">Ajukan</a>
                                                     <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
                                                 </td>
                                                 @elseif ($a->status == "Menunggu Konfirmasi Guru")
@@ -95,7 +78,7 @@
                                                 @endif
                                                 @elseif ($a->status == "Ditolak")
                                                 <td scope="col" style="text-align: left;">
-                                                    <a href="/murid/showDetailLesLagi/{{$a->id_trans}}" class="btn btn-info">Detail</a>
+                                                    <a href="/murid/showDetailLesLagi/{{$a->id_trans}}" class="btn btn-info">Ajukan</a>
                                                     <a href="/murid/hapusTempLes/{{$a->id_trans}}" class="btn btn-danger">Hapus</a>
                                                 </td>
                                                 @endif
@@ -103,6 +86,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        {{ $trans->links() }}
                                     </div>
                                 </div>
                             </div>

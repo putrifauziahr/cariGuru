@@ -46,13 +46,14 @@
                     <div class="card-body">
                         <div class="card-header" style="color: white; font-size:20px; background-color:gray">
                             <i class="fas fa-table mr-1" style="color: white;"></i>
-                            Data Les
+                            Data Transaksi Berhasil
                         </div>
                         <div class="table-responsive">
                             <table class="table user-table no-wrap">
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">No</th>
+                                        <th class="border-top-0">ID Transaksi</th>
                                         <th class="border-top-0">Nama Pemesan</th>
                                         <th class="border-top-0">Total Biaya</th>
                                         <th class="border-top-0">Status Transaksi</th>
@@ -67,6 +68,7 @@
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
+                                        <td>{{$a->id_trans}}{{$a->kontak}}</td>
                                         <td>{{$a->nama}}</td>
                                         <td>@currency($a->total)</td>
                                         <td>{{$a->status_detail}}</td>

@@ -9,7 +9,7 @@
     <div class="bg">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="title text-center"><strong style="font-size: 25px;">CHECKOUT</strong></h2>
+                <h2 class="title text-center"><strong style="font-size: 25px;">PENGAJUAN RESERVASI</strong></h2>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@
                                                     Tingkat Pendidikan dan Kelas Murid
                                                 </th>
                                                 <td scope="col" style="text-align: left;">
-                                                    <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{$trans -> kelas}}">
+                                                    <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" placeholder="Misal : SMA Kelas 11" value="{{$trans -> kelas}}">
                                                     @error('kelas')<div class="invalid-feedback">{{$message}}</div> @enderror
                                                 </td>
                                             </tr>
